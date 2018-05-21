@@ -1,0 +1,39 @@
+@charset "UTF-8";
+
+<!-- Navigation -->
+
+	.navbar-fixed-bottom{background-color: #333; }
+	#nav1{background-image: none;}  
+	#AddTender{background-color: rgba(30,75,39,0.5); color: white;}
+	#new{word-break: break-all;}
+	#search-form{padding-top:9px; margin-left:25%;}
+	
+<!-- Common -->
+	body {  height: 100%; background-color: #333; }
+	body {  color: #fff;  text-align: center;}
+	.container{width:50vw;}
+	
+		
+<!-- Tenders information -->
+	
+	.btn-delete{background-color: rgb(78, 14, 80,0.4); width: 150px; }
+	.btn-fil{background-color: rgb(78, 244, 66,0.4);}
+	.btn-con{background-color: rgb(30, 105, 140,0.4);}
+	.btn-com{background-color: rgb(160, 38, 109,0.4);}
+	.btn-edit{background-color: rgb(255, 173, 51,0.7);}
+	.btn0-wdh{width: 7%;  overflow: hidden; height: 60px;} 
+	.btn1-wdh{width: 15%;background-color: rgba(50,64,0,0.05); text-overflow: ellipsis; overflow: hidden;height: 60px;} 
+	.btn2-wdh{width: 30%;background-color: rgba(50,0,160,0.05); text-overflow: ellipsis; overflow: hidden;height: 60px;}    
+	.btn3-wdh{width: 12%;background-color: none; text-overflow: ellipsis; overflow: hidden;height: 60px;} 
+	.btn4-wdh{width: 12%;background-color: none; text-overflow: ellipsis; overflow: hidden;height: 60px;} 
+	.btn5-wdh{width: 10%;background-color: none; text-overflow: ellipsis; overflow: hidden;height: 60px;} 
+	.btn6-wdh{width: 15%;background-color: rgba(50,64,160,0.4); text-overflow: ellipsis; overflow: hidden;height: 60px;} 
+	.lower{font-size: 10px;}
+	.divider{color:white;}
+	
+	.btn-group{z-index:1;width:80vw; margin-right: 1vw;margin-left: 1vw; padding-top: 1px;}   
+	.collapse{z-index: 9999;display: block;}
+	
+
+<!--Footer -->
+		.wrapper{background-color: #333; height: 40px; color : white;}
