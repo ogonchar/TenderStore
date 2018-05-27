@@ -3,7 +3,7 @@ package rus.store.TenderStore.repository;
 import java.util.List;
 
 import rus.store.TenderStore.domain.Comment;
-
+//Repository for comments
 public interface CommentRepository {
 	
 	public void addComment(Comment cmnt);
