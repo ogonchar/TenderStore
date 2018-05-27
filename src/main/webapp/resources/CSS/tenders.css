@@ -1,23 +1,23 @@
 @charset "UTF-8";
 
-<!-- Navigation -->
+/* Navigation*/
 
 	.navbar-fixed-bottom{background-color: #333; }
 	#nav1{background-image: none;}  
 	#AddTender{background-color: rgba(30,75,39,0.5); color: white;}
 	#new{word-break: break-all;}
-	#search-form{padding-top:9px; margin-left:25%;}
+	#search-form{padding-top:9px;}
 	
-<!-- Common -->
-	body {  height: 100%; background-color: #333; }
-	body {  color: #fff;  text-align: center;}
+/* common*/
+body{ padding-top: 80px; }
+	body {  height: 100%;  text-align: center;  padding-top: 80px;}
 	.container{width:50vw;}
 	
 		
-<!-- Tenders information -->
+/* Tenders info*/
 	
-	.btn-delete{background-color: rgb(78, 14, 80,0.4); width: 150px; }
-	.btn-fil{background-color: rgb(78, 244, 66,0.4);}
+	.table{background-color: rgb(35, 12, 12,0.4);}
+	.btn-fil{background-color: rgb(12, 175, 39,0.4);}
 	.btn-con{background-color: rgb(30, 105, 140,0.4);}
 	.btn-com{background-color: rgb(160, 38, 109,0.4);}
 	.btn-edit{background-color: rgb(255, 173, 51,0.7);}
@@ -32,8 +32,8 @@
 	.divider{color:white;}
 	
 	.btn-group{z-index:1;width:80vw; margin-right: 1vw;margin-left: 1vw; padding-top: 1px;}   
-	.collapse{z-index: 9999;display: block;}
+
 	
 
-<!--Footer -->
+/* footer*/
 		.wrapper{background-color: #333; height: 40px; color : white;}
