@@ -21,6 +21,8 @@ public interface TenderRepository {
 	public Map<String,List<Tender>> getAllTendersByOwner(String owner);
 
 	public List<Tender> getArchivedTenders(String id);
+
+	public List<Tender> getContactsTenders(String id);
 	
 	
 }

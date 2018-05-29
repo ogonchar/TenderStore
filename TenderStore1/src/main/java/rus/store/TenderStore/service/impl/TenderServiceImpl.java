@@ -46,5 +46,10 @@ public class TenderServiceImpl implements TenderService{
 	public List<Tender> getArchivedTenders(String id){
 		return tenderRepository.getArchivedTenders(id);
 	}
+	@Override
+	public List<Tender> getContactsTenders(String id) {
+
+		return tenderRepository.getContactsTenders(id);
+	}
 	
 }

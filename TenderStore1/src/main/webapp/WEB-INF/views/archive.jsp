@@ -15,7 +15,7 @@
 <script src="${jqueryJs}"></script>
 <c:url var="home" value="/" scope="request" />
 <script type="text/javascript" src = "js/tenders.js"></script>
-<link href="<c:url value="/css/archived.css"></c:url>" rel="stylesheet" />
+<link href="<c:url value="/css/archive.css"></c:url>" rel="stylesheet" />
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script   src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.1/angular.min.js"></script>
@@ -45,7 +45,7 @@
 				<!-- Home and add -->
 					<div class="collapse navbar-collapse" id="the-menu">
 				    	<ul class="nav navbar-nav">
-					    	<li class="active"><a href="/TenderStore1/tenders/${contact.owner}'">&nbsp;Home</a></li>
+					    	<li class="active"><a href="/TenderStore1/tenders/${user}">&nbsp;Home</a></li>
 				        	<li id="AddTender"><a href="/TenderStore1/tenders/add"><span class="glyphicon glyphicon-plus"></span>Add tender</a></li>
 				        <!-- 	<li id="AddTenderP"><a href="/TenderStore1/tenders/addByParcer"><span class="glyphicon glyphicon-plus"></span>Add tender</a></li> -->
 				    	</ul>

@@ -182,6 +182,27 @@ public class TenderRepositoryImpl implements TenderRepository {
 			session.close();			
 		}
 	}
+
+	@Override
+	public List<Tender> getContactsTenders(String id) {
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		log.warn("Trying to get contact's tenders");
+		try {
+			session.getTransaction().begin();
+			@SuppressWarnings("unchecked")
+			List<Tender> tenders = session.createCriteria(Tender.class)
+					.add(Restrictions.not(Restrictions.like("tenderStage", "archived")))
+					.add(Restrictions.like("idInn", id))
+					.list();
+			log.warn("qty of contact's tenders : " + tenders.size());
+			return tenders;
+		}catch (Exception e) {
+			e.printStackTrace();
+		}finally{
+			session.close();			
+		}
+		return null;
+	}
 	
 
 }

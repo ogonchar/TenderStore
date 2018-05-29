@@ -179,12 +179,12 @@
 	</div>
 	<!-- End of Tenders information blocks--> 
 			
-	
+	 
 		   
 	<!-- Footer here --> 
 		<div class = " wrapper navbar-fixed-bottom">
 		<div> 
-			<form method="get" action="/TenderStore1/archive/${user}"><button class="btn btn-lg btn-block btn-primary" type="submit">Archive</button></form>
+			<form method="get" action="/TenderStore1/archive/${user}"><button class="btn btn-lg btn-block" type="submit">Archive</button></form>
 			</div>
 			<div class = "wrapper col-md-6">
 			@Oleg Gonchar

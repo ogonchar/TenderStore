@@ -18,6 +18,7 @@ import rus.store.TenderStore.domain.Comment;
 import rus.store.TenderStore.domain.Contact;
 import rus.store.TenderStore.service.CommentService;
 import rus.store.TenderStore.service.ContactService;
+import rus.store.TenderStore.service.TenderService;
 import rus.store.TenderStore.service.impl.EncoderToUTFImpl;
 
 @Controller
@@ -25,6 +26,8 @@ public class ContactController {
 	
 	Logger log = Logger.getLogger(TenderController.class.getName());
 	
+	@Autowired
+	TenderService tenderService;
 	@Autowired
 	ContactService contactService;
 	@Autowired
@@ -36,11 +39,13 @@ public class ContactController {
 	public String listId(Model model, @PathVariable ("idCont") String id) throws UnsupportedEncodingException {
 		Comment cmntGet = new Comment();
 		Contact cont = contactService.getContactById(id);
+		//Create list of comments for encoding to UTF
 		List<Comment> cmntPut = (List<Comment>) commentService.getCommentsOfContact(id);
 		for (Comment com: cmntPut) com.setText(encoder.encode(com.getText()));
 		model.addAttribute("contact", cont);
 		model.addAttribute("comment",  cmntGet);
 		model.addAttribute("comments", cmntPut);
+		model.addAttribute("tenders", tenderService.getContactsTenders(id));
 		return "contact";
 	}
 	@RequestMapping(value = "/contact/{idCont}", method = RequestMethod.POST) 

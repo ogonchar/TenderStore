@@ -60,7 +60,7 @@ public class TenderController {
 		log.warn("In archived controller");
 		List<Tender> list = tenderService.getArchivedTenders(id);
 		model.addAttribute("tendersarchived", list);
-		
+		model.addAttribute("user", getUser());
 		return "archive";
 	}
 	

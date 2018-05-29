@@ -46,7 +46,7 @@
 			<!-- Home and add -->
 				<div class="collapse navbar-collapse" id="the-menu">
 			    	<ul class="nav navbar-nav">
-				    	<li class="active"><a href="/TenderStore1/tenders/${contact.owner}'">&nbsp;Home</a></li>
+				    	<li class="active"><a href="/TenderStore1/tenders/${contact.owner}">&nbsp;Home</a></li>
 			        	<li id="AddTender"><a href="/TenderStore1/tenders/add"><span class="glyphicon glyphicon-plus"></span>Add tender</a></li>
 			        <!-- 	<li id="AddTenderP"><a href="/TenderStore1/tenders/addByParcer"><span class="glyphicon glyphicon-plus"></span>Add tender</a></li> -->
 			    	</ul>
@@ -66,7 +66,7 @@
 	<!-- End of navigation -->
 	 
 	<div>
-		<div class="col-md-8 col-md-offset-2">
+		<div class="col-md-7 col-md-offset-1">
 			<div id="theSection">
 				<h2>${contact.name}</h2>
 					<br>
@@ -115,8 +115,14 @@
 		                    </div>
 						</div>
 					</div>
-				<div class="col-md-8 col-md-offset-2">  
-			</div>
+				<div class="row col-md-3">
+				<h3>Tenders</h3>
+					<c:forEach items="${tenders}" var="tenders">	  
+						<table class ="table table-striped table-bordered table-sm">
+							<td><a href="/TenderStore1/tender/${tenders.idTenderZakupki}">${tenders.idTenderZakupki}</a></td>
+						</table>
+					</c:forEach> 
+				</div>
 	</div>
 </body>
 </html>
