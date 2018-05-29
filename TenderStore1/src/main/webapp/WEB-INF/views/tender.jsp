@@ -53,7 +53,7 @@
 		
 	<div class="container">
 	<div class="row col-md-1">
-	<h2>sdvkn</h2>
+	
 	</div>
       <div class="row">
          <div class="col-md-8 col-md-offset-2">
