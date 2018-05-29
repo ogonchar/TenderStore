@@ -53,6 +53,8 @@ public class Tender implements Serializable{
 	private Contact Contact;
 	@Column(name="IDINN")
 	private String idInn;
+	@Column(name="OBJECTOFPURCHASE")
+	private String objectOfPurchase;
 	
 	
 	public String getIdTenderZakupki() {
@@ -132,6 +134,12 @@ public class Tender implements Serializable{
 	}
 	public void setIdInn(String idInn) {
 		this.idInn = idInn;
+	}
+	public String getObjectOfPurchase() {
+		return objectOfPurchase;
+	}
+	public void setObjectOfPurchase(String objectOfPurchase) {
+		this.objectOfPurchase = objectOfPurchase;
 	}
 	
 	 

@@ -64,6 +64,8 @@ public class TenderRepositoryImpl implements TenderRepository {
 			log.warn("Parser DateTender : " + tender.getDateTender());
 			tender.setProcuringContract(parser.parseProcuringContract());
 			log.warn("Parser ProcuringContract : " + tender.getProcuringContract());
+			tender.setObjectOfPurchase(parser.parsePurchase());
+			log.warn("Parser ObjectOfPurchase : " + tender.getObjectOfPurchase());
 			tender.setOwner(owner);
 			Long l = parser.parseInn();
 			tender.setIdInn(l.toString());

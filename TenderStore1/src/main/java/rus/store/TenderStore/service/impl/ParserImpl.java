@@ -50,6 +50,7 @@ public class ParserImpl implements Parser{
 			Function<String,String> helpProcuringContract = str -> str.substring(str.indexOf("Размер обеспечения исполнения контракта")+30, html.indexOf("&nbsp;Российский рубль</td>"));
 			Function<String,String> helpAddress = str -> str.substring(html.indexOf("Почтовый адрес")+29,html.indexOf("Место нахождения"));
 			Function<String,String> helpEmail = str -> str.substring(html.indexOf("Адрес электронной почты")+30,html.indexOf("Номер контактного телефона"));
+			Function<String,String> helpObjectOfPurchase = str -> str.substring(str.indexOf("Наименование объекта закупки"), str.indexOf("Этап закупки"));
 			
 			//Queuing the functions to then pass to methods
 			Function<String,String> Phone = helpPhone.andThen(fromTd).andThen(toTd).andThen(Trim);
@@ -63,7 +64,7 @@ public class ParserImpl implements Parser{
 			Function<String,String> ProcuringContract = helpProcuringContract.andThen(helpDate2).andThen(fromTd).andThen(toTd).andThen(cutNbsp).andThen(Trim);
 			Function<String,String> Address = helpAddress.andThen(fromTd).andThen(toTd).andThen(Trim);
 			Function<String,String> Email = helpEmail.andThen(fromTd).andThen(toTd).andThen(Trim);
-					
+			Function<String,String> ObjectOfPurchase = helpObjectOfPurchase.andThen(fromTd).andThen(toTd).andThen(Trim);
 					
 	public ParserImpl(String tenderId) throws IOException {
 		// TODO Auto-generated constructor stub
@@ -164,6 +165,10 @@ public class ParserImpl implements Parser{
 	}
 	public String parseEmail() {
 		return parse((html) -> Email.apply(html));
+	}
+	
+	public String parsePurchase() {
+		return result = ObjectOfPurchase.apply(html);
 	}
 	
 	public long  parseInn() throws IOException {
