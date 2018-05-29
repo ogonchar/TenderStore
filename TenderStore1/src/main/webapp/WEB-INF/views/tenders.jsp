@@ -96,6 +96,8 @@
 						<div class="col-md-1"></div>
 					<div class="collapse col-md-10 " id="theSection${tendersfiling.idTenderZakupki}">
 						<table class ="table table-striped table-bordered">
+							<tr><td>Объект закупки</td>
+							<td>${tendersfiling.objectOfPurchase}</td></tr>
 							<tr><td>Obespechenie</td>
 							<td>${tendersfiling.procuring}</td></tr>
 							<tr><td>Сайт</td>
@@ -128,6 +130,8 @@
 				<div class="collapse col-md-10" id="theSection${tendersconsideration.idTenderZakupki}">	    
 				<table class ="table">
 					<table class ="table table-striped table-bordered">  
+							<tr><td>Объект закупки</td>
+							<td>${tendersconsideration.objectOfPurchase}</td></tr>
 							<tr><td>Obespechenie</td>
 							<td>${tendersconsideration.procuring}</td></tr>
 							<tr><td>Сайт</td>
@@ -159,6 +163,8 @@
 				<div class="col-md-1"></div>
 					<div class="collapse col-md-10" id="theSection${tenderscomplited.idTenderZakupki}">
 						<table class ="table table-striped table-bordered ">
+							<tr><td>Объект закупки</td>
+							<td>${tenderscomplited.objectOfPurchase}</td></tr>
 							<tr><td>Obespechenie</td>
 							<td>${tenderscomplited.procuring}</td></tr>
 							<tr><td>Сайт</td>

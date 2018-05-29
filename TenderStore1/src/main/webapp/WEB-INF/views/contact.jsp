@@ -66,63 +66,78 @@
 	<!-- End of navigation -->
 	 
 	<div>
-		<div class="col-md-7 col-md-offset-1">
-			<div id="theSection">
-				<h2>${contact.name}</h2>
-					<br>
-						<table class ="table table-striped table-bordered table-sm">
-						<tr><td><spring:message code="contact.idinn.mes"/></td>
-							<td>${contact.idInn}</td></tr>
-							<tr><td><spring:message code="contact.city.mes"/></td>
-							<td>${contact.city}</td></tr>
-							<tr><td><spring:message code="contact.fullName.mes"/></td>
-							<td>${contact.fullName}</td></tr>
-							<tr><td><spring:message code="contact.phone.mes"/></td>
-							<td>${contact.phone}</td></tr>
-							<tr><td><spring:message code="contact.email.mes"/></td>
-							<td>${contact.email}</td></tr>
-							</table>
-
-							<div class="form">
-								<c:forEach items="${comments}" var="comments">	  
-									<div>  
-										<table class="table table-striped table-bordered table-sm tb col-md-12 ">
-											<div><td  class="col-md-1"><span class="text-muted">commented ${comments.date}</span></td></div> <td  class="col-md-10"><div><h5>${comments.text}</h5></div></td>
-											<td><button class="btn btn-danger" onclick = "location.href = '/TenderStore1/contact/delete/${comments.id}/redir/${contact.idInn}'" type="submit"><span class="glyphicon glyphicon-remove"></span></button>
-										</table> 
-									</div>  
-								</c:forEach>
-							</div>  
-							<div>  
-								<form:form method="POST" commandName="comment" modelAttribute="comment">
-									<h4>Add comment: </h4>
-									<td><form:textarea class="form-control" path="text" rows="3" cols="120" /></td>
-									<tr>
-									<td colspan="3"><input type="submit" /></td>
-									</tr>
-								</form:form>
-							</div>
-							<br>
-		                    <br>
-		                    <br>
-		                    <div class="form-actions">
-		                       <input type="submit" class="btn btn-block btn-edit" onclick = "location.href = '/TenderStore1/tenders/updateTender?id=${tender.idTenderZakupki}'" value="Edit">  
-		                    </div>
-		                    <br>
-
-		                    <div class="form-actions">
-		                   		<form method="get" action="/TenderStore1/tenders/${contact.owner}"><button class="btn btn-block btn-info" type="submit">Tenders</button></form>
-		                    </div>
-						</div>
-					</div>
-				<div class="row col-md-3">
-				<h3>Tenders</h3>
-					<c:forEach items="${tenders}" var="tenders">	  
-						<table class ="table table-striped table-bordered table-sm">
-							<td><a href="/TenderStore1/tender/${tenders.idTenderZakupki}">${tenders.idTenderZakupki}</a></td>
-						</table>
-					</c:forEach> 
-				</div>
+	<div class = "col-md-7 col-md-offset-2">  
+	<h2>${contact.name} </h2>
 	</div>
+		<div class="col-md-6 col-md-offset-2">  
+			<!-- Information about contact  -->
+				<div id="theSection"> 
+					<table class ="table rounded table-striped table-bordered table-sm">
+						<tr><td><spring:message code="contact.idinn.mes"/></td>
+						<td>${contact.idInn}</td></tr>
+						<tr><td><spring:message code="contact.city.mes"/></td>
+						<td>${contact.city}</td></tr>
+						<tr><td><spring:message code="contact.fullName.mes"/></td>
+						<td>${contact.fullName}</td></tr>
+						<tr><td><spring:message code="contact.phone.mes"/></td>
+						<td>${contact.phone}</td></tr>
+						<tr><td><spring:message code="contact.email.mes"/></td>
+						<td>${contact.email}</td></tr>
+					</table>
+				</div>
+			<!--  -->
+						
+						
+			<!-- Comment section -->
+				<div class="col-md-12">
+					<div class="form">
+						<c:forEach items="${comments}" var="comments">	  
+							<div>  
+								<table class="table table-striped table-bordered table-sm tb col-md-12 ">
+									<div><td  class="col-md-1"><span class="text-muted">commented ${comments.date}</span></td></div> <td  class="col-md-10"><div><h5>${comments.text}</h5></div></td>
+									<td ><button class="btn btn-danger" onclick = "location.href = '/TenderStore1/contact/delete/${comments.id}/redir/${contact.idInn}'" type="submit"><span class="glyphicon glyphicon-remove"></span></button>
+								</table> 
+							</div>  
+						</c:forEach>
+					</div>    
+					<div>  
+						<form:form method="POST" commandName="comment" modelAttribute="comment">
+							<h4>Add comment: </h4>
+								<td><form:textarea class="form-control" path="text" rows="3" cols="120" /></td>
+								<tr><td colspan="3"><input type="submit" /></td></tr>
+						</form:form>
+					</div>
+				</div>
+			<!-- -->		
+			
+			</div>   
+				
+		    <!-- Tender section -->
+				<div class="col-md-3 col-md-offset-1">     
+					<table class="table table-sm">
+						<tr class="active"><td>Tenders</td></tr> </table> 
+							<c:forEach items="${tenders}" var="tenders">	
+							<table class="table"><tr class="active"><td><a href="/TenderStore1/tender/${tenders.idTenderZakupki}">${tenders.idTenderZakupki}</a></td>
+							<tr class="active"><td>${tenders.objectOfPurchase}</td></tr></table>
+							</c:forEach>  
+					
+				</div>  
+			<!--  -->   
+			   
+			 
+	</div> 
+					
+				
+	
+		      	<!-- Footer here -->
+		<div class = " wrapper navbar-fixed-bottom">
+			<div class = "wrapper col-md-6">
+			@Oleg Gonchar
+			</div>
+			<div class = "wrapper col-md-6">
+			contact: o.gonchar@live.com
+			</div>
+		</div>
+	<!-- End of footer -->
 </body>
 </html>
