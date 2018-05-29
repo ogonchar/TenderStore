@@ -47,16 +47,14 @@
 		
 	<!-- End of navigation -->
 	
-	<!-- Information about tender -->
+	<!-- Information about tender --> 
 		<h2 class="text-center">Detailed information about ${tender.idTenderZakupki} tender</h2> 
 		<br>
 		
 	<div class="container">
-	<div class="row col-md-1">
 	
-	</div>
-      <div class="row">
-         <div class="col-md-8 col-md-offset-2">
+      <div class="row col-md-8 col-md-offset-1">   
+         <div >
             <div class="panel panel-default">
                <div class="panel-heading">   
 		            
@@ -113,15 +111,9 @@
 			                  <td class="td"'><spring:message code="tender.idinn.mes"/></td>
 			                  <td class="td">${tender.idInn}</td>
 		                  </table>
-		                     <br>
-		                     <br>
+		                   
 		                     
-		                      <div class="form-actions">  
-		                        <input type="submit"
-		                           class="btn btn-block btn-info" onclick = "location.href = '/TenderStore1/contact/${tender.idInn}'" value="ContactPage">  
-		                     </div>
-		                     
-		                     
+		                    
 		                      <br>
 		                        <div class="form-actions">
 		                        <input type="submit"
@@ -137,7 +129,27 @@
     	            </div>
                 </div>
 	        </div>
+		</div> 
+		<div class="row col-md-3">
+		<div class="panel panel-default">
+			<table class = "table table-striped table-bordered table-sm tb col-md-12 ">
+				<td>Contact: <a href="/TenderStore1/contact/${tender.idInn}">${contact.name}</a></td>
+			</table>
+			<table class = "table table-striped table-bordered table-sm tb col-md-12 ">
+				<td class="td"'>Phone</td>
+				<td class="td">${contact.phone}</td>
+			</table>
+			<table class = "table table-striped table-bordered table-sm tb col-md-12 ">
+				<td class="td"'>Email</td>
+				<td class="td">${contact.email}</td>
+			</table>
+			<table class = "table table-striped table-bordered table-sm tb col-md-12 ">
+				<td class="td"'>City</td>
+				<td class="td">${contact.city}</td> 
+			</table>
+		                 
 		</div>
+	</div>
     </div>   
 		<!-- Footer here -->
 		<div class = " wrapper navbar-fixed-bottom">
