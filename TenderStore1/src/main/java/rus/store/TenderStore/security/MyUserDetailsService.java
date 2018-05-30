@@ -14,31 +14,33 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import rus.store.TenderStore.HN.Application;
 import rus.store.TenderStore.domain.User;
 import rus.store.TenderStore.repository.UserRepository;
 
 	@Service
 	@Transactional
 	public class MyUserDetailsService implements UserDetailsService {
-		Logger log = Logger.getLogger(Application.class.getName());
+		Logger log = Logger.getLogger(MyUserDetailsService.class.getName());
 	    @Autowired
 	    private UserRepository userRepository;
 	    // 
-	    public UserDetails loadUserByUsername(String email)
+	    public UserDetails loadUserByUsername(String username)
 	      throws UsernameNotFoundException {
-	  
-	        
-	        if (!userRepository.ifEmailExist(email)) {
+	    	
+	        if (!userRepository.ifUserExist(username)) {
+	        	log.warn(userRepository.ifUserExist(username));
 	            throw new UsernameNotFoundException(
-	              "No user found with username: "+ email);
+	              "No user found with username: "+ username);
 	        }
 	        
-	        User user = userRepository.getUserByEmail(email);
+	        User user = userRepository.getUserByName(username);
+	        log.warn(user.getName());
+	        log.warn(user.getEmail());
+	        log.warn(user.getPassword());
 	        List<GrantedAuthority> authorities = new ArrayList<>();
 	        authorities.add(new SimpleGrantedAuthority("USER"));
 	        return  new org.springframework.security.core.userdetails.User
-	        		(user.getEmail(), user.getPassword().toLowerCase(), authorities);
+	        		(user.getName(), user.getPassword().toLowerCase(), authorities);
 	        
 	        
 	    }

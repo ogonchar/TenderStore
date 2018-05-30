@@ -27,9 +27,11 @@ import rus.store.TenderStore.service.TenderService;
 		ContactService contactService;;
 		Logger log = Logger.getLogger(AjaxController.class.getName());
 		
+		
+		//Adding tenders from main page
 		@JsonView(Views.Public.class)
 		@RequestMapping(value = "/addbyparser")
-		public AjaxResponseBody adddTenderAjax(@RequestBody String str) {
+		public AjaxResponseBody addTenderAjax(@RequestBody String str) {
 			
 			// Deleting quotes that AJAX create
 			str =str.substring(1,str.length()-1);
@@ -64,5 +66,30 @@ import rus.store.TenderStore.service.TenderService;
 			// Inform AJAX that everything OK
 			result.setMsg("OK");
 			return result; 
-	}
+		}
+		@JsonView(Views.Public.class)
+		@RequestMapping(value = "/editcomment")
+		public AjaxResponseBody editComment(@RequestBody String str) {
+			log.warn("YYYHAAAA");
+			// Deleting quotes that AJAX create
+			str =str.substring(1,str.length()-1);
+			
+			// Creating response
+			AjaxResponseBody result = new AjaxResponseBody();
+			
+			// Getting user details for adding owner to tender
+			UserDetails  authUser = (UserDetails ) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+			Tender tnd = new Tender();
+			tnd.setIdTenderZakupki(str);
+			
+			// Adding comment
+			log.warn("Trying to add comment");
+		
+			
+			
+			// Inform AJAX that everything OK
+			result.setMsg("OK");
+			return result; 
+		}
+		
 }

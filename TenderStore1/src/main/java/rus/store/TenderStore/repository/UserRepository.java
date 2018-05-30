@@ -6,7 +6,7 @@ public interface UserRepository {
 	
 	public void addUser(User user);
 	
-	public Boolean ifEmailExist(String email);
-	
-	public User getUserByEmail(String email);
+	public User getUserByName(String username);
+
+	public boolean ifUserExist(String username);
 }

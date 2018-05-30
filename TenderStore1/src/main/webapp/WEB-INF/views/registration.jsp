@@ -77,12 +77,12 @@
                      <div class="input-group input-sm">
                         <label class="input-group-addon" for="password"><i
                            class="fa fa-user"></i></label> <input type="text" class="form-control"
-                           id="password" name="password" placeholder="Enter Username" required>
+                           id="password" name="password" placeholder="Enter password" required>
                      </div>
                      <div class="input-group input-sm">
                         <label class="input-group-addon" for="email"><i
                            class="fa fa-user"></i></label> <input type="text" class="form-control"
-                           id="email" name="email" placeholder="Enter Username" required>
+                           id="email" name="email" placeholder="Enter Email" required>
                      </div>
                   <div class="form-actions">
                         <input type="submit"

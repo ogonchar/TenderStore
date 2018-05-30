@@ -50,6 +50,7 @@ public class ContactController {
 	}
 	@RequestMapping(value = "/contact/{idCont}", method = RequestMethod.POST) 
 	public String getComment(@ModelAttribute("comment")Comment cmnt, Model model, @PathVariable ("idCont") String id) {	
+		log.warn(cmnt.getText());
 		cmnt.setContact(contactService.getContactById(id));
 		commentService.addComment(cmnt);
 		return "redirect: /TenderStore1/contact/" + id;

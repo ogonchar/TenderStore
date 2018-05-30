@@ -18,9 +18,7 @@
 		<nav class="navbar navbar-default navbar-fixed-top" id ="nav1">
 			<div class="container-fluid">
 			    <div class="navbar-header">
-			        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#the-menu">
-			        </button>
-			        <div class="col-md-5">
+			        <div>
    						<img src="<c:url value="/img/logo1.png">
      				    </c:url>" alt="image"  style = "height:50px">    
      				</div>
@@ -48,17 +46,15 @@
 	<!-- End of navigation -->
 	
 	<!-- Information about tender --> 
-		<h2 class="text-center">Detailed information about ${tender.idTenderZakupki} tender</h2> 
-		<br>
 		
-	<div class="container">
+
 	
       <div class="row col-md-8 col-md-offset-1">   
          <div >
             <div class="panel panel-default">
                <div class="panel-heading">   
 		            
-		                  <legend>Info</legend>  
+		                  <legend><h3>Detailed information about ${tender.idTenderZakupki} tender</h3></legend>  
 		                  
 		                  <table class = "table table-striped table-bordered table-sm tb col-md-12 ">
 			                  <td class="td"'><spring:message code="tender.idTenderZakupki.mes"/></td>
@@ -131,26 +127,31 @@
 	        </div>
 		</div> 
 		<div class="row col-md-3">
-		<div class="panel panel-default">
-			<table class = "table table-striped table-bordered table-sm tb col-md-12 ">
-				<td>Contact: <a href="/TenderStore1/contact/${tender.idInn}">${contact.name}</a></td>
-			</table>
-			<table class = "table table-striped table-bordered table-sm tb col-md-12 ">
-				<td class="td"'>Phone</td>
-				<td class="td">${contact.phone}</td>
-			</table>
-			<table class = "table table-striped table-bordered table-sm tb col-md-12 ">
-				<td class="td"'>Email</td>
-				<td class="td">${contact.email}</td>
-			</table>
-			<table class = "table table-striped table-bordered table-sm tb col-md-12 ">
-				<td class="td"'>City</td>
-				<td class="td">${contact.city}</td> 
-			</table>
+		
+			<div class="col-md-12">     
+			<a href="/TenderStore1/contact/${contact.idInn}">${contact.name}</a>
+					<table class="table table-sm">
+						
+						
+							
+			
+							<tr><td class="td"'>Phone</td>
+							<td class="td">${contact.phone}</td>
+						
+							<tr><td class="td"'>Email</td>
+							<td class="td">${contact.email}</td>
+			
+							<tr><td class="td"'>City</td>
+							<td class="td">${contact.city}</td> 
+					
+					</table>
+					
+				</div>  
 		                 
 		</div>
 	</div>
-    </div>   
+
+			
 		<!-- Footer here -->
 		<div class = " wrapper navbar-fixed-bottom">
 			<div class = "wrapper col-md-6">
