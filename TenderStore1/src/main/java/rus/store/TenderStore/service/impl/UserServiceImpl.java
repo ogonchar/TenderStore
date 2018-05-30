@@ -13,7 +13,7 @@ public class UserServiceImpl {
 	private UserRepository userRepository;
 	
 	public void addUser(User user) {
-		if(!userRepository.ifEmailExist(user.getEmail()))
+		if(!userRepository.ifUserExist(user.getEmail()))
 		userRepository.addUser(user);
 	}
 	
