@@ -31,9 +31,33 @@ body{ padding-top: 80px; }
 	.lower{font-size: 10px;}
 	.divider{color:white;}
 	
-	.btn-group{z-index:1;width:80vw; margin-right: 1vw;margin-left: 1vw; padding-top: 1px;}   
+	.btn-group{width:80vw; margin-right: 1vw;margin-left: 1vw; padding-top: 1px;}   
 
-	
+#feedback {
+
+font-size: 5px;
+}
+
 
 /* footer*/
 		.wrapper{background-color: #333; height: 80px; color : white;} 
+		
+
+.area {
+    position: relative;
+    font-weight: bold;
+    /* you may want to set the width/height here as well*/
+}
+
+.fixed {
+    position: absolute;
+    top: -40px;
+    left: 293px;
+
+    padding: 5px;
+    z-index: 9999;  /* Thanks Diego for pointing out the typo here */
+    background-color: white;
+    display: none;
+    font-size: 20px;
+    color: rgba(140, 2, 11, 0.8);
+}

@@ -64,14 +64,17 @@
 		</nav>  
 		</div>
 	<!-- End of navigation -->
-	 
-	<div>
-	<div class = "col-md-7 col-md-offset-2">  
-	<h2>${contact.name} </h2>
-	</div>
-		<div class="col-md-6 col-md-offset-2">  
-			<!-- Information about contact  -->
-				<div id="theSection"> 
+	
+	<!-- Name of contact --> 
+		
+		<div class = "panel panel-default col-md-7 col-md-offset-2">  
+		<h2>${contact.name} </h2>
+		</div>
+	
+	<!-- Info -->
+		<div class="col-md-7 col-md-offset-2">  
+			<!-- Information about contact  --> 
+
 					<table class ="table rounded table-striped table-bordered table-sm">
 						<tr><td><spring:message code="contact.idinn.mes"/></td>
 						<td>${contact.idInn}</td></tr>
@@ -79,13 +82,15 @@
 						<td>${contact.city}</td></tr>
 						<tr><td><spring:message code="contact.fullName.mes"/></td>
 						<td>${contact.fullName}</td></tr>
+						<tr><td><spring:message code="contact.address.mes"/></td>
+						<td>${contact.address}</td></tr>
 						<tr><td><spring:message code="contact.phone.mes"/></td>
 						<td>${contact.phone}</td></tr>
 						<tr><td><spring:message code="contact.email.mes"/></td>
 						<td>${contact.email}</td></tr>
 					</table>
-				</div>
-			<!--  -->
+
+	<!--  -->
 						
 						
 			<!-- Comment section -->
@@ -110,10 +115,10 @@
 				</div>
 			<!-- -->		
 			
-			</div>   
+		</div>   
 				
 		    <!-- Tender section -->
-				<div class="col-md-3 col-md-offset-1">     
+				<div class="col-md-3">     
 					<table class="table table-sm">
 						<tr class="active"><td>Tenders</td></tr> </table> 
 							<c:forEach items="${tenders}" var="tenders">	
@@ -125,7 +130,7 @@
 			<!--  -->   
 			   
 			 
-	</div> 
+
 					
 				
 	

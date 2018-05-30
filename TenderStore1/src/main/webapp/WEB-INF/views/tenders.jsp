@@ -32,15 +32,19 @@
 </head>
 <body>  
 
+
+<form class="area ">
+    <div  class="fixed " id="feedback">Hello World!</div>
+</form>
 <!-- Main container-->  
 	<div class = "container col-md-12"> 
 	
 	<!-- Navigation bar -->
 		<nav class="navbar navbar-default navbar-fixed-top" id ="nav1">
 			<div class="container-fluid">
-			    <div class="navbar-header">
+			    <div class="navbar-header"> 
 			        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#the-menu">
-			        </button>
+			        </button> 
 			        <div >
    						<img src="<c:url value="/img/logo1.png">
      				    </c:url>" alt="image"  style = "height:50px">  
@@ -58,7 +62,7 @@
 			    	<div class="input-group ">
 						  <input type="text" class="form-control" placeholder="Add tender by parser" id="keyword">
 						  <div class="input-group-btn">
-						    <button class="btn btn-outline-secondary" type="submit" id="bth-search">B</button>
+						   <button type="submit" id="bth-search" class="btn btn-primary">add</button>
 						  </div>
 						</div>
 						</form>
@@ -180,8 +184,6 @@
 						</table>
 					</div>
 			</c:forEach>
-			
-		
 	</div>
 	<!-- End of Tenders information blocks--> 
 			
@@ -200,17 +202,15 @@
 			</div>
 		</div>
 	<!-- End of footer -->
-	
-	
+			
 	<!-- Scripts -->
-	
 		
 			<script>
+			
 			jQuery(document).ready(function($) {
 				$("#search-form").submit(function(event) {
 					// Disble the search button
-					
-		
+					enableSearchButton(false);
 					// Prevent the form from submitting via the browser.
 					event.preventDefault();
 					addViaAjax();
@@ -219,39 +219,43 @@
 			});
 		
 			function addViaAjax() {
-				var search;
-				search = $("#keyword").val();
+				var id;
+				id = $("#keyword").val();
 				$.ajax({
 					type : "POST",
 					contentType : "application/json",
 					url : "${home}addbyparser",
-					data : JSON.stringify(search),
+					data : JSON.stringify(id),
 					dataType : 'json',
 					timeout : 100000,
-					success : function(data) {
-						console.log("SUCCESS: ", data);
-						display(data);
-						window.location = window.location;
+					success : function(data) {  
+						if(JSON.stringify(data, null, 4).includes("OK")){
+							window.location.reload();
+							
+						}else
+							display(data);
 						
 					},
 					error : function(e) {
 						console.log("ERROR: ", e);
 						display(e);
 					},
-					done : function(e) {
-						console.log("DONE");
-						enableSearchButton(true);
-					}
 				});
+				 
 			}
+			
 			function enableSearchButton(flag) {
-				$("#btn-search").prop("disabled", flag);
-			}
+				$("#btn-search").prop("disabled", flag);  
+			}  
 			function display(data) {
-				var json = "<h4>Ajax Response</h4><pre>"
-						+ JSON.stringify(data, null, 4) + "</pre>";
-				$('#feedback').html(json);
+				$('#feedback').hide();
+				var json = JSON.stringify(data, null, 4);
+				var one = json.indexOf(": \"") +3;
+				var two = json.indexOf("\"",one);
+				var df = json.substring(one, two);
+				$('#feedback').html("<h4 style=''>"+ df + "</h4>").toggle().delay(2000).fadeOut();
 			}
+			
 		</script>
 
 	

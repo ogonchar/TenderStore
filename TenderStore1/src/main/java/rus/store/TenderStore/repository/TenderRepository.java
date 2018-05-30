@@ -23,6 +23,8 @@ public interface TenderRepository {
 	public List<Tender> getArchivedTenders(String id);
 
 	public List<Tender> getContactsTenders(String id);
+
+	public boolean isTenderExist(String str);
 	
 	
 }

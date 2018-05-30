@@ -27,7 +27,7 @@
 			        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#the-menu">
 			        </button>
 			        <div class="col-md-5">
-   						<img src="<c:url value="/img/logo.png">
+   						<img src="<c:url value="/img/logo1.png">
      				    </c:url>" alt="image"  style = "height:50px">    
      				</div>
 				</div>
