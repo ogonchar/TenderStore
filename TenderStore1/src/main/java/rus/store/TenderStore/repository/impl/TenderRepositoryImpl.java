@@ -205,6 +205,20 @@ public class TenderRepositoryImpl implements TenderRepository {
 		}
 		return null;
 	}
+
+	@Override
+	public boolean isTenderExist(String str) {
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		try {
+			session.getTransaction().begin();
+			return (session.get(Tender.class, str)!=null);
+		}catch (Exception e) {
+			e.printStackTrace();
+		}finally{
+			session.close();			
+		}
+		return false;
+	}
 	
 
 }

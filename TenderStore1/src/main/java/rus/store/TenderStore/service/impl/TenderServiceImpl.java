@@ -51,5 +51,9 @@ public class TenderServiceImpl implements TenderService{
 
 		return tenderRepository.getContactsTenders(id);
 	}
+	@Override
+	public boolean isTenderExist(String str) {
+		return tenderRepository.isTenderExist(str);
+		}
 	
 }
