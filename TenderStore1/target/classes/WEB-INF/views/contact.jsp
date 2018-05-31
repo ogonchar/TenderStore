@@ -12,10 +12,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-
+<script type="text/javascript" src = "/js/contact.js"></script>
 <link href="<c:url value="/css/contact.css"></c:url>" rel="stylesheet" />
-
-<link href="<c:url value="/js/contact.js"></c:url>" rel="text/javascript" />
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
@@ -31,7 +29,7 @@
  
 
 <title>Contact</title>
-</head> 
+</head>
 <body>
 
 
@@ -50,15 +48,15 @@
 			<!-- Home and add -->
 				<div class="collapse navbar-collapse" id="the-menu">
 			    	<ul class="nav navbar-nav">
-				    	<li class="active"><a href="/TenderStore/tenders/${contact.owner}">&nbsp;Home</a></li>
-			        	<li id="AddTender"><a href="/TenderStore/tenders/add"><span class="glyphicon glyphicon-plus"></span>Add tender</a></li>
-			        <!-- 	<li id="AddTenderP"><a href="/TenderStore/tenders/addByParcer"><span class="glyphicon glyphicon-plus"></span>Add tender</a></li> -->
+				    	<li class="active"><a href="/TenderStore1/tenders/${contact.owner}">&nbsp;Home</a></li>
+			        	<li id="AddTender"><a href="/TenderStore1/tenders/add"><span class="glyphicon glyphicon-plus"></span>Add tender</a></li>
+			        <!-- 	<li id="AddTenderP"><a href="/TenderStore1/tenders/addByParcer"><span class="glyphicon glyphicon-plus"></span>Add tender</a></li> -->
 			    	</ul>
 			    	
 			<!-- Log in and out -->
 			    	<ul class="nav navbar-nav navbar-right">
-			    		<li><a href="/TenderStore/registration" id="logonLink"><span class="glyphicon glyphicon-log-in"></span>&nbsp;Sign In</a></li>
-			    		<li><a href="/TenderStore/login"><span class="glyphicon glyphicon-log-in"></span>&nbsp; LogIn</a></li>
+			    		<li><a href="/TenderStore1/registration" id="logonLink"><span class="glyphicon glyphicon-log-in"></span>&nbsp;Sign In</a></li>
+			    		<li><a href="/TenderStore1/login"><span class="glyphicon glyphicon-log-in"></span>&nbsp; LogIn</a></li>
 			    		<li><a href="<c:url value="/logout" />">Logout</a></li>
 			    	</ul>
 			    	
@@ -115,7 +113,7 @@
 											<table id= "${comments.id}" class="table table-striped table-bordered table-sm tb col-md-12 " >
 												<div><td  class="col-md-1"><span class="text-muted">commented ${comments.date}</span></td></div> <td id="commentText${comments.id}" class="col-md-10"><div><h5>${comments.text}</h5></div></td>
 												<td ><button id="btnEd" class="btn btn-warning btnEdit" value="${comments.id}" name="but1"><span class="glyphicon glyphicon-pencil"></span></button>
-												<td ><button class="btn btn-danger" onclick = "location.href = '/TenderStore/contact/delete/${comments.id}/redir/${contact.idInn}'" type="submit"><span class="glyphicon glyphicon-remove"></span></button>
+												<td ><button class="btn btn-danger" onclick = "location.href = '/TenderStore1/contact/delete/${comments.id}/redir/${contact.idInn}'" type="submit"><span class="glyphicon glyphicon-remove"></span></button>
 												<td id = "ass"></td>
 											</table> 
 										</div>  
@@ -137,7 +135,7 @@
 						<!-- -->		
 		                <div id="editButton" hidden>
 							<div class="form-actions" >
-		                    	<input type="submit" class="btn btn-block btn-edit" onclick = "location.href = '/TenderStore/tenders/updateTender?id=${tender.idTenderZakupki}'" value="Edit">  
+		                    	<input type="submit" class="btn btn-block btn-edit" onclick = "location.href = '/TenderStore1/tenders/updateTender?id=${tender.idTenderZakupki}'" value="Edit">  
 		                    </div>
 		                </div>
     	            </div>
@@ -153,7 +151,7 @@
 					<table class="table table-sm">
 						<tr class="active"><td>Tenders</td></tr> </table> 
 							<c:forEach items="${tenders}" var="tenders">	
-							<table class="table"><tr class="active"><td><a href="/TenderStore/tender/${tenders.idTenderZakupki}">${tenders.idTenderZakupki}</a></td>
+							<table class="table"><tr class="active"><td><a href="/TenderStore1/tender/${tenders.idTenderZakupki}">${tenders.idTenderZakupki}</a></td>
 							<tr class="active"><td>${tenders.objectOfPurchase}</td></tr></table>
 							</c:forEach>  
 					
@@ -177,19 +175,12 @@
 		<!-- End of footer -->
 	
 	
+	
 	<!-- Scripts -->
 		
 			<script type="text/javascript">
 			
 
-			 (function ($) {
-				  $('#submitMyForm').on('click', function () {
-					  alert("sdcsdc");
-				    $('#myForm').submit(); // js fiddle won't allow this
-				    
-				  });
-				  
-				})(jQuery);
 			
 			(function ($) {
 				 $('.btnEdit').on('click', function () {

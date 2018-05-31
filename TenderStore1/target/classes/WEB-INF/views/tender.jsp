@@ -26,15 +26,15 @@
 			<!-- Home and add -->
 				<div class="collapse navbar-collapse" id="the-menu">
 			    	<ul class="nav navbar-nav">
-				    	<li class="active"><a href="/TenderStore/tenders/${user}">&nbsp;Home</a></li>
-			        	<li id="AddTender"><a href="/TenderStore/tenders/add"><span class="glyphicon glyphicon-plus"></span>Add tender</a></li>
+				    	<li class="active"><a href="/TenderStore1/tenders/${user}">&nbsp;Home</a></li>
+			        	<li id="AddTender"><a href="/TenderStore1/tenders/add"><span class="glyphicon glyphicon-plus"></span>Add tender</a></li>
 			     
 			    	</ul>
 			    	
 			<!-- Log in and out -->
 			    	<ul class="nav navbar-nav navbar-right">
 			    		<li><a href="#" id="logonLink"><span class="glyphicon glyphicon-log-in"></span>&nbsp;Sign In</a></li>
-			    		<li><a href="/TenderStore/login"><span class="glyphicon glyphicon-log-in"></span>&nbsp; LogIn</a></li>
+			    		<li><a href="/TenderStore1/login"><span class="glyphicon glyphicon-log-in"></span>&nbsp; LogIn</a></li>
 			    		<li><a href="<c:url value="/logout" />">Logout</a></li>
 			    	</ul>
 			    	
@@ -113,13 +113,13 @@
 		                      <br>
 		                        <div class="form-actions">
 		                        <input type="submit"
-		                           class="btn btn-block btn-edit" onclick = "location.href = '/TenderStore/tenders/updateTender?id=${tender.idTenderZakupki}'" value="Edit">  
+		                           class="btn btn-block btn-edit" onclick = "location.href = '/TenderStore1/tenders/updateTender?id=${tender.idTenderZakupki}'" value="Edit">  
 		                     </div>
 		                        <br>
 
 		                       <div class="form-actions">
 		                        <input type="submit"
-		                           class="btn btn-block btn-primary btn-default" onclick = "location.href = '/TenderStore/tenders/${user}'" value="Back">
+		                           class="btn btn-block btn-primary btn-default" onclick = "location.href = '/TenderStore1/tenders/${user}'" value="Back">
 		                     </div>
 		                  
     	            </div>
@@ -129,7 +129,7 @@
 		<div class="row col-md-3">
 		
 			<div class="col-md-12">     
-			<a href="/TenderStore/contact/${contact.idInn}">${contact.name}</a>
+			<a href="/TenderStore1/contact/${contact.idInn}">${contact.name}</a>
 					<table class="table table-sm">
 						
 						
