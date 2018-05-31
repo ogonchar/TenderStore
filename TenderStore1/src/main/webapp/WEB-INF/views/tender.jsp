@@ -6,13 +6,14 @@
 <% response.setCharacterEncoding("UTF-8"); %>
 
  <html>
-      <head>
-      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-      <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
-      <link href="<c:url value="/css/tender.css"></c:url>" rel="stylesheet" />
-      <title>${tender.idTenderZakupki}</title>
-      </head> 
-      <body>
+     <head>
+     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+     <link href="<c:url value="/css/tender.css"></c:url>" rel="stylesheet" />
+     <title>${tender.idTenderZakupki}</title>
+     </head> 
+     <body>
       
         <!-- Navigation bar -->
 		<nav class="navbar navbar-default navbar-fixed-top" id ="nav1">
@@ -107,8 +108,6 @@
 			                  <td class="td"'><spring:message code="tender.idinn.mes"/></td>
 			                  <td class="td">${tender.idInn}</td>
 		                  </table>
-		                   
-		                     
 		                    
 		                      <br>
 		                        <div class="form-actions">
@@ -127,15 +126,13 @@
 	        </div>
 		</div> 
 		<div class="row col-md-3">
+			<div class = "col-md-11 col-md-offset-1">      
 		
-			<div class="col-md-12">     
-			<a href="/TenderStore/contact/${contact.idInn}">${contact.name}</a>
-					<table class="table table-sm">
-						
-						
-							
-			
-							<tr><td class="td"'>Phone</td>
+					<table id = tendersTable >
+					 <div colspan="2" id = "contactRef"><a href="/TenderStore/contact/${contact.idInn}">${contact.name}</a></div>
+					
+					<tr><td class="td"'>Phone</td>
+					
 							<td class="td">${contact.phone}</td>
 						
 							<tr><td class="td"'>Email</td>
@@ -143,13 +140,10 @@
 			
 							<tr><td class="td"'>City</td>
 							<td class="td">${contact.city}</td> 
-					
 					</table>
-					
 				</div>  
-		                 
 		</div>
-	</div>
+
 
 			
 		<!-- Footer here -->

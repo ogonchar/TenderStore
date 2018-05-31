@@ -24,7 +24,7 @@ import rus.store.TenderStore.service.impl.EncoderToUTFImpl;
 @Controller
 public class ContactController {
 	
-	Logger log = Logger.getLogger(TenderController.class.getName());
+	Logger log = Logger.getLogger(ContactController.class.getName());
 	
 	@Autowired
 	TenderService tenderService;
@@ -39,12 +39,11 @@ public class ContactController {
 	public String listId(Model model, @PathVariable ("idCont") String id) throws UnsupportedEncodingException {
 		Comment cmntGet = new Comment();
 		Contact cont = contactService.getContactById(id);
-		//Create list of comments for encoding to UTF
-		List<Comment> cmntPut = (List<Comment>) commentService.getCommentsOfContact(id);
-		for (Comment com: cmntPut) com.setText(encoder.encode(com.getText()));
+		List<Comment> list = (List<Comment>) commentService.getCommentsOfContact(id);
+		for (Comment c : list) {c.setText(encoder.encode(c.getText()));}
 		model.addAttribute("contact", cont);
 		model.addAttribute("comment",  cmntGet);
-		model.addAttribute("comments", cmntPut);
+		model.addAttribute("comments",list);
 		model.addAttribute("tenders", tenderService.getContactsTenders(id));
 		return "contact";
 	}
@@ -53,7 +52,7 @@ public class ContactController {
 		log.warn(cmnt.getText());
 		cmnt.setContact(contactService.getContactById(id));
 		commentService.addComment(cmnt);
-		return "redirect: /TenderStore1/contact/" + id;
+		return "redirect: /TenderStore/contact/" + id;
 	}
 	
 	@RequestMapping("/contact/delete/{ida}/redir/{idb}")
@@ -61,6 +60,6 @@ public class ContactController {
 		
 		int id1 = Integer.parseInt(id);
 		commentService.delete(id1);
-		return "redirect: /TenderStore1/contact/"+idb;
+		return "redirect: /TenderStore/contact/"+idb;
 	}
 }

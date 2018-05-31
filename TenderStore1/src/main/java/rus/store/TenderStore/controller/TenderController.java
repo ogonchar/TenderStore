@@ -88,7 +88,7 @@ public class TenderController {
 				newTender.setOwner(getUser());
 				tenderService.addTender(newTender);
 				contactService.addContact(new Contact(123456789,newTender.getIdCompanyRecepient(),newTender.getCityOfCompany(), newTender.getOwner()));
-				return "redirect: /TenderStore1/tenders/"+getUser();
+				return "redirect: /TenderStore/tenders/"+getUser();
 			}
 		
 	//Page for updating the the tender
@@ -108,14 +108,14 @@ public class TenderController {
 				newTender.setOwner(getUser());
 				log.warn("DateTo : " + newTender.getDateTo());
 				tenderService.updateTender(newTender);
-				return "redirect: /TenderStore1/tenders/"+getUser();
+				return "redirect: /TenderStore/tenders/"+getUser();
 			}
 		
 	//Deleting tender
 	@RequestMapping("/tenders/delete/{id}")
 		public String delete(Model model, @PathVariable ("id") String id) {
 			tenderService.delete(id);
-			return "redirect: /TenderStore1/tenders/"+getUser();
+			return "redirect: /TenderStore/tenders/"+getUser();
 		}
 	
 	static String getUser() {

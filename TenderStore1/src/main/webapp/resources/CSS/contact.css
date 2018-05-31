@@ -2,23 +2,64 @@
 
 /* Navigation*/
 
-	.navbar-fixed-bottom{background-color: #333; }
-	#nav1{background-image: none;}  
-	#AddTender{background-color: rgba(30,75,39,0.5); color: white;}
-	#new{word-break: break-all;}
-	#search-form{padding-top:9px; margin-left:25%;}
-	
+	.navbar-fixed-bottom {
+		background-color: #333; 
+		}
+	#nav1 {
+		background-image: none;
+		}  
+	#AddTender {
+		background-color: rgba(30,75,39,0.5); color: white;
+		}
+	#new {
+		word-break: break-all;
+		}
+	#search-form {
+		padding-top:9px; margin-left:25%;
+		}
+		
 /* Info section*/
 
-	body{ padding-top: 80px; }
-	body {    text-align: left;  padding-top: 80px;}
-	.input-group-addon{background-color: white}
+	body {
+		text-align: center;  
+		padding-top: 80px;
+		}
 	
-	.td{text-align: center; width:50%;}
+	.input-group-addon {
+		background-color: white
+		}
 	
-	.input-group-addon{background-color: white}
-
+	.td {
+		text-align: center; 
+		width:50%;
+		}
+	
+	.input-group-addon {
+		background-color: white
+		}
+	
+	#dateinfo {
+		font-size: 11px;
+		}
+	.commenttext{
+		text-overflow: ellipsis; 
+		overflow: hidden;
+		 background-color:white; 
+		} 
+	
+	.btn-del {
+		background-color: none;
+		}
+	
 /* footer*/  
-	.wrapper{background-color: #333; height: 40px; color : white;}        
+
+	.wrapper{
+		background-color: #333; 
+		height: 40px; 
+		color : white;
+		}        
 	
-	 
+	   
+	   
+	   
+	   

@@ -2,62 +2,149 @@
 
 /* Navigation*/
 
-	.navbar-fixed-bottom{background-color: #333; }
-	#nav1{background-image: none;}  
-	#AddTender{background-color: rgba(30,75,39,0.5); color: white;}
-	#new{word-break: break-all;}
-	#search-form{padding-top:9px;}
+	.navbar-fixed-bottom{
+		background-color: #333; 
+		}
+	#nav1{
+		background-image: none;
+		}  
+	#AddTender{
+		background-color: rgba(30,75,39,0.5);
+		color: white;}
+	#new{
+		word-break: break-all;
+		}
+	#search-form{
+		padding-top:9px;
+		}
 	
-/* common*/
-body{ padding-top: 80px; }
-	body {  height: 100%;  text-align: center;  padding-top: 80px;}
-	.container{width:50vw;}
+	
+/* Common*/
+
+	body {  
+		height: 100%;  
+		text-align: center;  
+		padding-top: 80px;
+		}
+	.container{
+		width:50vw;
+		}
 	
 		
 /* Tenders info*/
 	
-	.table{background-color: rgb(35, 12, 12,0.4);}
-	.btn-fil{background-color: rgb(12, 175, 39,0.4);}
-	.btn-con{background-color: rgb(30, 105, 140,0.4);}
-	.btn-com{background-color: rgb(160, 38, 109,0.4);}
-	.btn-edit{background-color: rgb(255, 173, 51,0.7);}
-	.btn0-wdh{width: 7%;  overflow: hidden; height: 60px;} 
-	.btn1-wdh{width: 15%;background-color: rgba(50,64,0,0.05); text-overflow: ellipsis; overflow: hidden;height: 60px;} 
-	.btn2-wdh{width: 30%;background-color: rgba(50,0,160,0.05); text-overflow: ellipsis; overflow: hidden;height: 60px;}    
-	.btn3-wdh{width: 12%;background-color: none; text-overflow: ellipsis; overflow: hidden;height: 60px;} 
-	.btn4-wdh{width: 12%;background-color: none; text-overflow: ellipsis; overflow: hidden;height: 60px;} 
-	.btn5-wdh{width: 10%;background-color: none; text-overflow: ellipsis; overflow: hidden;height: 60px;} 
-	.btn6-wdh{width: 15%;background-color: rgba(50,64,160,0.4); text-overflow: ellipsis; overflow: hidden;height: 60px;} 
-	.lower{font-size: 10px;}
-	.divider{color:white;}
-	
-	.btn-group{width:80vw; margin-right: 1vw;margin-left: 1vw; padding-top: 1px;}   
+	.table{
+		background-color: rgb(35, 12, 12,0.4);
+		}
+	.btn-fil{
+		background-color: rgb(12, 175, 39,0.4);
+		width: 7%;  
+		overflow: hidden; 
+		height: 60px;
+		}
+	.btn-con{
+		background-color: rgb(30, 105, 140,0.4);
+		width: 7%;  
+		overflow: hidden; 
+		height: 60px;
+		}
+	.btn-com{
+		background-color: rgb(160, 38, 109,0.4);
+		width: 7%;  
+		overflow: hidden; 
+		height: 60px;
+		}
+	.btnEdit{
+		background-color: rgb(255, 173, 51,0.7);
+		width: 7%;  
+		overflow: hidden; 
+		height: 60px;
+		}
+	.btnIdZakupki{
+		width: 15%;
+		background-color: rgba(50,64,0,0.05);
+		text-overflow: ellipsis; 
+		overflow: hidden;
+		height: 60px;
+		} 
+	.btnName{
+		width: 30%;
+		background-color: rgba(50,0,160,0.05); 
+		text-overflow: ellipsis; 
+		overflow: hidden;
+		height: 60px;
+		}    
+	.btnCity{
+		width: 12%;
+		background-color: none; 
+		text-overflow: ellipsis; 
+		overflow: hidden;
+		height: 60px;
+		} 
+	.btnPrice{
+		width: 10%;
+		background-color: none; 
+		text-overflow: ellipsis; 
+		overflow: hidden;
+		height: 60px;
+		} 
+	.btnInf{
+		width: 15%;
+		background-color: rgba(50,64,160,0.4); 
+		text-overflow: ellipsis; 
+		overflow: hidden;
+		height: 60px;
+		} 
+	.lower{
+		font-size: 10px;
+		}
+	.divider{
+		color:white;
+		}
+	.btn-group{
+		width:80vw; 
+		margin-right: 1vw;
+		margin-left: 1vw; 
+		padding-top: 1px;
+		}   
 
-#feedback {
-
-font-size: 5px;
-}
-
-
+	#feedback {
+		font-size: 5px;
+		}
+		
 /* footer*/
-		.wrapper{background-color: #333; height: 80px; color : white;} 
+	.wrapper{
+		background-color: #333; 
+		height: 80px; 
+		color: white;
+		} 
 		
 
-.area {
-    position: relative;
-    font-weight: bold;
-    /* you may want to set the width/height here as well*/
-}
-
-.fixed {
-    position: absolute;
-    top: -40px;
-    left: 293px;
-
-    padding: 5px;
-    z-index: 9999;  /* Thanks Diego for pointing out the typo here */
-    background-color: white;
-    display: none;
-    font-size: 20px;
-    color: rgba(140, 2, 11, 0.8);
-}
+/* Pop ups warnings*/
+	.area {
+	    position: relative;
+	    font-weight: bold;
+	    /* you may want to set the width/height here as well*/
+		}
+	
+	.fixed {
+	    position: absolute;
+	    top: -40px;
+	    left: 293px;
+	    padding: 5px;
+	    z-index: 9999;  
+	    background-color: white;
+	    display: none;
+	    font-size: 20px;
+	    color: rgba(140, 2, 11, 0.8);
+		}
+	.popup{
+		position: absolute;
+	    padding: 5px;
+	    z-index: 9999;
+	    background-color: white;
+	    display: none;
+	    font-size: 15px;
+	    color: rgba(140, 2, 11, 0.8);
+		}
+	}

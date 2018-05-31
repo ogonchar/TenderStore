@@ -10,4 +10,8 @@ public interface CommentService {
 	public List<Comment> getCommentsOfContact(String id);
 	
 	public void delete(int id1);
+	
+	public void updateComment(Comment cmnt, String owner);
+
+	public Comment getCommentById(int id);
 }

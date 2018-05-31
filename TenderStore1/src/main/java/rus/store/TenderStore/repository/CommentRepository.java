@@ -12,4 +12,7 @@ public interface CommentRepository {
 
 	public void delete(int id);
 	
+	public void updateComment(Comment cmnt, String owner);
+
+	public Comment getCommentById(int id);
 }

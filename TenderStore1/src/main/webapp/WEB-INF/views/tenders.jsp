@@ -33,8 +33,8 @@
 <body>  
 
 
-<form class="area ">
-    <div  class="fixed " id="feedback">Hello World!</div>
+<form class="area">
+    <div  class="fixed " id="feedback"></div>
 </form>
 <!-- Main container-->  
 	<div class = "container col-md-12"> 
@@ -89,13 +89,13 @@
 			<div>
 				<c:forEach items="${tendersfiling}" var="tendersfiling">  
 					<div class="btn-group col-md-12">
-						<button type="button" class="btn btn0-wdh btn-fil"><span class="lower">Подача</span></button>
-						<button type="button" class="btn btn1-wdh " onclick = "window.open ('http://zakupki.gov.ru/epz/order/notice/ea44/view/common-info.html?regNumber=${tendersfiling.idTenderZakupki}')">${tendersfiling.idTenderZakupki}<br><span class="lower">Tender ID</span></button>
-						<button type="button" class="btn btn2-wdh" onclick = "location.href = '/TenderStore/tender/${tendersfiling.idTenderZakupki}'">${tendersfiling.idCompanyRecepient}<br><span class="lower">Company ID(INN)</span></button>
-						<button type="button" class="btn btn3-wdh">${tendersfiling.cityOfCompany}<br><span class="lower">Company city</span></button>
-						<button type="button" class="btn btn5-wdh">${tendersfiling.price}<br><span class="lower">price</span></button>
-						<button type="button" class="btn btn6-wdh"  data-toggle="collapse" data-target="#theSection${tendersfiling.idTenderZakupki}" id="theButton">Detailed information</button>
-						<button type="button" class="btn btn0-wdh btn-edit" onclick = "location.href = '/TenderStore/tenders/updateTender?id=${tendersfiling.idTenderZakupki}'">Edit</button>
+						<button type="button" class="btn btn-fil"><span class="lower">Подача</span></button>
+						<button type="button" class="btn btnIdZakupki " onclick = "window.open ('http://zakupki.gov.ru/epz/order/notice/ea44/view/common-info.html?regNumber=${tendersfiling.idTenderZakupki}')">${tendersfiling.idTenderZakupki}<br><span class="lower">Tender ID</span></button>
+						<button type="button" class="btn btnName" onclick = "location.href = '/TenderStore/tender/${tendersfiling.idTenderZakupki}'">${tendersfiling.idCompanyRecepient}<br><span class="lower">Company ID(INN)</span></button>
+						<button type="button" class="btn btnCity">${tendersfiling.cityOfCompany}<br><span class="lower">Company city</span></button>
+						<button type="button" class="btn btnPrice">${tendersfiling.price}<br><span class="lower">price</span></button>
+						<button type="button" class="btn btnInf"  data-toggle="collapse" data-target="#theSection${tendersfiling.idTenderZakupki}" id="theButton">Detailed information</button>
+						<button type="button" class="btn btnEdit" onclick = "location.href = '/TenderStore/tenders/updateTender?id=${tendersfiling.idTenderZakupki}'">Edit</button>
 					</div>
 						<div class="col-md-1"></div>
 					<div class="collapse col-md-10 " id="theSection${tendersfiling.idTenderZakupki}">
@@ -120,13 +120,13 @@
 			<p class="divider">.</p>
 				<c:forEach items="${tendersconsideration}" var="tendersconsideration">
 					<div class="btn-group col-md-12">
-						<button type="button" class="btn btn0-wdh btn-con"><span class="lower">Рассмотрение</span></button>
-						<button type="button" class="btn btn1-wdh " onclick = "window.open ('http://zakupki.gov.ru/epz/order/notice/ea44/view/common-info.html?regNumber=${tendersconsideration.idTenderZakupki}')">${tendersconsideration.idTenderZakupki}<br><span class="lower">Tender ID</span></button>
-						<button type="button" class="btn btn2-wdh" onclick = "location.href = '/TenderStore/tender/${tendersconsideration.idTenderZakupki}'">${tendersconsideration.idCompanyRecepient}<br><span class="lower">Company ID(INN)</span></button>
-						<button type="button" class="btn btn3-wdh">${tendersconsideration.cityOfCompany}<br><span class="lower">Company city</span></button>
-						<button type="button" class="btn btn5-wdh">${tendersconsideration.price}<br><span class="lower">price</span></button>
-						<button type="button" class="btn btn6-wdh"  data-toggle="collapse" data-target="#theSection${tendersconsideration.idTenderZakupki}" id="theButton">Detailed information</button>   
-						<button type="button" class="btn btn0-wdh btn-edit" onclick = "location.href = '/TenderStore/tenders/updateTender?id=${tendersconsideration.idTenderZakupki}'">Edit</button>
+						<button type="button" class="btn btn-con"><span class="lower">Рассмотрение</span></button>
+						<button type="button" class="btn btnIdZakupki" onclick = "window.open ('http://zakupki.gov.ru/epz/order/notice/ea44/view/common-info.html?regNumber=${tendersconsideration.idTenderZakupki}')">${tendersconsideration.idTenderZakupki}<br><span class="lower">Tender ID</span></button>
+						<button type="button" class="btn btnName" onclick = "location.href = '/TenderStore/tender/${tendersconsideration.idTenderZakupki}'">${tendersconsideration.idCompanyRecepient}<br><span class="lower">Company ID(INN)</span></button>
+						<button type="button" class="btn btnCity">${tendersconsideration.cityOfCompany}<br><span class="lower">Company city</span></button>
+						<button type="button" class="btn btnPrice">${tendersconsideration.price}<br><span class="lower">price</span></button>
+						<button type="button" class="btn btnInf"  data-toggle="collapse" data-target="#theSection${tendersconsideration.idTenderZakupki}" id="theButton">Detailed information</button>   
+						<button type="button" class="btn btnEdit" onclick = "location.href = '/TenderStore/tenders/updateTender?id=${tendersconsideration.idTenderZakupki}'">Edit</button>
 						
 						
 					</div>
@@ -156,13 +156,13 @@
 			<p class="divider">.</p>
 				<c:forEach items="${tenderscomplited}" var="tenderscomplited">
 					<div class="btn-group col-md-12">
-				 		<button type="button" class="btn btn0-wdh btn-com"><span class="lower">Завершенные</span></button>
-						<button type="button" class="btn btn1-wdh " onclick = "window.open ('http://zakupki.gov.ru/epz/order/notice/ea44/view/common-info.html?regNumber=${tenderscomplited.idTenderZakupki}')">${tenderscomplited.idTenderZakupki}<br><span class="lower">Tender ID</span></button>
-						<button type="button" class="btn btn2-wdh" onclick = "location.href = '/TenderStore/tender/${tenderscomplited.idTenderZakupki}'">${tenderscomplited.idCompanyRecepient}<br><span class="lower">Company ID(INN)</span></button>
-						<button type="button" class="btn btn3-wdh">${tenderscomplited.cityOfCompany}<br><span class="lower">Company city</span></button>
-						<button type="button" class="btn btn5-wdh">${tenderscomplited.price}<br><span class="lower">price</span></button>
-						<button type="button" class="btn btn6-wdh"  data-toggle="collapse" data-target="#theSection${tenderscomplited.idTenderZakupki}" id="theButton">Detailed information</button>
-						<button type="button" class="btn btn0-wdh btn-edit" onclick = "location.href = '/TenderStore/tenders/updateTender?id=${tenderscomplited.idTenderZakupki}'">Edit</button>
+				 		<button type="button" class="btn btn-com"><span class="lower">Завершенные</span></button>
+						<button type="button" class="btn btnIdZakupki" onclick = "window.open ('http://zakupki.gov.ru/epz/order/notice/ea44/view/common-info.html?regNumber=${tenderscomplited.idTenderZakupki}')">${tenderscomplited.idTenderZakupki}<br><span class="lower">Tender ID</span></button>
+						<button type="button" class="btn btnName" onclick = "location.href = '/TenderStore/tender/${tenderscomplited.idTenderZakupki}'">${tenderscomplited.idCompanyRecepient}<br><span class="lower">Company ID(INN)</span></button>
+						<button type="button" class="btn btnCity">${tenderscomplited.cityOfCompany}<br><span class="lower">Company city</span></button>
+						<button type="button" class="btn btnPrice">${tenderscomplited.price}<br><span class="lower">price</span></button>
+						<button type="button" class="btn btnInf"  data-toggle="collapse" data-target="#theSection${tenderscomplited.idTenderZakupki}" id="theButton">Detailed information</button>
+						<button type="button" class="btn btnEdit" onclick = "location.href = '/TenderStore/tenders/updateTender?id=${tenderscomplited.idTenderZakupki}'">Edit</button>
 					</div>
 				<div class="col-md-1"></div>
 					<div class="collapse col-md-10" id="theSection${tenderscomplited.idTenderZakupki}">
@@ -205,7 +205,28 @@
 			
 	<!-- Scripts -->
 		
-			<script>
+			<script> 
+			/* $(document).ready(function(){
+				alert("sdvsdvsdvsd");
+				setTimeoutConst = setTimeout(function(){
+					alert("sdvsdvsdvsd")},2000);
+			}); */
+			
+			
+			
+			$( ".btnIdZakupki" ).hover(function() {
+				var th = $(this);
+				setTimeoutConst = setTimeout(function(){
+					th.prepend('<form class="popup">Link to tender page on Zakupki.gov</form>');
+					   $('.popup').css('display','block');
+			  }, 1000);
+				
+			}).mouseout(function(){
+				  clearTimeout(setTimeoutConst );
+				  setTimeoutConst2 = setTimeout(function(){
+				    	 $('.popup').remove();
+				  },500);
+				});
 			
 			jQuery(document).ready(function($) {
 				$("#search-form").submit(function(event) {
@@ -265,4 +286,4 @@
 
 	
 	</body>
-</html>
+</html> 
