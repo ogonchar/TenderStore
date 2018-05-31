@@ -2,21 +2,60 @@
 
 /* Navigation*/
 
-	.navbar-fixed-bottom{background-color: #333; }
-	#nav1{background-image: none;}  
-	#AddTender{background-color: rgba(30,75,39,0.5); color: white;}
-	#new{word-break: break-all;}
-	#search-form{padding-top:9px;}
+	.navbar-fixed-bottom{
+		background-color: #333; 
+		}
+	#nav1{
+		background-image: none;
+		}  
+	#AddTender{
+		background-color: rgba(30,75,39,0.5); 
+		color: white;
+		}
+	#new{
+		word-break: break-all;
+		}
+	#search-form{
+		padding-top:9px;
+		}
 	
 /* Info section*/
 	
-	body{ padding-top: 80px; }
-	body {  height: 100%;  text-align: left;  padding-top: 80px;}
-	.td{text-align: center; width:50%;}
-	.tb{background-color: white; border:1px solid; border-color: #c0c0c0;  border-radius: 25px; font-size: 15px; }
-	.input-group-addon{background-color: white}
-	.btn-edit{background-color: rgb(255, 173, 51,0.7);}
+	body {  
+		height: 100%;  
+		text-align: center;  
+		padding-top: 80px;
+		}
+	.td {
+		text-align: center; 
+		width:50%;
+		height: 30px;
+		border-bottom: 1px solid; 
+		border-top: 1px solid;
+		border-color: rgb(224, 224, 224);
+		}
+	.btn-edit {
+		background-color: rgb(255, 173, 51,0.7);
+		}
+	#tendersTable {
+		background-color: rgb(247, 247, 247);
+		font-size: 15px; 
+		width: 100% ;
+		text-align: center;    
+		}  
+	#contactRef{
+		background-color: rgb(247, 247, 247);
+		padding-bottom: 40px;
+		box-sizing: border-box;
+	    padding: 10px;
+	    border: 1px solid; 
+		border-color: rgb(224, 224, 224);
+		}
 	
 	
 /* footer*/
-	.wrapper{background-color: #333; height: 40px; color : white;}      
+	.wrapper {
+		background-color: #333; 
+		height: 40px; 
+		color : white;
+		}       

@@ -1,6 +1,7 @@
 package rus.store.TenderStore.controller;
 
 
+import java.io.UnsupportedEncodingException;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,9 +15,11 @@ import com.fasterxml.jackson.annotation.JsonView;
 
 import rus.store.TenderStore.domain.AjaxResponseBody;
 import rus.store.TenderStore.domain.Tender;
+import rus.store.TenderStore.service.CommentService;
 import rus.store.TenderStore.service.ContactService;
 import rus.store.TenderStore.service.TenderService;
-
+import rus.store.TenderStore.service.impl.EncoderToUTFImpl;
+import rus.store.TenderStore.domain.Comment;
 
 	// code for add tenders from main page with form in header
 	@RestController
@@ -24,7 +27,12 @@ import rus.store.TenderStore.service.TenderService;
 		@Autowired
 		TenderService tenderService;
 		@Autowired
-		ContactService contactService;;
+		ContactService contactService;
+		@Autowired 
+		CommentService commentService;
+		@Autowired
+		EncoderToUTFImpl encoder;
+		
 		Logger log = Logger.getLogger(AjaxController.class.getName());
 		
 		
@@ -32,7 +40,7 @@ import rus.store.TenderStore.service.TenderService;
 		@JsonView(Views.Public.class)
 		@RequestMapping(value = "/addbyparser")
 		public AjaxResponseBody addTenderAjax(@RequestBody String str) {
-			
+			log.warn("YYYHAAAA");
 			// Deleting quotes that AJAX create
 			str =str.substring(1,str.length()-1);
 			
@@ -69,27 +77,23 @@ import rus.store.TenderStore.service.TenderService;
 		}
 		@JsonView(Views.Public.class)
 		@RequestMapping(value = "/editcomment")
-		public AjaxResponseBody editComment(@RequestBody String str) {
-			log.warn("YYYHAAAA");
-			// Deleting quotes that AJAX create
-			str =str.substring(1,str.length()-1);
-			
-			// Creating response
-			AjaxResponseBody result = new AjaxResponseBody();
-			
+		public void editComment(@RequestBody String str) throws UnsupportedEncodingException {
+		
+			str = encoder.encode(str);
+			log.warn(str);
+			String text = str.substring(0,str.indexOf(":::"));
+			log.warn(text);
+			int id = Integer.parseInt(str.substring(str.indexOf(":::")+3));
+			log.warn(id);
 			// Getting user details for adding owner to tender
 			UserDetails  authUser = (UserDetails ) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-			Tender tnd = new Tender();
-			tnd.setIdTenderZakupki(str);
+			Comment cmnt = commentService.getCommentById(id);
+			cmnt.setText(text);
+			cmnt.setId(id);
+			commentService.updateComment(cmnt, authUser.getUsername());
 			
 			// Adding comment
 			log.warn("Trying to add comment");
-		
-			
-			
-			// Inform AJAX that everything OK
-			result.setMsg("OK");
-			return result; 
 		}
 		
 }

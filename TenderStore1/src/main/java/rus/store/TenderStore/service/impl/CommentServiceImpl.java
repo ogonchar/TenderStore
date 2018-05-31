@@ -25,4 +25,13 @@ public class CommentServiceImpl implements CommentService{
 		commentRepository.delete(id);
 		
 	}
+	
+	public void updateComment(Comment cmnt, String owner) {
+		commentRepository.updateComment(cmnt, owner);
+	}
+	
+	public Comment getCommentById(int id) {
+		return commentRepository.getCommentById(id);
+		
+	}
 }

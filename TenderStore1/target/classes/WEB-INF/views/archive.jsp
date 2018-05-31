@@ -45,15 +45,15 @@
 				<!-- Home and add -->
 					<div class="collapse navbar-collapse" id="the-menu">
 				    	<ul class="nav navbar-nav">
-					    	<li class="active"><a href="/TenderStore/tenders/${user}">&nbsp;Home</a></li>
-				        	<li id="AddTender"><a href="/TenderStore/tenders/add"><span class="glyphicon glyphicon-plus"></span>Add tender</a></li>
-				        <!-- 	<li id="AddTenderP"><a href="/TenderStore/tenders/addByParcer"><span class="glyphicon glyphicon-plus"></span>Add tender</a></li> -->
+					    	<li class="active"><a href="/TenderStore1/tenders/${user}">&nbsp;Home</a></li>
+				        	<li id="AddTender"><a href="/TenderStore1/tenders/add"><span class="glyphicon glyphicon-plus"></span>Add tender</a></li>
+				        <!-- 	<li id="AddTenderP"><a href="/TenderStore1/tenders/addByParcer"><span class="glyphicon glyphicon-plus"></span>Add tender</a></li> -->
 				    	</ul>
 				    	
 				<!-- Log in and out -->
 				    	<ul class="nav navbar-nav navbar-right">
-				    		<li><a href="/TenderStore/registration" id="logonLink"><span class="glyphicon glyphicon-log-in"></span>&nbsp;Sign In</a></li>
-				    		<li><a href="/TenderStore/login"><span class="glyphicon glyphicon-log-in"></span>&nbsp; LogIn</a></li>
+				    		<li><a href="/TenderStore1/registration" id="logonLink"><span class="glyphicon glyphicon-log-in"></span>&nbsp;Sign In</a></li>
+				    		<li><a href="/TenderStore1/login"><span class="glyphicon glyphicon-log-in"></span>&nbsp; LogIn</a></li>
 				    		<li><a href="<c:url value="/logout" />">Logout</a></li>
 				    	</ul>
 				    	
@@ -69,11 +69,11 @@
 					<div class="btn-group col-md-12">
 				 		<button type="button" class="btn btn0-wdh btn-com"><span class="lower">Архив</span></button>
 						<button type="button" class="btn btn1-wdh " onclick = "window.open ('http://zakupki.gov.ru/epz/order/notice/ea44/view/common-info.html?regNumber=${tendersarchived.idTenderZakupki}')">${tendersarchived.idTenderZakupki}<br><span class="lower">Tender ID</span></button>
-						<button type="button" class="btn btn2-wdh" onclick = "location.href = '/TenderStore/tender/one/${tendersarchived.idTenderZakupki}'">${tendersarchived.idCompanyRecepient}<br><span class="lower">Company ID(INN)</span></button>
+						<button type="button" class="btn btn2-wdh" onclick = "location.href = '/TenderStore1/tender/one/${tendersarchived.idTenderZakupki}'">${tendersarchived.idCompanyRecepient}<br><span class="lower">Company ID(INN)</span></button>
 						<button type="button" class="btn btn3-wdh">${tendersarchived.cityOfCompany}<br><span class="lower">Company city</span></button>
 						<button type="button" class="btn btn5-wdh">${tendersarchived.price}<br><span class="lower">price</span></button>
 						<button type="button" class="btn btn6-wdh"  data-toggle="collapse" data-target="#theSection${tendersarchived.idTenderZakupki}" id="theButton">Detailed information</button>
-						<button type="button" class="btn btn0-wdh btn-edit" onclick = "location.href = '/TenderStore/tenders/updateTender?id=${tendersarchived.idTenderZakupki}'">Edit</button>
+						<button type="button" class="btn btn0-wdh btn-edit" onclick = "location.href = '/TenderStore1/tenders/updateTender?id=${tendersarchived.idTenderZakupki}'">Edit</button>
 					</div>
 				<div class="col-md-1"></div>
 					<div class="collapse col-md-10" id="theSection${tendersarchived.idTenderZakupki}">  
@@ -88,8 +88,8 @@
 							<td>${tendersarchived.dateTender}</td></tr>
 							<tr><td>Обеспечение контракта</td>
 							<td>${tendersarchived.procuringContract}</td></tr>
-							<tr><td><form method="get" action="/TenderStore/tenders/delete/${tendersarchived.idTenderZakupki}"><button class="btn btn-danger" type="submit">delete</button></form></td><br>
-							<td><form method="get" action="/TenderStore/contact/${tendersarchived.idInn}"><button class="btn btn-info" type="submit">Contact page</button></form></td><br></tr>
+							<tr><td><form method="get" action="/TenderStore1/tenders/delete/${tendersarchived.idTenderZakupki}"><button class="btn btn-danger" type="submit">delete</button></form></td><br>
+							<td><form method="get" action="/TenderStore1/contact/${tendersarchived.idInn}"><button class="btn btn-info" type="submit">Contact page</button></form></td><br></tr>
 						</table>
 					</div>
 			</c:forEach>

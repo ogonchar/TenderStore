@@ -28,15 +28,15 @@
 			<!-- Home and add -->
 				<div class="collapse navbar-collapse" id="the-menu">
 			    	<ul class="nav navbar-nav">
-				    	<li class="active"><a href="/TenderStore">&nbsp;Home</a></li>
-			        	<li id="AddTender"><a href="/TenderStore/tenders/add"><span class="glyphicon glyphicon-plus"></span>Add tender</a></li>
-			        <!-- 	<li id="AddTenderP"><a href="/TenderStore/tenders/addByParcer"><span class="glyphicon glyphicon-plus"></span>Add tender</a></li> -->
+				    	<li class="active"><a href="/TenderStore1">&nbsp;Home</a></li>
+			        	<li id="AddTender"><a href="/TenderStore1/tenders/add"><span class="glyphicon glyphicon-plus"></span>Add tender</a></li>
+			        <!-- 	<li id="AddTenderP"><a href="/TenderStore1/tenders/addByParcer"><span class="glyphicon glyphicon-plus"></span>Add tender</a></li> -->
 			    	</ul>
 			    	
 			<!-- Log in and out -->
 			    	<ul class="nav navbar-nav navbar-right">
 			    		<li><a href="#" id="logonLink"><span class="glyphicon glyphicon-log-in"></span>&nbsp;Sign In</a></li>
-			    		<li><a href="/TenderStore/login"><span class="glyphicon glyphicon-log-in"></span>&nbsp; LogIn</a></li>
+			    		<li><a href="/TenderStore1/login"><span class="glyphicon glyphicon-log-in"></span>&nbsp; LogIn</a></li>
 			    		<li><a href="#"><span class="glyphicon glyphicon-exclamation-sign"></span>&nbsp; News&nbsp;<span class="badge">4</span></a></li>
 			    		<li><a href="<c:url value="/logout" />">Logout</a></li>
 			    	</ul>

@@ -28,14 +28,14 @@
 			<!-- Home and add -->
 				<div class="collapse navbar-collapse" id="the-menu">
 			    	<ul class="nav navbar-nav">
-				    	<li class="active"><a href="/TenderStore">&nbsp;Home</a></li>
+				    	<li class="active"><a href="/TenderStore1">&nbsp;Home</a></li>
 			       
 			    	</ul>
 			    	
 			<!-- Log in and out -->
 			    	<ul class="nav navbar-nav navbar-right">
-			    		<li><a href="/TenderStore/registration" id="logonLink"><span class="glyphicon glyphicon-log-in"></span>&nbsp;Sign In</a></li>
-			    		<li><a href="/TenderStore/login"><span class="glyphicon glyphicon-log-in"></span>&nbsp; LogIn</a></li>
+			    		<li><a href="/TenderStore1/registration" id="logonLink"><span class="glyphicon glyphicon-log-in"></span>&nbsp;Sign In</a></li>
+			    		<li><a href="/TenderStore1/login"><span class="glyphicon glyphicon-log-in"></span>&nbsp; LogIn</a></li>
 			    		<li><a href="#"><span class="glyphicon glyphicon-exclamation-sign"></span>&nbsp; News&nbsp;<span class="badge">4</span></a></li>
 			    		<li><a href="<c:url value="/logout" />">Logout</a></li>
 			    	</ul>
@@ -105,5 +105,5 @@
          
       </div>
    </div>
-   <h4 align="center"> <a href="/TenderStore/registration">Registration</a></h4>
+   <h4 align="center"> <a href="/TenderStore1/registration">Registration</a></h4>
 </body>

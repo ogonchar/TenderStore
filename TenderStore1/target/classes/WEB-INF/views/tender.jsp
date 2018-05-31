@@ -6,14 +6,13 @@
 <% response.setCharacterEncoding("UTF-8"); %>
 
  <html>
-     <head>
-     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
-     <link href="<c:url value="/css/tender.css"></c:url>" rel="stylesheet" />
-     <title>${tender.idTenderZakupki}</title>
-     </head> 
-     <body>
+      <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+      <link href="<c:url value="/css/tender.css"></c:url>" rel="stylesheet" />
+      <title>${tender.idTenderZakupki}</title>
+      </head> 
+      <body>
       
         <!-- Navigation bar -->
 		<nav class="navbar navbar-default navbar-fixed-top" id ="nav1">
@@ -27,15 +26,15 @@
 			<!-- Home and add -->
 				<div class="collapse navbar-collapse" id="the-menu">
 			    	<ul class="nav navbar-nav">
-				    	<li class="active"><a href="/TenderStore/tenders/${user}">&nbsp;Home</a></li>
-			        	<li id="AddTender"><a href="/TenderStore/tenders/add"><span class="glyphicon glyphicon-plus"></span>Add tender</a></li>
+				    	<li class="active"><a href="/TenderStore1/tenders/${user}">&nbsp;Home</a></li>
+			        	<li id="AddTender"><a href="/TenderStore1/tenders/add"><span class="glyphicon glyphicon-plus"></span>Add tender</a></li>
 			     
 			    	</ul>
 			    	
 			<!-- Log in and out -->
 			    	<ul class="nav navbar-nav navbar-right">
 			    		<li><a href="#" id="logonLink"><span class="glyphicon glyphicon-log-in"></span>&nbsp;Sign In</a></li>
-			    		<li><a href="/TenderStore/login"><span class="glyphicon glyphicon-log-in"></span>&nbsp; LogIn</a></li>
+			    		<li><a href="/TenderStore1/login"><span class="glyphicon glyphicon-log-in"></span>&nbsp; LogIn</a></li>
 			    		<li><a href="<c:url value="/logout" />">Logout</a></li>
 			    	</ul>
 			    	
@@ -108,17 +107,19 @@
 			                  <td class="td"'><spring:message code="tender.idinn.mes"/></td>
 			                  <td class="td">${tender.idInn}</td>
 		                  </table>
+		                   
+		                     
 		                    
 		                      <br>
 		                        <div class="form-actions">
 		                        <input type="submit"
-		                           class="btn btn-block btn-edit" onclick = "location.href = '/TenderStore/tenders/updateTender?id=${tender.idTenderZakupki}'" value="Edit">  
+		                           class="btn btn-block btn-edit" onclick = "location.href = '/TenderStore1/tenders/updateTender?id=${tender.idTenderZakupki}'" value="Edit">  
 		                     </div>
 		                        <br>
 
 		                       <div class="form-actions">
 		                        <input type="submit"
-		                           class="btn btn-block btn-primary btn-default" onclick = "location.href = '/TenderStore/tenders/${user}'" value="Back">
+		                           class="btn btn-block btn-primary btn-default" onclick = "location.href = '/TenderStore1/tenders/${user}'" value="Back">
 		                     </div>
 		                  
     	            </div>
@@ -126,13 +127,15 @@
 	        </div>
 		</div> 
 		<div class="row col-md-3">
-			<div class = "col-md-11 col-md-offset-1">      
 		
-					<table id = tendersTable >
-					 <div colspan="2" id = "contactRef"><a href="/TenderStore/contact/${contact.idInn}">${contact.name}</a></div>
-					
-					<tr><td class="td"'>Phone</td>
-					
+			<div class="col-md-12">     
+			<a href="/TenderStore1/contact/${contact.idInn}">${contact.name}</a>
+					<table class="table table-sm">
+						
+						
+							
+			
+							<tr><td class="td"'>Phone</td>
 							<td class="td">${contact.phone}</td>
 						
 							<tr><td class="td"'>Email</td>
@@ -140,10 +143,13 @@
 			
 							<tr><td class="td"'>City</td>
 							<td class="td">${contact.city}</td> 
+					
 					</table>
+					
 				</div>  
+		                 
 		</div>
-
+	</div>
 
 			
 		<!-- Footer here -->

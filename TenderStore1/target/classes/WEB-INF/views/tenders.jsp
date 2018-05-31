@@ -33,8 +33,8 @@
 <body>  
 
 
-<form class="area">
-    <div  class="fixed " id="feedback"></div>
+<form class="area ">
+    <div  class="fixed " id="feedback">Hello World!</div>
 </form>
 <!-- Main container-->  
 	<div class = "container col-md-12"> 
@@ -53,8 +53,8 @@
 			<!-- Home and add -->
 				<div id="the-menu">
 			    	<ul class="nav navbar-nav">
-				    	<li class="active"><a href="/TenderStore">&nbsp;Home</a></li>
-			        	<li id="AddTender"><a href="/TenderStore/tenders/add"><span class="glyphicon glyphicon-plus"></span>Add tender</a></li>
+				    	<li class="active"><a href="/TenderStore1">&nbsp;Home</a></li>
+			        	<li id="AddTender"><a href="/TenderStore1/tenders/add"><span class="glyphicon glyphicon-plus"></span>Add tender</a></li>
 			      
 			    	</ul>
 			 <!-- AddByParser -->
@@ -70,8 +70,8 @@
 			<!-- Log in and out -->
 
 			    	<ul  class="nav navbar-nav navbar-right">
-			    		<li><a href="/TenderStore/registration" id="logonLink"><span class="glyphicon glyphicon-log-in"></span>&nbsp;Sign In</a></li>
-			    		<li><a href="/TenderStore/login"><span class="glyphicon glyphicon-log-in"></span>&nbsp; LogIn</a></li>
+			    		<li><a href="/TenderStore1/registration" id="logonLink"><span class="glyphicon glyphicon-log-in"></span>&nbsp;Sign In</a></li>
+			    		<li><a href="/TenderStore1/login"><span class="glyphicon glyphicon-log-in"></span>&nbsp; LogIn</a></li>
 			    		<li><a href="<c:url value="/logout" />">Logout</a></li>
 			    	</ul>
 			    	
@@ -89,13 +89,13 @@
 			<div>
 				<c:forEach items="${tendersfiling}" var="tendersfiling">  
 					<div class="btn-group col-md-12">
-						<button type="button" class="btn btn-fil"><span class="lower">Подача</span></button>
-						<button type="button" class="btn btnIdZakupki " onclick = "window.open ('http://zakupki.gov.ru/epz/order/notice/ea44/view/common-info.html?regNumber=${tendersfiling.idTenderZakupki}')">${tendersfiling.idTenderZakupki}<br><span class="lower">Tender ID</span></button>
-						<button type="button" class="btn btnName" onclick = "location.href = '/TenderStore/tender/${tendersfiling.idTenderZakupki}'">${tendersfiling.idCompanyRecepient}<br><span class="lower">Company ID(INN)</span></button>
-						<button type="button" class="btn btnCity">${tendersfiling.cityOfCompany}<br><span class="lower">Company city</span></button>
-						<button type="button" class="btn btnPrice">${tendersfiling.price}<br><span class="lower">price</span></button>
-						<button type="button" class="btn btnInf"  data-toggle="collapse" data-target="#theSection${tendersfiling.idTenderZakupki}" id="theButton">Detailed information</button>
-						<button type="button" class="btn btnEdit" onclick = "location.href = '/TenderStore/tenders/updateTender?id=${tendersfiling.idTenderZakupki}'">Edit</button>
+						<button type="button" class="btn btn0-wdh btn-fil"><span class="lower">Подача</span></button>
+						<button type="button" class="btn btn1-wdh " onclick = "window.open ('http://zakupki.gov.ru/epz/order/notice/ea44/view/common-info.html?regNumber=${tendersfiling.idTenderZakupki}')">${tendersfiling.idTenderZakupki}<br><span class="lower">Tender ID</span></button>
+						<button type="button" class="btn btn2-wdh" onclick = "location.href = '/TenderStore1/tender/${tendersfiling.idTenderZakupki}'">${tendersfiling.idCompanyRecepient}<br><span class="lower">Company ID(INN)</span></button>
+						<button type="button" class="btn btn3-wdh">${tendersfiling.cityOfCompany}<br><span class="lower">Company city</span></button>
+						<button type="button" class="btn btn5-wdh">${tendersfiling.price}<br><span class="lower">price</span></button>
+						<button type="button" class="btn btn6-wdh"  data-toggle="collapse" data-target="#theSection${tendersfiling.idTenderZakupki}" id="theButton">Detailed information</button>
+						<button type="button" class="btn btn0-wdh btn-edit" onclick = "location.href = '/TenderStore1/tenders/updateTender?id=${tendersfiling.idTenderZakupki}'">Edit</button>
 					</div>
 						<div class="col-md-1"></div>
 					<div class="collapse col-md-10 " id="theSection${tendersfiling.idTenderZakupki}">
@@ -112,21 +112,21 @@
 							<td>${tendersfiling.dateTender}</td></tr>
 							<tr><td>Обеспечение контракта</td>
 							<td>${tendersfiling.procuringContract}</td></tr>
-							<tr><td><form method="get" action="/TenderStore/tenders/delete/${tendersfiling.idTenderZakupki}"><button class="btn btn-danger" type="submit">delete</button></form></td><br>
-							<td><form method="get" action="/TenderStore/contact/${tendersfiling.idInn}"><button class="btn btn-info" type="submit">Contact page</button></form></td><br></tr>
+							<tr><td><form method="get" action="/TenderStore1/tenders/delete/${tendersfiling.idTenderZakupki}"><button class="btn btn-danger" type="submit">delete</button></form></td><br>
+							<td><form method="get" action="/TenderStore1/contact/${tendersfiling.idInn}"><button class="btn btn-info" type="submit">Contact page</button></form></td><br></tr>
 						</table>
 					</div>
 			</c:forEach> 
 			<p class="divider">.</p>
 				<c:forEach items="${tendersconsideration}" var="tendersconsideration">
 					<div class="btn-group col-md-12">
-						<button type="button" class="btn btn-con"><span class="lower">Рассмотрение</span></button>
-						<button type="button" class="btn btnIdZakupki" onclick = "window.open ('http://zakupki.gov.ru/epz/order/notice/ea44/view/common-info.html?regNumber=${tendersconsideration.idTenderZakupki}')">${tendersconsideration.idTenderZakupki}<br><span class="lower">Tender ID</span></button>
-						<button type="button" class="btn btnName" onclick = "location.href = '/TenderStore/tender/${tendersconsideration.idTenderZakupki}'">${tendersconsideration.idCompanyRecepient}<br><span class="lower">Company ID(INN)</span></button>
-						<button type="button" class="btn btnCity">${tendersconsideration.cityOfCompany}<br><span class="lower">Company city</span></button>
-						<button type="button" class="btn btnPrice">${tendersconsideration.price}<br><span class="lower">price</span></button>
-						<button type="button" class="btn btnInf"  data-toggle="collapse" data-target="#theSection${tendersconsideration.idTenderZakupki}" id="theButton">Detailed information</button>   
-						<button type="button" class="btn btnEdit" onclick = "location.href = '/TenderStore/tenders/updateTender?id=${tendersconsideration.idTenderZakupki}'">Edit</button>
+						<button type="button" class="btn btn0-wdh btn-con"><span class="lower">Рассмотрение</span></button>
+						<button type="button" class="btn btn1-wdh " onclick = "window.open ('http://zakupki.gov.ru/epz/order/notice/ea44/view/common-info.html?regNumber=${tendersconsideration.idTenderZakupki}')">${tendersconsideration.idTenderZakupki}<br><span class="lower">Tender ID</span></button>
+						<button type="button" class="btn btn2-wdh" onclick = "location.href = '/TenderStore1/tender/${tendersconsideration.idTenderZakupki}'">${tendersconsideration.idCompanyRecepient}<br><span class="lower">Company ID(INN)</span></button>
+						<button type="button" class="btn btn3-wdh">${tendersconsideration.cityOfCompany}<br><span class="lower">Company city</span></button>
+						<button type="button" class="btn btn5-wdh">${tendersconsideration.price}<br><span class="lower">price</span></button>
+						<button type="button" class="btn btn6-wdh"  data-toggle="collapse" data-target="#theSection${tendersconsideration.idTenderZakupki}" id="theButton">Detailed information</button>   
+						<button type="button" class="btn btn0-wdh btn-edit" onclick = "location.href = '/TenderStore1/tenders/updateTender?id=${tendersconsideration.idTenderZakupki}'">Edit</button>
 						
 						
 					</div>
@@ -146,8 +146,8 @@
 							<td>${tendersconsideration.dateTender}</td></tr>
 							<tr><td>Обеспечение контракта</td>
 							<td>${tendersconsideration.procuringContract}</td></tr>
-							<tr><td><form method="get" action="/TenderStore/tenders/delete/${tendersconsideration.idTenderZakupki}"><button class="btn btn-danger" type="submit">delete</button></form></td><br>
-							<td><form method="get" action="/TenderStore/contact/${tendersconsideration.idInn}"><button class="btn btn-info" type="submit">Contact page</button></form></td><br></tr>
+							<tr><td><form method="get" action="/TenderStore1/tenders/delete/${tendersconsideration.idTenderZakupki}"><button class="btn btn-danger" type="submit">delete</button></form></td><br>
+							<td><form method="get" action="/TenderStore1/contact/${tendersconsideration.idInn}"><button class="btn btn-info" type="submit">Contact page</button></form></td><br></tr>
 						</table>
 					</table>
 					</div>
@@ -156,13 +156,13 @@
 			<p class="divider">.</p>
 				<c:forEach items="${tenderscomplited}" var="tenderscomplited">
 					<div class="btn-group col-md-12">
-				 		<button type="button" class="btn btn-com"><span class="lower">Завершенные</span></button>
-						<button type="button" class="btn btnIdZakupki" onclick = "window.open ('http://zakupki.gov.ru/epz/order/notice/ea44/view/common-info.html?regNumber=${tenderscomplited.idTenderZakupki}')">${tenderscomplited.idTenderZakupki}<br><span class="lower">Tender ID</span></button>
-						<button type="button" class="btn btnName" onclick = "location.href = '/TenderStore/tender/${tenderscomplited.idTenderZakupki}'">${tenderscomplited.idCompanyRecepient}<br><span class="lower">Company ID(INN)</span></button>
-						<button type="button" class="btn btnCity">${tenderscomplited.cityOfCompany}<br><span class="lower">Company city</span></button>
-						<button type="button" class="btn btnPrice">${tenderscomplited.price}<br><span class="lower">price</span></button>
-						<button type="button" class="btn btnInf"  data-toggle="collapse" data-target="#theSection${tenderscomplited.idTenderZakupki}" id="theButton">Detailed information</button>
-						<button type="button" class="btn btnEdit" onclick = "location.href = '/TenderStore/tenders/updateTender?id=${tenderscomplited.idTenderZakupki}'">Edit</button>
+				 		<button type="button" class="btn btn0-wdh btn-com"><span class="lower">Завершенные</span></button>
+						<button type="button" class="btn btn1-wdh " onclick = "window.open ('http://zakupki.gov.ru/epz/order/notice/ea44/view/common-info.html?regNumber=${tenderscomplited.idTenderZakupki}')">${tenderscomplited.idTenderZakupki}<br><span class="lower">Tender ID</span></button>
+						<button type="button" class="btn btn2-wdh" onclick = "location.href = '/TenderStore1/tender/${tenderscomplited.idTenderZakupki}'">${tenderscomplited.idCompanyRecepient}<br><span class="lower">Company ID(INN)</span></button>
+						<button type="button" class="btn btn3-wdh">${tenderscomplited.cityOfCompany}<br><span class="lower">Company city</span></button>
+						<button type="button" class="btn btn5-wdh">${tenderscomplited.price}<br><span class="lower">price</span></button>
+						<button type="button" class="btn btn6-wdh"  data-toggle="collapse" data-target="#theSection${tenderscomplited.idTenderZakupki}" id="theButton">Detailed information</button>
+						<button type="button" class="btn btn0-wdh btn-edit" onclick = "location.href = '/TenderStore1/tenders/updateTender?id=${tenderscomplited.idTenderZakupki}'">Edit</button>
 					</div>
 				<div class="col-md-1"></div>
 					<div class="collapse col-md-10" id="theSection${tenderscomplited.idTenderZakupki}">
@@ -179,8 +179,8 @@
 							<td>${tenderscomplited.dateTender}</td></tr>
 							<tr><td>Обеспечение контракта</td>
 							<td>${tenderscomplited.procuringContract}</td></tr>
-							<tr><td><form method="get" action="/TenderStore/tenders/delete/${tenderscomplited.idTenderZakupki}"><button class="btn btn-danger" type="submit">delete</button></form></td><br>
-							<td><form method="get" action="/TenderStore/contact/${tenderscomplited.idInn}"><button class="btn btn-info" type="submit">Contact page</button></form></td><br></tr>
+							<tr><td><form method="get" action="/TenderStore1/tenders/delete/${tenderscomplited.idTenderZakupki}"><button class="btn btn-danger" type="submit">delete</button></form></td><br>
+							<td><form method="get" action="/TenderStore1/contact/${tenderscomplited.idInn}"><button class="btn btn-info" type="submit">Contact page</button></form></td><br></tr>
 						</table>
 					</div>
 			</c:forEach>
@@ -192,7 +192,7 @@
 	<!-- Footer here --> 
 		<div class = " wrapper navbar-fixed-bottom">
 		<div> 
-			<form method="get" action="/TenderStore/archive/${user}"><button class="btn btn-lg btn-block" type="submit">Archive</button></form>
+			<form method="get" action="/TenderStore1/archive/${user}"><button class="btn btn-lg btn-block" type="submit">Archive</button></form>
 			</div>
 			<div class = "wrapper col-md-6">
 			@Oleg Gonchar
@@ -205,28 +205,7 @@
 			
 	<!-- Scripts -->
 		
-			<script> 
-			/* $(document).ready(function(){
-				alert("sdvsdvsdvsd");
-				setTimeoutConst = setTimeout(function(){
-					alert("sdvsdvsdvsd")},2000);
-			}); */
-			
-			
-			
-			$( ".btnIdZakupki" ).hover(function() {
-				var th = $(this);
-				setTimeoutConst = setTimeout(function(){
-					th.prepend('<form class="popup">Link to tender page on Zakupki.gov</form>');
-					   $('.popup').css('display','block');
-			  }, 1000);
-				
-			}).mouseout(function(){
-				  clearTimeout(setTimeoutConst );
-				  setTimeoutConst2 = setTimeout(function(){
-				    	 $('.popup').remove();
-				  },500);
-				});
+			<script>
 			
 			jQuery(document).ready(function($) {
 				$("#search-form").submit(function(event) {
@@ -286,4 +265,4 @@
 
 	
 	</body>
-</html> 
+</html>
