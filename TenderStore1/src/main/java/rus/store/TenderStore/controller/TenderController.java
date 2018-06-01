@@ -97,6 +97,7 @@ public class TenderController {
 			log.warn("In updateTender GET section");
 			Tender newTender = tenderService.getTenderById(tenderId);
 			model.addAttribute("updateTender", newTender);
+			model.addAttribute("user", getUser());
 			return "updateTender";
 		}
 		@RequestMapping(value="/tenders/updateTender", method=RequestMethod.POST)

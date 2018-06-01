@@ -23,7 +23,7 @@ public class Tender implements Serializable{
 	private static final long serialVersionUID = 1L;
 	//The # of tender according to zakupki.gov
 	@Id
-	@Pattern(regexp="\\d{19}", message="{reg.Product.ID.Validation}")
+	@Pattern(regexp="\\d{19}", message="{reg.Tender.ID.Validation}")
 	@Column(name="ID")
 	private String idTenderZakupki;
 	@Column(name="IDCOMPANYRECEPIENT")

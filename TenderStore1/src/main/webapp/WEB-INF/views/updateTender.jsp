@@ -35,7 +35,7 @@
 			<!-- Home and add -->
 				<div class="collapse navbar-collapse" id="the-menu">
 			    	<ul class="nav navbar-nav">
-				    	<li class="active"><a href="/TenderStore/tenders/${user}'">&nbsp;Home</a></li>
+				    	<li class="active"><a href="/TenderStore/tenders/${user}">&nbsp;Home</a></li>
 			        	<li id="AddTender"><a href="/TenderStore/tenders/add"><span class="glyphicon glyphicon-plus"></span>Add tender</a></li>
 			    	</ul>
 			    	
@@ -51,118 +51,111 @@
 		
 	<!-- End of navigation -->
 	
-	<!-- Edit Section -->
-     <div class="container">
-      <div class="row">
-         <div class="col-md-10 col-md-offset-1">
-            <div class="panel panel-default">
-               <div class="panel-heading">
+	<!-- Edit Section --> <div class="container">
+   		
+   			  <div class="mainDiv shadow">    
+   			  <div class="marg">
 		            <form:form  method="POST" modelAttribute="updateTender" class="form-horizontal">
 		               <fieldset>
-		                  <legend>Edit tender</legend>  
+		                  <legend><spring:message code="header.edit.mes"/></legend>  
 		                  
 		                  <!-- Name of company -->
-		                 <div class="input-group input-md">
-		                   <label class="input-group-addon" for="idCompanyRecepient"><spring:message code="tender.idCompanyRecepient.mes"/></label>
-		                     <div class="input-group-addon">
-		                        <form:input id="idCompanyRecepient" path="idCompanyRecepient" type="text" class="form:input-large col-lg-8" style="line-height:30px; width:600px; "/>
-		                     </div>
-		                  </div>
+		               
+		                  <table class="tbl">
+			                  <td><spring:message code="tender.idCompanyRecepient.mes"/></td>
+			                  <td><form:input id="idCompanyRecepient" path="idCompanyRecepient" type="text" class="form-control"/></td>
+		                  </table>
 		                  <br>
 		                  
 		                  <!-- City of company -->
-		                  <div class="input-group input-md">
-		                   <label class="input-group-addon" for="cityOfCompany"><spring:message code="tender.cityOfCompany.mes"/></label>
-		                     <div class="input-group-addon">
-		                        <form:input id="cityOfCompany" path="cityOfCompany" type="text" class="form-control"/>
-		                     </div>
-		                  </div>
+		                   <table class="tbl">
+			                  <td class="td"><spring:message code="tender.cityOfCompany.mes"/></td>
+			                  <td class="td"><form:input id="cityOfCompany" path="cityOfCompany" type="text" class="form-control"/></td>
+		                  </table>
 		                  <br>
+		                 
 		                  
 		                  <!-- Price of tender  -->
-		                    <div class="input-group input-md">
-		                   <label class="input-group-addon" for="price"><spring:message code="tender.price.mes"/></label>
-		                     <div class="input-group-addon">
-		                        <form:input id="price" path="price" type="text" class="form-control"/>
-		                     </div>
-		                  </div>
+		                   <table class="tbl">
+			                  <td class="td"><spring:message code="tender.price.mes"/></td>
+			                  <td class="td"><form:input id="price" path="price" type="text" class="form-control"/></td>
+		                  </table>
 		                  <br>
 		                  
 		                  <!-- Deposit on participation -->
-		                  <div class="input-group input-md">
-		                  <label class="input-group-addon" for="procuring"><spring:message code="tender.procuring.mes"/></label>
-		                     <div class="input-group-addon">
-		                        <form:input id="procuring" path="procuring" type="text" class="form-control"/>
-		                     </div>
-		                     </div>
-		                     <br>
+		                  <table class="tbl">
+			                  <td class="td"><spring:message code="tender.procuring.mes"/></td>
+			                  <td class="td"><form:input id="procuring" path="procuring" type="text" class="form-control"/></td>
+		                  </table>
+		                  <br>
 		                     
 		                   <!-- Stage of tender -->
-		                   <div class="form-group">
-		                     <label class="input-group-addon" for="tenderStage"><spring:message code="tender.tenderstage.mes"/></label>
-		                     <div class="input-group-addon">
-		                        <form:radiobutton path="tenderStage" value="filing" />filing
-		                        <form:radiobutton path="tenderStage" value="consideration" />consideration
-		                        <form:radiobutton path="tenderStage" value="complited" />complited
-		                        <form:radiobutton path="tenderStage" value="archived" />archived
-		                     </div>
-		                  </div>
-		                 <br>
+		                   <table class="tbl">
+			                  <td class="td"'><spring:message code="tender.tenderstage.mes"/></td>
+			                  
+		                       <td class="td">
+		                       <form:radiobutton path="tenderStage" value="filing" /><spring:message code="stages.filling.mes"/>
+		                       <form:radiobutton path="tenderStage" value="consideration" /><spring:message code="stages.consideration.mes"/>
+		                       <form:radiobutton path="tenderStage" value="complited" /><spring:message code="stages.complited.mes"/>
+		                       <form:radiobutton path="tenderStage" value="archived" /><spring:message code="stages.archived.mes"/>
+		                   
+		                  </table>
+		                  <br>
 		                 
 		                 <!-- Site of tender procedure -->
-		                 <div class="input-group input-md">
-		                  <label class="input-group-addon" for="site"><spring:message code="tender.site.mes"/></label>
-		                     <div class="input-group-addon">
-		                        <form:input id="site" path="site" type="text" class="form-control"/>
-		                     </div>
-		                     </div>
-		                     <br>
-		                   
-		                     <div class="input-group input-md">
-						         <form:label cssClass="control-label" path="dateTo">Last day for participation</form:label>
-      							  <div class="controls">
-						     <form:input path="dateTo" cssClass="form-control" placeholder="${updateTender.dateTo}" />
-						      </div>
-						      </div>
-						      <br>
-						       <div class="input-group input-md">
-						         <form:label cssClass="control-label" path="dateTender">Day of procedure</form:label>
-      							  <div class="controls">
+		                 <table class="tbl">
+			                  <td class="td"'><spring:message code="tender.site.mes"/></td>
+			                  <td class="td"><form:input id="site" path="site" type="text" class="form-control"/></td>
+		                  </table>
+		                  <br>
+		                 
+		                  <!-- Dates -->
+		                   <table class="tbl">
+			                  <td class="td ">
+			                  <div class="dateInput">
+						         <form:label cssClass="control-label" path="dateTo"><spring:message code="tender.date.mes"/></form:label>
+						     <form:input class= "dateInput" path="dateTo" cssClass="form-control" placeholder="${updateTender.dateTo}" />
+						     </div>
+						      </td>
+			                  <td class="td">
+			                   <div class="dateInput">
+						         <form:label cssClass="control-label" path="dateTender"><spring:message code="tender.dateTender.mes"/></form:label>
 						     <form:input path="dateTender" cssClass="form-control" placeholder="${updateTender.dateTender}" /> 
-						      </div>
-						      </div>
-						      <br>
-		                     <div class="input-group input-md">
-		                  <label class="input-group-addon" for="procuringContract"><spring:message code="tender.procuringContract.mes"/></label>
-		                     <div class="input-group-addon">
-		                        <form:input id="procuringContract" path="procuringContract" type="text" class="form-control"/>
-		                     </div>
-		                     </div>
+						     </div>
+						     </td>
+						     
+		                  </table>
+		                  <br><br><br> 
+		                  
+		                   <!-- Procuring tender -->
+		                     <table class="tbl">
+			                  <td class="td"><spring:message code="tender.procuringContract.mes"/></td>
+			                  <td class="td"><form:input id="procuringContract" path="procuringContract" type="text" class="form-control"/></td>
+		                  </table>
+		                  <br>
+		                  
+		                  <!-- INN -->
+		                  <table class="tbl">
+			                  <td class="td"><spring:message code="tender.idinn.mes"/></td>
+			                  <td class="td"><form:input id="idInn" path="idInn" type="text" class="form-control"/></td>
+		                  </table>
 		                     <br>
-		                  <div class="input-group input-md">
-		                  <label class="input-group-addon" for="idInn"><spring:message code="tender.idinn.mes"/></label>
-		                     <div class="input-group-addon">
-		                        <form:input id="idInn" path="idInn" type="text" class="form-control"/>
-		                     </div>
-		                     </div>
 		                     <br>
-		                     <br>
-		                     <br>
+		                     
+		                     <!-- Buttons -->
 		                       <div class="form-actions">
-		                        <input type="submit" class="btn btn-block btn-primary btn-default" value="Submit">
+		                        <input type="submit" class="bt btnSubmit" value="<spring:message code="bottons.submit.mes"/>">
 		                     </div>
 		                     <br>
 		                    <div class="form-actions">
 		                        <input type="submit"
-		                           class="btn btn-block btn-primary btn-danger" onclick = "location.href = '/TenderStore/tenders/${user}" value="Back">
+		                           class="bt btnBack" onclick = "location.href = '/TenderStore/tenders/${user}" value="<spring:message code="bottons.tenders.mes"/>"> 
 		                     </div>
         			       </fieldset>
                			</form:form>
-    	            </div>
+    	            </div> 
                 </div>
-	        </div>
-		</div>
-    </div>   
+                </div>
          <!-- End of Edit section -->
          
          <!-- Footer here -->

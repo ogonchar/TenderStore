@@ -2,6 +2,7 @@ package rus.store.TenderStore.controller;
 
 
 import java.io.UnsupportedEncodingException;
+import java.util.List;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,7 +41,6 @@ import rus.store.TenderStore.domain.Comment;
 		@JsonView(Views.Public.class)
 		@RequestMapping(value = "/addbyparser")
 		public AjaxResponseBody addTenderAjax(@RequestBody String str) {
-			log.warn("YYYHAAAA");
 			// Deleting quotes that AJAX create
 			str =str.substring(1,str.length()-1);
 			
@@ -94,6 +94,13 @@ import rus.store.TenderStore.domain.Comment;
 			
 			// Adding comment
 			log.warn("Trying to add comment");
+		}
+		@JsonView(Views.Public.class)
+		@RequestMapping(value = "/getFilteredTenders")
+		public void getFilteredTenders(@RequestBody String str){
+			log.warn("get smf" + str);
+		
+			
 		}
 		
 }

@@ -24,7 +24,7 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 <!-- End of links -->
  
 
@@ -60,7 +60,7 @@
 			 <!-- AddByParser -->
 			    	<form class="col-md-4 form-horizontal" id="search-form">
 			    	<div class="input-group ">
-						  <input type="text" class="form-control" placeholder="Add tender by parser" id="keyword">
+						  <input type="text" class="form-control" placeholder="Добавить аукцион по номеру на Zkupki.gov.ru" id="keyword">
 						  <div class="input-group-btn">
 						   <button type="submit" id="bth-search" class="btn btn-primary">add</button>
 						  </div>
@@ -79,109 +79,155 @@
 				</div>  
 			</div>
 		</nav>  
-		</div>
+		</div> 
 	<!-- End of navigation -->
+	
 	  
+	<!-- Filters section -->
+	<button type="button" id="filtersToggle" data-toggle="collapse" data-target="#filterSection"><spring:message code="filters.filters.mes"/></button>
+	<table id= "filterSection">
+		<tr>
+			<td class="tdFilters"> <!-- Filter for stage -->
+				<div class="divFilters">
+					<div class="btn-group" role="group" aria-label="..."> 
+				         <div class="btn-group">
+				            <button class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-th-list"> Stage</span> <span class="caret"></span></button>
+				            <ul class="dropdown-menu">
+				               <li>
+				                   <a href="#">Link 2</a>
+				               </li>
+				               <li>
+				                   <label class="dropdown-menu-item checkbox">
+				                       <input type="checkbox" class="stageCheckbox" value='filling'/>
+				                       <span class="glyphicon glyphicon-unchecked"></span>
+				                       <spring:message code="stages.filling.mes"/>
+				                   </label>
+				               </li>
+				               <li>
+				                   <label class="dropdown-menu-item checkbox">
+				                       <input type="checkbox" class="stageCheckbox" value='consideration'/>
+				                       <span class="glyphicon glyphicon-unchecked"></span>
+				                       <spring:message code="stages.consideration.mes"/>
+				                   </label>
+				               </li>
+				               <li>
+				                   <label class="dropdown-menu-item checkbox">
+				                       <input type="checkbox" class="stageCheckbox" value='complited'/>
+				                       <span class="glyphicon glyphicon-unchecked"></span>
+				                       <spring:message code="stages.complited.mes"/>
+				                   </label>
+				               </li> 
+				               <li role="separator" class="divider"></li>
+				                <button id="btnStageConfim" class="btn btn-link dropdown-menu-item">
+                   				    <spring:message code="filters.submit.mes"/>
+                			   </button>
+				            </ul>
+				         </div>
+				      </div>
+				</div>
+			</td>
+		</tr>
+	</table>
+
+	<!-- End of filters -->
    
 	<!-- Tenders information blocks -->   
 
 			
 			<div>
-				<c:forEach items="${tendersfiling}" var="tendersfiling">  
-					<div class="btn-group col-md-12">
-						<button type="button" class="btn btn-fil"><span class="lower">Подача</span></button>
-						<button type="button" class="btn btnIdZakupki " onclick = "window.open ('http://zakupki.gov.ru/epz/order/notice/ea44/view/common-info.html?regNumber=${tendersfiling.idTenderZakupki}')">${tendersfiling.idTenderZakupki}<br><span class="lower">Tender ID</span></button>
-						<button type="button" class="btn btnName" onclick = "location.href = '/TenderStore/tender/${tendersfiling.idTenderZakupki}'">${tendersfiling.idCompanyRecepient}<br><span class="lower">Company ID(INN)</span></button>
-						<button type="button" class="btn btnCity">${tendersfiling.cityOfCompany}<br><span class="lower">Company city</span></button>
-						<button type="button" class="btn btnPrice">${tendersfiling.price}<br><span class="lower">price</span></button>
-						<button type="button" class="btn btnInf"  data-toggle="collapse" data-target="#theSection${tendersfiling.idTenderZakupki}" id="theButton">Detailed information</button>
-						<button type="button" class="btn btnEdit" onclick = "location.href = '/TenderStore/tenders/updateTender?id=${tendersfiling.idTenderZakupki}'">Edit</button>
+				<c:forEach items="${tendersfiling}" var="tendersfiling">   
+					<div class="col-md-12 btn-group">
+<!-- Stage btn -->		<button type="button" class="btn btn-fil"><span class="lower">Подача</span></button>
+<!-- ID of tender -->	<button type="button" class="btn btnIdZakupki " data-track='hover' onclick = "window.open ('http://zakupki.gov.ru/epz/order/notice/ea44/view/common-info.html?regNumber=${tendersfiling.idTenderZakupki}')"><form class="popup">Ссылка на Zakupki.gov</form>${tendersfiling.idTenderZakupki}<br><span class="lower"><spring:message code="mainPage.tenderId.mes"/></span></button>
+<!-- Name -->			<button type="button" class="btn btnName" onclick = "location.href = '/TenderStore/tender/${tendersfiling.idTenderZakupki}'"><div class ="overflow">${tendersfiling.idCompanyRecepient}<br><form class="popup">Страница аукциона</form><span class="lower"><spring:message code="mainPage.company.mes"/></span></div></button>
+<!-- City -->			<button type="button" class="btn btnCity">${tendersfiling.cityOfCompany}<br><span class="lower"><spring:message code="mainPage.city.mes"/></span></button>
+<!-- Price -->			<button type="button" class="btn btnPrice">${tendersfiling.price}<br><span class="lower"><spring:message code="mainPage.price.mes"/></span></button>
+<!-- Info -->			<button type="button" class="btn btnInf"  data-toggle="collapse" data-target="#theSection${tendersfiling.idTenderZakupki}" id="theButton"><spring:message code="mainPage.detailedInframtion.mes"/></button>
+<!-- Edit -->			<button type="button" class="btn btnEdit" onclick = "location.href = '/TenderStore/tenders/updateTender?id=${tendersfiling.idTenderZakupki}'">Edit</button>
 					</div>
 						<div class="col-md-1"></div>
-					<div class="collapse col-md-10 " id="theSection${tendersfiling.idTenderZakupki}">
-						<table class ="table table-striped table-bordered">
-							<tr><td>Объект закупки</td>
-							<td>${tendersfiling.objectOfPurchase}</td></tr>
-							<tr><td>Obespechenie</td>
-							<td>${tendersfiling.procuring}</td></tr>
-							<tr><td>Сайт</td>
-							<td>${tendersfiling.site}</td></tr>
-							<tr><td>Окончание подачи заявок</td>
-							<td>${tendersfiling.dateTo}</td></tr>   
-							<tr><td>Дата аукциона</td>
-							<td>${tendersfiling.dateTender}</td></tr>
-							<tr><td>Обеспечение контракта</td>
-							<td>${tendersfiling.procuringContract}</td></tr>
-							<tr><td><form method="get" action="/TenderStore/tenders/delete/${tendersfiling.idTenderZakupki}"><button class="btn btn-danger" type="submit">delete</button></form></td><br>
-							<td><form method="get" action="/TenderStore/contact/${tendersfiling.idInn}"><button class="btn btn-info" type="submit">Contact page</button></form></td><br></tr>
+					<div class="collapse" id="theSection${tendersfiling.idTenderZakupki}"><!-- Sliding table -->
+						<div class="col-md-12 btn-group">
+						<table class ="tbl table-striped">
+							<tr><td class = "td">Объект закупки</td>
+							<td class = "td">${tendersfiling.objectOfPurchase}</td></tr>
+							<tr><td class = "td">Obespechenie</td>
+							<td class = "td">${tendersfiling.procuring}</td></tr>
+							<tr><td class = "td">Сайт</td>
+							<td class = "td">${tendersfiling.site}</td></tr>
+							<tr><td class = "td">Окончание подачи заявок</td>
+							<td class = "td">${tendersfiling.dateTo}</td></tr>   
+							<tr><td class = "td">Дата аукциона</td>
+							<td class = "td">${tendersfiling.dateTender}</td></tr>
+							<tr><td class = "td">Обеспечение контракта</td>
+							<td class = "td">${tendersfiling.procuringContract}</td></tr>
 						</table>
+						</div>
 					</div>
 			</c:forEach> 
 			<p class="divider">.</p>
 				<c:forEach items="${tendersconsideration}" var="tendersconsideration">
-					<div class="btn-group col-md-12">
+					<div class="col-md-12 btn-group">
 						<button type="button" class="btn btn-con"><span class="lower">Рассмотрение</span></button>
-						<button type="button" class="btn btnIdZakupki" onclick = "window.open ('http://zakupki.gov.ru/epz/order/notice/ea44/view/common-info.html?regNumber=${tendersconsideration.idTenderZakupki}')">${tendersconsideration.idTenderZakupki}<br><span class="lower">Tender ID</span></button>
-						<button type="button" class="btn btnName" onclick = "location.href = '/TenderStore/tender/${tendersconsideration.idTenderZakupki}'">${tendersconsideration.idCompanyRecepient}<br><span class="lower">Company ID(INN)</span></button>
-						<button type="button" class="btn btnCity">${tendersconsideration.cityOfCompany}<br><span class="lower">Company city</span></button>
-						<button type="button" class="btn btnPrice">${tendersconsideration.price}<br><span class="lower">price</span></button>
-						<button type="button" class="btn btnInf"  data-toggle="collapse" data-target="#theSection${tendersconsideration.idTenderZakupki}" id="theButton">Detailed information</button>   
+						<button type="button" class="btn btnIdZakupki " data-track='hover' onclick = "window.open ('http://zakupki.gov.ru/epz/order/notice/ea44/view/common-info.html?regNumber=${tendersconsideration.idTenderZakupki}')"><form class="popup">Ссылка на Zakupki.gov</form>${tendersconsideration.idTenderZakupki}<br><span class="lower"><spring:message code="mainPage.tenderId.mes"/></span></button>
+						<button type="button" class="btn btnName" onclick = "location.href = '/TenderStore/tender/${tendersconsideration.idTenderZakupki}'"><div class ="overflow">${tendersconsideration.idCompanyRecepient}<br><form class="popup">Страница аукциона</form><span class="lower"><spring:message code="mainPage.company.mes"/></span></div></button>
+						<button type="button" class="btn btnCity">${tendersconsideration.cityOfCompany}<br><span class="lower"><spring:message code="mainPage.city.mes"/></span></button>
+						<button type="button" class="btn btnPrice">${tendersconsideration.price}<br><span class="lower"><spring:message code="mainPage.price.mes"/></span></button>
+						<button type="button" class="btn btnInf"  data-toggle="collapse" data-target="#theSection${tendersconsideration.idTenderZakupki}" id="theButton"><spring:message code="mainPage.detailedInframtion.mes"/></button>
 						<button type="button" class="btn btnEdit" onclick = "location.href = '/TenderStore/tenders/updateTender?id=${tendersconsideration.idTenderZakupki}'">Edit</button>
-						
-						
 					</div>
 						<div class="col-md-1"></div>
-				<div class="collapse col-md-10" id="theSection${tendersconsideration.idTenderZakupki}">	    
-				<table class ="table">
-					<table class ="table table-striped table-bordered">  
-							<tr><td>Объект закупки</td>
-							<td>${tendersconsideration.objectOfPurchase}</td></tr>
-							<tr><td>Obespechenie</td>
-							<td>${tendersconsideration.procuring}</td></tr>
-							<tr><td>Сайт</td>
-							<td>${tendersconsideration.site}</td></tr>
-							<tr><td>Окончание подачи заявок</td>
-							<td>${tendersconsideration.dateTo}</td></tr>
-							<tr><td>Дата аукциона</td>
-							<td>${tendersconsideration.dateTender}</td></tr>
-							<tr><td>Обеспечение контракта</td>
-							<td>${tendersconsideration.procuringContract}</td></tr>
-							<tr><td><form method="get" action="/TenderStore/tenders/delete/${tendersconsideration.idTenderZakupki}"><button class="btn btn-danger" type="submit">delete</button></form></td><br>
-							<td><form method="get" action="/TenderStore/contact/${tendersconsideration.idInn}"><button class="btn btn-info" type="submit">Contact page</button></form></td><br></tr>
+						<div class="col-md-1"></div>
+				<div class="collapse"  id="theSection${tendersconsideration.idTenderZakupki}"><!-- Sliding table -->
+				<div class="col-md-12 btn-group">
+					<table class ="tbl table-striped">  
+							<tr><td class = "td">Объект закупки</td>
+							<td class = "td">${tendersconsideration.objectOfPurchase}</td></tr>
+							<tr><td class = "td">Obespechenie</td>
+							<td class = "td">${tendersconsideration.procuring}</td></tr>
+							<tr><td class = "td">Сайт</td>
+							<td class = "td">${tendersconsideration.site}</td></tr>
+							<tr><td class = "td">Окончание подачи заявок</td>
+							<td class = "td">${tendersconsideration.dateTo}</td></tr>
+							<tr><td class = "td">Дата аукциона</td>
+							<td class = "td">${tendersconsideration.dateTender}</td></tr>
+							<tr><td class = "td">Обеспечение контракта</td>
+							<td class = "td">${tendersconsideration.procuringContract}</td></tr>							
 						</table>
-					</table>
+					</div>
 					</div>
 			</c:forEach>
 			<br>
 			<p class="divider">.</p>
 				<c:forEach items="${tenderscomplited}" var="tenderscomplited">
 					<div class="btn-group col-md-12">
-				 		<button type="button" class="btn btn-com"><span class="lower">Завершенные</span></button>
-						<button type="button" class="btn btnIdZakupki" onclick = "window.open ('http://zakupki.gov.ru/epz/order/notice/ea44/view/common-info.html?regNumber=${tenderscomplited.idTenderZakupki}')">${tenderscomplited.idTenderZakupki}<br><span class="lower">Tender ID</span></button>
-						<button type="button" class="btn btnName" onclick = "location.href = '/TenderStore/tender/${tenderscomplited.idTenderZakupki}'">${tenderscomplited.idCompanyRecepient}<br><span class="lower">Company ID(INN)</span></button>
-						<button type="button" class="btn btnCity">${tenderscomplited.cityOfCompany}<br><span class="lower">Company city</span></button>
-						<button type="button" class="btn btnPrice">${tenderscomplited.price}<br><span class="lower">price</span></button>
-						<button type="button" class="btn btnInf"  data-toggle="collapse" data-target="#theSection${tenderscomplited.idTenderZakupki}" id="theButton">Detailed information</button>
+						<button type="button" class="btn btn-com"><span class="lower">Завершенные</span></button>
+						<button type="button" class="btn btnIdZakupki " data-track='hover' onclick = "window.open ('http://zakupki.gov.ru/epz/order/notice/ea44/view/common-info.html?regNumber=${tenderscomplited.idTenderZakupki}')"><form class="popup">Ссылка на Zakupki.gov</form>${tenderscomplited.idTenderZakupki}<br><span class="lower"><spring:message code="mainPage.tenderId.mes"/></span></button>
+						<button type="button" class="btn btnName" onclick = "location.href = '/TenderStore/tender/${tenderscomplited.idTenderZakupki}'"><div class ="overflow">${tenderscomplited.idCompanyRecepient}<br><form class="popup">Страница аукциона</form><span class="lower"><spring:message code="mainPage.company.mes"/></span></div></button>
+						<button type="button" class="btn btnCity">${tenderscomplited.cityOfCompany}<br><span class="lower"><spring:message code="mainPage.city.mes"/></span></button>
+						<button type="button" class="btn btnPrice">${tenderscomplited.price}<br><span class="lower"><spring:message code="mainPage.price.mes"/></span></button>
+						<button type="button" class="btn btnInf"  data-toggle="collapse" data-target="#theSection${tenderscomplited.idTenderZakupki}" id="theButton"><spring:message code="mainPage.detailedInframtion.mes"/></button>
 						<button type="button" class="btn btnEdit" onclick = "location.href = '/TenderStore/tenders/updateTender?id=${tenderscomplited.idTenderZakupki}'">Edit</button>
 					</div>
+					
 				<div class="col-md-1"></div>
-					<div class="collapse col-md-10" id="theSection${tenderscomplited.idTenderZakupki}">
-						<table class ="table table-striped table-bordered ">
-							<tr><td>Объект закупки</td>
-							<td>${tenderscomplited.objectOfPurchase}</td></tr>
-							<tr><td>Obespechenie</td>
-							<td>${tenderscomplited.procuring}</td></tr>
-							<tr><td>Сайт</td>
-							<td>${tenderscomplited.site}</td></tr>
-							<tr><td>Окончание подачи заявок</td>
-							<td>${tenderscomplited.dateTo}</td></tr>
-							<tr><td>Дата аукциона</td>
-							<td>${tenderscomplited.dateTender}</td></tr>
-							<tr><td>Обеспечение контракта</td>
-							<td>${tenderscomplited.procuringContract}</td></tr>
-							<tr><td><form method="get" action="/TenderStore/tenders/delete/${tenderscomplited.idTenderZakupki}"><button class="btn btn-danger" type="submit">delete</button></form></td><br>
-							<td><form method="get" action="/TenderStore/contact/${tenderscomplited.idInn}"><button class="btn btn-info" type="submit">Contact page</button></form></td><br></tr>
-						</table>
+					<div class="collapse" id="theSection${tenderscomplited.idTenderZakupki}"><!-- Sliding table -->
+						<div class="col-md-12 btn-group">
+							<table class ="tbl table-striped">
+								<tr><td class = "td">Объект закупки</td>
+								<td class = "td">${tenderscomplited.objectOfPurchase}</td></tr>
+								<tr><td class = "td">Obespechenie</td>
+								<td class = "td">${tenderscomplited.procuring}</td></tr>
+								<tr><td class = "td">Сайт</td>
+								<td class = "td">${tenderscomplited.site}</td></tr>
+								<tr><td class = "td">Окончание подачи заявок</td>
+								<td class = "td">${tenderscomplited.dateTo}</td></tr>
+								<tr><td class = "td">Дата аукциона</td>
+								<td class = "td">${tenderscomplited.dateTender}</td></tr>
+								<tr><td class = "td">Обеспечение контракта</td>
+								<td class = "td">${tenderscomplited.procuringContract}</td></tr>
+							</table>
+						</div>
 					</div>
 			</c:forEach>
 	</div>
@@ -206,29 +252,30 @@
 	<!-- Scripts -->
 		
 			<script> 
-			/* $(document).ready(function(){
-				alert("sdvsdvsdvsd");
-				setTimeoutConst = setTimeout(function(){
-					alert("sdvsdvsdvsd")},2000);
-			}); */
 			
-			
-			
-			$( ".btnIdZakupki" ).hover(function() {
-				var th = $(this);
-				setTimeoutConst = setTimeout(function(){
-					th.prepend('<form class="popup">Link to tender page on Zakupki.gov</form>');
-					   $('.popup').css('display','block');
-			  }, 1000);
+			/* Function for showing pop up advices on element */
+			$(".btn").on("mouseenter",function(e){
+				e.stopPropagation();
+				var $elem = $(this);
 				
-			}).mouseout(function(){
-				  clearTimeout(setTimeoutConst );
-				  setTimeoutConst2 = setTimeout(function(){
-				    	 $('.popup').remove();
-				  },500);
+				  $elem.attr("data-hover",true);
+				  window.setTimeout(function() {
+				    if ($elem.attr("data-hover")) {
+				    	$elem.find('form').slideDown();
+				    }
+				  }, 2000);
+				}).on("mouseout",function(e){
+				e.stopPropagation();
+				 window.setTimeout(function() {
+					 $('.popup').slideUp();
+				 }, 200);
 				});
+			/*  */
 			
+			
+			/* Ajax call for adding tender */
 			jQuery(document).ready(function($) {
+				
 				$("#search-form").submit(function(event) {
 					// Disble the search button
 					enableSearchButton(false);
@@ -236,9 +283,7 @@
 					event.preventDefault();
 					addViaAjax();
 				});
-		
 			});
-		
 			function addViaAjax() {
 				var id;
 				id = $("#keyword").val();
@@ -255,19 +300,20 @@
 							
 						}else
 							display(data);
-						
 					},
 					error : function(e) {
 						console.log("ERROR: ", e);
 						display(e);
 					},
 				});
-				 
 			}
-			
 			function enableSearchButton(flag) {
 				$("#btn-search").prop("disabled", flag);  
 			}  
+			/*  */
+			
+			
+			/* Function to show warning on incorrect tender id insertions */
 			function display(data) {
 				$('#feedback').hide();
 				var json = JSON.stringify(data, null, 4);
@@ -276,6 +322,53 @@
 				var df = json.substring(one, two);
 				$('#feedback').html("<h4 style=''>"+ df + "</h4>").toggle().delay(2000).fadeOut();
 			}
+			/*  */
+			
+			/* Dropdown list for filters */
+			$(function(){
+			    $( '.dropdown-menu li' ).on( 'click', function( event ) {
+			        var $checkbox = $(this).find('.checkbox');
+			        if (!$checkbox.length) {
+			            return;
+			        }
+			        var $input = $checkbox.find('input');
+			        var $icon = $checkbox.find('span.glyphicon');
+			        if ($input.is(':checked')) {
+			            $input.prop('checked',false);
+			            $icon.removeClass('glyphicon-check').addClass('glyphicon-unchecked')
+			        } else {
+			            $input.prop('checked',true);
+			            $icon.removeClass('glyphicon-unchecked').addClass('glyphicon-check')
+			        }
+			        return false;
+			    }); 
+			});
+			
+			/* Filters */
+				$(function(){
+					$('#btnStageConfim').on('click', function(e){
+					var stageValues = [];
+						$('.stageCheckbox:checked').each(function() {
+							stageValues.push($(this).val());
+						})
+						var text = stageValues.join();
+						alert(text);
+						$.ajax({ 
+							type : "POST",
+							contentType: "text/plain",
+							url : "${home}getFilteredTenders",
+							datatype : "text",
+							data : text,  
+							success : function(data) {  
+							},
+							error : function(e) {
+								alert('error');  
+							},
+						});
+					});
+				});	
+				 
+			/*  */
 			
 		</script>
 

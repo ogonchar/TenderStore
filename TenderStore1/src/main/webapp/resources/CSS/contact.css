@@ -24,7 +24,51 @@
 		text-align: center;  
 		padding-top: 80px;
 		}
+	.mainDiv{
+		border: 1px solid; 
+		border-color: rgb(220, 220, 220);
+		border-radius: 7px;
+		width:70%;
+		margin-left:5%;
+		background-color: rgb(92, 86, 160,0.03);
+		float: left;
+		
+	}
+	.shadow{
+		-moz-box-shadow: 5px 5px 5px rgb(224, 224, 224);
+		-webkit-box-shadow: 5px 5px 5px rgb(224, 224, 224);
+		box-shadow: 5px 5px 5px rgb(224, 224, 224);
+		}
+	.marg{
+		margin: 4%;
+		}
+	.tbl{
+		width: 100%;
+		background-color: white; 
+		}
+	.paddingTop{
+		margin-top: 5%;
+		}
+	.divTenders{
+		width:20%; 
+		float: left;
+		margin-left:2%;
+		background-color: rgb(247, 247, 247);
+		border: 1px solid; 
+		border-color: rgb(220, 220, 220);
+		border-radius: 7px;
+		}
 	
+	.td {
+		text-align: center; 
+		width:50%;
+		height: 30px;
+		border-bottom: 1px solid; 
+		border-top: 1px solid;
+		border-color: rgb(224, 224, 224);  
+		margin:25%;
+		background-color: white; 
+		}
 	.input-group-addon {
 		background-color: white
 		}

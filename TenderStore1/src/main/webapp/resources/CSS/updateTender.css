@@ -2,16 +2,91 @@
 
 <!-- Navigation -->
 
-	.navbar-fixed-bottom{background-color: #333; }
-	#nav1{background-image: none;}  
-	#AddTender{background-color: rgba(30,75,39,0.5); color: white;}
-	#new{word-break: break-all;}
-	#search-form{padding-top:9px; margin-left:25%;}
+	.navbar-fixed-bottom{
+		background-color: #333; 
+		}
+	#nav1{
+		background-image: none;
+		}  
+	#AddTender{
+		background-color: rgba(30,75,39,0.5); 
+		color: white;
+		}
+	#new{
+		word-break: break-all;
+		}
+	#search-form{
+		padding-top:9px; 
+		margin-left:25%;
+		}
 	
 <!-- Edit section-->
-body{ padding-top: 80px; }
-	body {  height: 100%;  text-align: left;  padding-top: 80px;}
 
+	body {  
+		padding-top: none;
+		height: 100%;  
+		text-align: center;  
+		}
+	.tbl{
+		width: 100%;
+		}
+	.container{
+		padding-top: 70px;
+		}
+		
+		.mainDiv{
+		border: 1px solid; 
+		border-color: rgb(220, 220, 220);
+		border-radius: 7px;
+		width:90%;
+		margin-left:5%;
+		background-color: rgb(247, 247, 247);
+		float: left;
+	}
+	.shadow{
+		-moz-box-shadow: 5px 5px 5px rgb(224, 224, 224);
+		-webkit-box-shadow: 5px 5px 5px rgb(224, 224, 224);
+		box-shadow: 5px 5px 5px rgb(224, 224, 224);
+		}
+	.marg{
+		margin: 4%;
+		}
+	
+	.dateInput{
+		width:50%;
+		margin-left:30%;
+		}
+		
+	.td {
+		text-align: center; 
+		width:50%;
+		height: 30px; 
+		border-bottom: 1px solid; 
+		border-top: 1px solid;
+		border-color: rgb(224, 224, 224);
+		font-size: 12px;
+		}
+	
+	
+	.bt {
+		height: 30px;
+		width: 100%;
+		border: none;
+		border-radius: 4px;
+		background-color: none;     
+		}
+		
+	.btnSubmit{
+		background-color: rgb(0, 130, 32, 0.6);  
+		}
+		
+	.btnBack{
+		background-color: rgb(86, 64, 64, 0.4);  
+		}
 
 <!--Footer -->
-		.wrapper{background-color: #333; height: 40px; color : white;}  
+	.wrapper{
+		background-color: #333; 	
+		height: 40px; 
+		color : white;
+		}  
