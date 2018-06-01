@@ -40,7 +40,7 @@ public class ContactController {
 		Comment cmntGet = new Comment();
 		Contact cont = contactService.getContactById(id);
 		List<Comment> list = (List<Comment>) commentService.getCommentsOfContact(id);
-		for (Comment c : list) {c.setText(encoder.encode(c.getText()));}
+		//for (Comment c : list) {c.setText(encoder.encode(c.getText()));}
 		model.addAttribute("contact", cont);
 		model.addAttribute("comment",  cmntGet);
 		model.addAttribute("comments",list);
@@ -48,8 +48,10 @@ public class ContactController {
 		return "contact";
 	}
 	@RequestMapping(value = "/contact/{idCont}", method = RequestMethod.POST) 
-	public String getComment(@ModelAttribute("comment")Comment cmnt, Model model, @PathVariable ("idCont") String id) {	
+	public String getComment(@ModelAttribute("comment")Comment cmnt, Model model, @PathVariable ("idCont") String id) throws UnsupportedEncodingException {	
+		cmnt.setText(encoder.encode(cmnt.getText()));
 		log.warn(cmnt.getText());
+		
 		cmnt.setContact(contactService.getContactById(id));
 		commentService.addComment(cmnt);
 		return "redirect: /TenderStore/contact/" + id;

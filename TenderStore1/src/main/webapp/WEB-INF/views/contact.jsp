@@ -68,48 +68,45 @@
 	
 	
 
-	<div id="feedback"></div>
-      <div class="col-md-8 col-md-offset-1 " >   
-         <div style = "height: 100%;">
-            <div class="panel panel-default">
-               <div class=" h-100 panel-heading" style = "height: 1000px;">   
-		            
-		                  <legend>Contact</legend>  
+	
+      <div class="mainDiv shadow"> 
+      <div class="marg">
+  	    <legend><spring:message code="header.contact.mes"/></legend>   
 		                  <div class = "panel panel-default">  
 								<h5>${contact.name} </h5>
 						  </div>
 		                  
-		                  <table class = "table table-striped table-bordered table-sm tb col-md-12 ">
-			                  <td class="td"'><spring:message code="tender.idTenderZakupki.mes"/></td>
+		                  <table class = "tbl">
+			                  <td class="td"'><spring:message code="contact.idinn.mes"/></td> 
 			                  <td class="td">${contact.idInn}</td>
 		                  </table>
 		                  <br>
-		                   <table class = "table table-striped table-bordered table-sm tb col-md-12 ">
-			                  <td class="td"'><spring:message code="tender.idCompanyRecepient.mes"/></td>
+		                   <table class = "tbl">
+			                  <td class="td"'><spring:message code="contact.city.mes"/></td>
 			                  <td class="td">${contact.city}</td>
 		                  </table>
 		                  <br>
-		                   <table class = "table table-striped table-bordered table-sm tb col-md-12 ">
-			                  <td class="td"'><spring:message code="tender.cityOfCompany.mes"/></td>
+		                   <table class = "tbl">
+			                  <td class="td"'><spring:message code="contact.fullname.mes"/></td>
 			                  <td class="td">${contact.fullName}</td>
 		                  </table>
 		                  <br>
-		                    <table class = "table table-striped table-bordered table-sm tb col-md-12 ">
-			                  <td class="td"'><spring:message code="tender.price.mes"/></td>
+		                    <table class = "tbl">
+			                  <td class="td"'><spring:message code="contact.phone.mes"/></td>
 			                  <td class="td">${contact.phone}</td>
 		                  </table>
 		                  <br>
-		                  <table class = "table table-striped table-bordered table-sm tb col-md-12 ">
-			                  <td class="td"'><spring:message code="tender.procuring.mes"/></td>
+		                  <table class = "tbl">
+			                  <td class="td"'><spring:message code="contact.email.mes"/></td>
 			                  <td class="td">${contact.email}</td>
 		                  </table>
 		                  
 		              <!-- Comment section -->
-							<div class="col-md-12">
+							<div class="paddingTop">
 								<div class="form">
 									<c:forEach items="${comments}" var="comments">	  
 										<div>  
-											<table id= "${comments.id}" class="table col-md-12 " >
+											<table id= "${comments.id}" class="tbl" >
 												<div><td  class="col-md-1"><span id = "dateinfo" class="text-muted">${comments.date}</span></td></div> <td id="commentText${comments.id}" class="col-md-10 commenttext"><div><h5>${comments.text}</h5></div></td>
 												<td ><button id="btnEdit${comments.id}" class="btn btnEdit" value="${comments.id}"><span class="glyphicon glyphicon-pencil"></span></button>
 												<td ><button id="btnDel${comments.id}" class="btn btn-del" onclick = "location.href = '/TenderStore/contact/delete/${comments.id}/redir/${contact.idInn}'" type="submit"><span class="glyphicon glyphicon-remove"></span></button>
@@ -123,7 +120,7 @@
 										<h4>Add comment: </h4>
 											<div class="input-group">
 											   <td><form:textarea class="form-control" path="text" rows="3" cols="120" /></td>
-											    <span type="submit" class="input-group-addon btn" id="submitMyForm">Send</span>
+											    <span type="submit" class="input-group-addon btn" id="submitMyForm"><spring:message code="button.commentadd.mes"/></span>
 											</div>
 									</form:form>
 								</div>
@@ -133,22 +130,20 @@
 		               
     	            </div>
                 </div>
-	        </div>
-		</div> 
+
  
 	
 		
 				
-		    <!-- Tender section -->
-				<div class="col-md-3">     
-					<table class="table table-sm table-bordered">
-						<tr class="active"><td>Tenders</td></tr> </table> 
+		    <!-- Tenders section -->
+				<div class="divTenders shadow"> 
+					<div class ="marg"> 
 							<c:forEach items="${tenders}" var="tenders">	
-							<table class="table table-bordered"><tr class="active"><td><a href="/TenderStore/tender/${tenders.idTenderZakupki}">${tenders.idTenderZakupki}</a></td>
-							<tr class="active"><td>${tenders.objectOfPurchase}</td></tr>
-							<tr class="active"><td>${tenders.price} рублей</td></tr></table>
+							<table class="tbl"><tr class="td"><td><a href="/TenderStore/tender/${tenders.idTenderZakupki}">${tenders.idTenderZakupki}</a></td>
+							<tr class="td"><td>${tenders.objectOfPurchase}</td></tr>
+							<tr class="td"><td>${tenders.price} рублей</td></tr></table> 
 							</c:forEach>  
-					
+					</div>   
 				</div>  
 			<!--  -->   
 			   
@@ -172,9 +167,10 @@
 	<!-- Scripts -->
 		
 			<script>
+			/* on cklick of send button submit form */
 			(function ($) {
 				  $('#submitMyForm').on('click', function () {
-				    $('#myForm').submit(); // js fiddle won't allow this
+				    $('#myForm').submit(); 
 					  });
 					})(jQuery);
 				 
@@ -195,7 +191,7 @@
 				        $('#commentText'+idOper).replaceWith(input); 
 				        $('#btnDel'+idOper).hide(); 
 				   
-				/* On clicked send button send info on server and replace everything back */
+				/* On clicked send button send info via AJAX in plain text on server and replace everything back */
 				 $(document).on("click", ".addit", function(e) {  
 					 e.preventDefault();
 					 	var text = $("#commenttext"+idOper).val() + ":::" +  idOper;

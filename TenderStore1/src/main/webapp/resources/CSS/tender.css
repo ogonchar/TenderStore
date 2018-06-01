@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-/* Navigation*/
+/* Navigation*/ 
 
 	.navbar-fixed-bottom{
 		background-color: #333; 
@@ -20,7 +20,49 @@
 		}
 	
 /* Info section*/
-	
+	.mainDiv{
+		border: 1px solid; 
+		border-color: rgb(220, 220, 220);
+		border-radius: 7px;
+		width:70%;
+		margin-left:5%;
+		background-color: rgb(220, 220, 220, 0.04);
+		float: left;
+	}
+	.shadow{
+		-moz-box-shadow: 5px 5px 5px rgb(224, 224, 224);
+		-webkit-box-shadow: 5px 5px 5px rgb(224, 224, 224);
+		box-shadow: 5px 5px 5px rgb(224, 224, 224);
+		}
+	.marg{
+		margin: 4%;
+		}
+	.contDiv{
+		width:20%; 
+		background-color: rgb(247, 247, 247); 
+		float: left;
+		margin-left:2%;
+		}
+	.tbl{
+		width: 100%;
+		background-color: white; 
+		}
+	.bt {
+		height: 30px;
+		width: 100%;
+		border: none;
+		border-radius: 4px;
+		background-color: none;     
+		}
+	.btnEd{
+		background-color: rgb(244, 143, 66, 0.6);  
+		}
+	.btnBack{
+		background-color: rgb(86, 64, 64, 0.4);  
+		}
+	.btnDel{
+		background-color: rgb(214, 27, 49, 0.6);  
+		}
 	body {  
 		height: 100%;  
 		text-align: center;  
@@ -32,12 +74,15 @@
 		height: 30px;
 		border-bottom: 1px solid; 
 		border-top: 1px solid;
-		border-color: rgb(224, 224, 224);
+		border-color: rgb(224, 224, 224);  
+		margin:25%;
+		background-color: white; 
 		}
-	.btn-edit {
-		background-color: rgb(255, 173, 51,0.7);
-		}
-	#tendersTable {
+	
+}
+	
+	
+	#contactsTable {
 		background-color: rgb(247, 247, 247);
 		font-size: 15px; 
 		width: 100% ;
@@ -48,7 +93,7 @@
 		padding-bottom: 40px;
 		box-sizing: border-box;
 	    padding: 10px;
-	    border: 1px solid; 
+	    border-bottom: 1px solid; 
 		border-color: rgb(224, 224, 224);
 		}
 	

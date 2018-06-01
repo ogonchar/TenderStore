@@ -49,99 +49,95 @@
 	<!-- Information about tender --> 
 		
 
-	
-      <div class="row col-md-8 col-md-offset-1">   
-         <div >
-            <div class="panel panel-default">
-               <div class="panel-heading">   
-		            
-		                  <legend><h3>Detailed information about ${tender.idTenderZakupki} tender</h3></legend>  
+	 
+      <div class="mainDiv shadow">  
+      	<div class="marg">
+		                  <legend><h3><spring:message code="header.tender.mes"/> ${tender.idTenderZakupki}</h3></legend>  
 		                  
-		                  <table class = "table table-striped table-bordered table-sm tb col-md-12 ">
-			                  <td class="td"'><spring:message code="tender.idTenderZakupki.mes"/></td>
+		                  <table class = "tbl">
+			                  <td class="td"><spring:message code="tender.idTenderZakupki.mes"/></td>
 			                  <td class="td">${tender.idTenderZakupki}</td>
 		                  </table>
 		                  <br>
-		                   <table class = "table table-striped table-bordered table-sm tb col-md-12 ">
-			                  <td class="td"'><spring:message code="tender.idCompanyRecepient.mes"/></td>
+		                   <table class = "tbl">
+			                  <td class="td"><spring:message code="tender.idCompanyRecepient.mes"/></td>
 			                  <td class="td">${tender.idCompanyRecepient}</td>
 		                  </table>
 		                  <br>
-		                   <table class = "table table-striped table-bordered table-sm tb col-md-12 ">
-			                  <td class="td"'><spring:message code="tender.cityOfCompany.mes"/></td>
+		                   <table class = "tbl">
+			                  <td class="td"><spring:message code="tender.cityOfCompany.mes"/></td>
 			                  <td class="td">${tender.cityOfCompany}</td>
 		                  </table>
 		                  <br>
-		                    <table class = "table table-striped table-bordered table-sm tb col-md-12 ">
-			                  <td class="td"'><spring:message code="tender.price.mes"/></td>
+		                  <table class = "tbl">
+			                  <td class="td"><spring:message code="tender.price.mes"/></td>
 			                  <td class="td">${tender.price}</td>
 		                  </table>
 		                  <br>
-		                  <div class="form-group">
-		                     <label class="input-group-addon" for="tenderStage"><spring:message code="tender.tenderstage.mes"/></label>
-		                     <div class="input-group-addon">
-		                      <td>${tender.tenderStage}</td>
-		                     </div>
-		                  </div>
+		                  <table class = "tbl">
+			                  <td class="td"><spring:message code="tender.tenderstage.mes"/></td>
+			                  <td class="td">${tender.tenderStage}</td>
+		                  </table> 
 		                  <br>
-		                    <table class = "table table-striped table-bordered table-sm tb col-md-12 ">
-			                  <td class="td"'><spring:message code="tender.procuring.mes"/></td>
+		                    <table class = "tbl">
+			                  <td class="td"><spring:message code="tender.procuring.mes"/></td>
 			                  <td class="td">${tender.procuring}</td>
 		                  </table>
 		                  <br>
-		                    <table class = "table table-striped table-bordered table-sm tb col-md-12 ">
-			                  <td class="td"'><spring:message code="tender.site.mes"/></td>
+		                    <table class = "tbl">
+			                  <td class="td"><spring:message code="tender.site.mes"/></td>
 			                  <td class="td"><a href="http:/${tender.site}">${tender.site}</a></td>
 		                  </table>
 		                  <br>
-		                  <table class = "table table-striped table-bordered table-sm tb col-md-12 ">
-			                  <td class="td"'><spring:message code="tender.date.mes"/></td>
+		                  <table class = "tbl">
+			                  <td class="td"><spring:message code="tender.date.mes"/></td>
 			                  <td class="td">${tender.dateTo}</td>
 		                  </table>
 		                  <br>
-		                  <table class = "table table-striped table-bordered table-sm tb col-md-12 ">
-			                  <td class="td"'><spring:message code="tender.procuringContract.mes"/></td>
+		                  <table class = "tbl">
+			                  <td class="td"><spring:message code="tender.procuringContract.mes"/></td>
 			                  <td class="td">${tender.procuringContract}</td>
 		                  </table>
 		                  <br>
-		                  <table class = "table table-striped table-bordered table-sm tb col-md-12 ">
-			                  <td class="td"'><spring:message code="tender.idinn.mes"/></td>
+		                  <table class = "tbl">
+			                  <td class="td"><spring:message code="tender.idinn.mes"/></td>
 			                  <td class="td">${tender.idInn}</td>
 		                  </table>
 		                    
 		                      <br>
 		                        <div class="form-actions">
-		                        <input type="submit"
-		                           class="btn btn-block btn-edit" onclick = "location.href = '/TenderStore/tenders/updateTender?id=${tender.idTenderZakupki}'" value="Edit">  
+		                        <input type="submit" class="bt btnEd" onclick = "location.href = '/TenderStore/tenders/updateTender?id=${tender.idTenderZakupki}'" value="<spring:message code="bottons.edit.mes"/>">  
 		                     </div>
 		                        <br>
 
 		                       <div class="form-actions">
-		                        <input type="submit"
-		                           class="btn btn-block btn-primary btn-default" onclick = "location.href = '/TenderStore/tenders/${user}'" value="Back">
+		                        <input type="submit" class="bt btnBack" onclick = "location.href = '/TenderStore/tenders/${user}'" value="<spring:message code="bottons.tenders.mes"/>">
 		                     </div>
-		                  
-    	            </div>
-                </div>
-	        </div>
-		</div> 
-		<div class="row col-md-3">
-			<div class = "col-md-11 col-md-offset-1">      
+		                     <br>
+		                     
+		                      <div class="form-actions">
+		                        <input type="submit" class="bt btnDel" onclick = "location.href = '/TenderStore/tenders/delete/${tendersfiling.idTenderZakupki}'" value="<spring:message code="bottons.delete.mes"/>">
+		                     </div>
+		     </div>    
+    	</div>
+            
+		<div class="contDiv shadow"> 
+		  <div class="marg">
 		
-					<table id = tendersTable >
+					<table id = contactsTable >
 					 <div colspan="2" id = "contactRef"><a href="/TenderStore/contact/${contact.idInn}">${contact.name}</a></div>
 					
-					<tr><td class="td"'>Phone</td>
+							<tr><td class="td"'><spring:message code="contact.phone.mes"/></td>
 					
 							<td class="td">${contact.phone}</td>
 						
-							<tr><td class="td"'>Email</td>
+							<tr><td class="td"'><spring:message code="contact.email.mes"/></td>
 							<td class="td">${contact.email}</td>
 			
-							<tr><td class="td"'>City</td>
+							<tr><td class="td"'><spring:message code="contact.city.mes"/></td>
 							<td class="td">${contact.city}</td> 
 					</table>
-				</div>  
+				</div>
 		</div>
 
 
