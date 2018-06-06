@@ -13,36 +13,21 @@
      <link href="<c:url value="/css/tender.css"></c:url>" rel="stylesheet" />
      <title>${tender.idTenderZakupki}</title>
      </head> 
-     <body>
+     <body style="background-image: url('<c:url value="/img/back.jpg"></c:url>');">
+      
+      
       
         <!-- Navigation bar -->
-		<nav class="navbar navbar-default navbar-fixed-top" id ="nav1">
-			<div class="container-fluid">
-			    <div class="navbar-header">
-			        <div>
-   						<img src="<c:url value="/img/logo1.png">
-     				    </c:url>" alt="image"  style = "height:50px">    
-     				</div>
-				</div>
-			<!-- Home and add -->
-				<div class="collapse navbar-collapse" id="the-menu">
-			    	<ul class="nav navbar-nav">
-				    	<li class="active"><a href="/TenderStore/tenders/${user}">&nbsp;Home</a></li>
-			        	<li id="AddTender"><a href="/TenderStore/tenders/add"><span class="glyphicon glyphicon-plus"></span>Add tender</a></li>
-			     
-			    	</ul>
-			    	
+	<div id="header">
+				<div class='headerSection'>
+					<img src="<c:url value="/img/logo1.png"></c:url>" alt="image"  style = "height:40px"> </div> 
+				<div class='headerSection'>	<button id='home' href="/TenderStore">&nbsp;Домой</button></div>
+				
 			<!-- Log in and out -->
-			    	<ul class="nav navbar-nav navbar-right">
-			    		<li><a href="#" id="logonLink"><span class="glyphicon glyphicon-log-in"></span>&nbsp;Sign In</a></li>
-			    		<li><a href="/TenderStore/login"><span class="glyphicon glyphicon-log-in"></span>&nbsp; LogIn</a></li>
-			    		<li><a href="<c:url value="/logout" />">Logout</a></li>
-			    	</ul>
-			    	
-			
-				</div>
+				<div class='headerSectionRight'><a href="/TenderStore/registration" id="logonLink">Sign In</a></div>
+				<div class='headerSectionRight'><a href="/TenderStore/login">LogIn</a></div>
+				<div class='headerSectionRight'>	<a href="/TenderStore/logout">Logout</a></div>
 			</div>
-		</nav>  
 		
 	<!-- End of navigation -->
 	
@@ -54,55 +39,18 @@
       	<div class="marg">
 		                  <legend><h3><spring:message code="header.tender.mes"/> ${tender.idTenderZakupki}</h3></legend>  
 		                  
-		                  <table class = "tbl">
-			                  <td class="td"><spring:message code="tender.idTenderZakupki.mes"/></td>
-			                  <td class="td">${tender.idTenderZakupki}</td>
-		                  </table>
-		                  <br>
-		                   <table class = "tbl">
-			                  <td class="td"><spring:message code="tender.idCompanyRecepient.mes"/></td>
-			                  <td class="td">${tender.idCompanyRecepient}</td>
-		                  </table>
-		                  <br>
-		                   <table class = "tbl">
-			                  <td class="td"><spring:message code="tender.cityOfCompany.mes"/></td>
-			                  <td class="td">${tender.cityOfCompany}</td>
-		                  </table>
-		                  <br>
-		                  <table class = "tbl">
-			                  <td class="td"><spring:message code="tender.price.mes"/></td>
-			                  <td class="td">${tender.price}</td>
-		                  </table>
-		                  <br>
-		                  <table class = "tbl">
-			                  <td class="td"><spring:message code="tender.tenderstage.mes"/></td>
-			                  <td class="td">${tender.tenderStage}</td>
-		                  </table> 
-		                  <br>
-		                    <table class = "tbl">
-			                  <td class="td"><spring:message code="tender.procuring.mes"/></td>
-			                  <td class="td">${tender.procuring}</td>
-		                  </table>
-		                  <br>
-		                    <table class = "tbl">
-			                  <td class="td"><spring:message code="tender.site.mes"/></td>
-			                  <td class="td"><a href="http:/${tender.site}">${tender.site}</a></td>
-		                  </table>
-		                  <br>
-		                  <table class = "tbl">
-			                  <td class="td"><spring:message code="tender.date.mes"/></td>
-			                  <td class="td">${tender.dateTo}</td>
-		                  </table>
-		                  <br>
-		                  <table class = "tbl">
-			                  <td class="td"><spring:message code="tender.procuringContract.mes"/></td>
-			                  <td class="td">${tender.procuringContract}</td>
-		                  </table>
-		                  <br>
-		                  <table class = "tbl">
-			                  <td class="td"><spring:message code="tender.idinn.mes"/></td>
-			                  <td class="td">${tender.idInn}</td>
-		                  </table>
+		                  
+		                    <div class="rowr"><div class='paramDiv'><spring:message code="tender.idTenderZakupki.mes"/></div><div class='dataDiv'>${tender.idTenderZakupki}</div></div>
+                      <div class="rowr"><div class='paramDiv'><spring:message code="tender.idCompanyRecepient.mes"/></div><div class='dataDiv'>${tender.idCompanyRecepient}</div></div>
+		                  <div class="rowr"><div class='paramDiv'><spring:message code="tender.cityOfCompany.mes"/></div><div class='dataDiv'>${tender.cityOfCompany}</div></div>
+                      <div class="rowr"><div class='paramDiv'><spring:message code="tender.price.mes"/></div><div class='dataDiv'>${tender.price}</div></div>
+                      <div class="rowr"><div class='paramDiv'><spring:message code="tender.tenderstage.mes"/></div><div class='dataDiv'>${tender.tenderStage}</div></div>
+                      <div class="rowr"><div class='paramDiv'><spring:message code="tender.procuring.mes"/></div><div class='dataDiv'>${tender.procuring}</div></div>
+                      <div class="rowr"><div class='paramDiv'><spring:message code="tender.site.mes"/></div><div class='dataDiv'><a href="http:/${tender.site}">${tender.site}</a></div></div>
+                      <div class="rowr"><div class='paramDiv'><spring:message code="tender.date.mes"/></div><div class='dataDiv'>${tender.dateTo}</div></div>
+                      <div class="rowr"><div class='paramDiv'><spring:message code="tender.procuringContract.mes"/></div><div class='dataDiv'>${tender.procuringContract}</div></div>
+                      <div class="rowr"><div class='paramDiv'><spring:message code="tender.idinn.mes"/></div><div class='dataDiv'>${tender.idInn}</div></div>
+		                 
 		                    
 		                      <br>
 		                        <div class="form-actions">
@@ -122,22 +70,12 @@
     	</div>
             
 		<div class="contDiv shadow"> 
-		  <div class="marg">
-		
-					<table id = contactsTable >
-					 <div colspan="2" id = "contactRef"><a href="/TenderStore/contact/${contact.idInn}">${contact.name}</a></div>
-					
-							<tr><td class="td"'><spring:message code="contact.phone.mes"/></td>
-					
-							<td class="td">${contact.phone}</td>
-						
-							<tr><td class="td"'><spring:message code="contact.email.mes"/></td>
-							<td class="td">${contact.email}</td>
-			
-							<tr><td class="td"'><spring:message code="contact.city.mes"/></td>
-							<td class="td">${contact.city}</td> 
-					</table>
-				</div>
+			<div class="contactSection shadow">
+				<div id = "contactRef"><a href="/TenderStore/contact/3911011965">${contact.name}</a></div>
+				<div class = 'contactDiv'>&#9742;&nbsp${contact.phone}</div>
+				<div class = 'contactDiv'>&#9993;&nbsp${contact.email}</div>
+				<div class = 'contactDiv'><spring:message code="contact.city.mes"/>&nbsp${contact.city}</div>
+			</div>
 		</div>
 
 
