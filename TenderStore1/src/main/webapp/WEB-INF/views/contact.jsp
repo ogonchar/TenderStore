@@ -29,93 +29,45 @@
 
 <title>Contact</title>
 </head> 
-<body>
+<body style="background-image: url('<c:url value="/img/back.jpg"></c:url>');">
 
 
 <!-- Main container-->
-	<div class = "container col-md-12"> 
 	
 	<!-- Navigation bar -->
-		<nav class="navbar navbar-default navbar-fixed-top" id ="nav1">
-			<div class="container-fluid">
-			    <div class="navbar-header">
-			        <div>
-   						<img src="<c:url value="/img/logo1.png">
-     				    </c:url>" alt="image"  style = "height:50px">  
-     				</div>
-				</div>
-			<!-- Home and add -->
-				<div class="collapse navbar-collapse" id="the-menu">
-			    	<ul class="nav navbar-nav">
-				    	<li class="active"><a href="/TenderStore/tenders/${contact.owner}">&nbsp;Home</a></li>
-			        	<li id="AddTender"><a href="/TenderStore/tenders/add"><span class="glyphicon glyphicon-plus"></span>Add tender</a></li>
-			        <!-- 	<li id="AddTenderP"><a href="/TenderStore/tenders/addByParcer"><span class="glyphicon glyphicon-plus"></span>Add tender</a></li> -->
-			    	</ul>
-			    	
-			<!-- Log in and out -->
-			    	<ul class="nav navbar-nav navbar-right">
-			    		<li><a href="/TenderStore/registration" id="logonLink"><span class="glyphicon glyphicon-log-in"></span>&nbsp;Sign In</a></li>
-			    		<li><a href="/TenderStore/login"><span class="glyphicon glyphicon-log-in"></span>&nbsp; LogIn</a></li>
-			    		<li><a href="<c:url value="/logout" />">Logout</a></li>
-			    	</ul>
-			    	
-			
-				</div>
+			<div id="header">
+				<div class='headerSection'>
+					<img src="<c:url value="/img/logo.png"></c:url>" alt="image"  style = "height:40px"> </div> 
+				<div class='headerSection'>	<button id='home' href="/TenderStore">&nbsp;Домой</button></div>
+				
+			<!--  --> <!-- Log in and out -->
+				<div class='headerSectionRight'><a href="/TenderStore/registration" id="logonLink">Sign In</a></div>
+				<div class='headerSectionRight'><a href="/TenderStore/login">LogIn</a></div>
+				<div class='headerSectionRight'>	<a href="/TenderStore/logout">Logout</a></div>
 			</div>
-		</nav>  
-		</div>
 	<!-- End of navigation -->
 	
 	
 
-	
+	<!-- Info section -->
       <div class="mainDiv shadow"> 
-      <div class="marg">
-  	    <legend><spring:message code="header.contact.mes"/></legend>   
-		                  <div class = "panel panel-default">  
-								<h5>${contact.name} </h5>
-						  </div>
-		                  
-		                  <table class = "tbl">
-			                  <td class="td"'><spring:message code="contact.idinn.mes"/></td> 
-			                  <td class="td">${contact.idInn}</td>
-		                  </table>
-		                  <br>
-		                   <table class = "tbl">
-			                  <td class="td"'><spring:message code="contact.city.mes"/></td>
-			                  <td class="td">${contact.city}</td>
-		                  </table>
-		                  <br>
-		                   <table class = "tbl">
-			                  <td class="td"'><spring:message code="contact.fullname.mes"/></td>
-			                  <td class="td">${contact.fullName}</td>
-		                  </table>
-		                  <br>
-		                    <table class = "tbl">
-			                  <td class="td"'><spring:message code="contact.phone.mes"/></td>
-			                  <td class="td">${contact.phone}</td>
-		                  </table>
-		                  <br>
-		                  <table class = "tbl">
-			                  <td class="td"'><spring:message code="contact.email.mes"/></td>
-			                  <td class="td">${contact.email}</td>
-		                  </table>
+  	   		 <legend>${contact.name}</legend>   
+					<div class="rowr"><div class='paramDiv'><spring:message code="contact.idinn.mes"/></div><div class='dataDiv'>${contact.idInn}</div></div>
+					<div class="rowr"><div class='paramDiv'><spring:message code="contact.city.mes"/></div><div class='dataDiv'>${contact.city}</div></div>
+					<div class="rowr"><div class='paramDiv'><spring:message code="contact.fullname.mes"/></div><div class='dataDiv'>${contact.fullName}</div></div>
+					<div class="rowr"><div class='paramDiv'><spring:message code="contact.phone.mes"/></div><div class='dataDiv'>${contact.phone}</div></div>
+					<div class="rowr"><div class='paramDiv'><spring:message code="contact.email.mes"/></div><div class='dataDiv'>${contact.email}</div></div>
 		                  
 		              <!-- Comment section -->
-							<div class="paddingTop">
-								<div class="form">
-									<c:forEach items="${comments}" var="comments">	  
-										<div>  
-											<table id= "${comments.id}" class="tbl" >
-												<div><td  class="col-md-1"><span id = "dateinfo" class="text-muted">${comments.date}</span></td></div> <td id="commentText${comments.id}" class="col-md-10 commenttext"><div><h5>${comments.text}</h5></div></td>
-												<td ><button id="btnEdit${comments.id}" class="btn btnEdit" value="${comments.id}"><span class="glyphicon glyphicon-pencil"></span></button>
-												<td ><button id="btnDel${comments.id}" class="btn btn-del" onclick = "location.href = '/TenderStore/contact/delete/${comments.id}/redir/${contact.idInn}'" type="submit"><span class="glyphicon glyphicon-remove"></span></button>
+						<c:forEach items="${comments}" var="comments">	  
+											<div id= "${comments.id}" class="commentsDiv" >
+												<span id = "dateinfo" class="commentDate text-muted">${comments.date}</span>
+												<div  id = "commentText${comments.id}" class="commenttext"><h5>${comments.text}</h5></div>
+												<div class='btnDiv'><button id="btnEdit${comments.id}" class="btnEdit" value="${comments.id}"><span class="glyphicon glyphicon-pencil"></span></button>
+												<button id="btnDel${comments.id}" class="btn-del" onclick = "location.href = '/TenderStore/contact/delete/${comments.id}/redir/${contact.idInn}'" type="submit"><span class="glyphicon glyphicon-remove"></span></button></div>
 												<td id = "editconf${comments.id}"></td>
-											</table>  
 										</div>  
 									</c:forEach>
-								</div>    
-								<div>  
 									<form:form id="myForm" method="POST" commandName="comment" modelAttribute="comment">
 										<h4>Add comment: </h4>
 											<div class="input-group">
@@ -124,32 +76,18 @@
 											</div>
 									</form:form>
 								</div>
-							</div>
-								
 						<!-- -->		
 		               
-    	            </div>
-                </div>
-
- 
-	
-		
 				
 		    <!-- Tenders section -->
 				<div class="divTenders shadow"> 
-					<div class ="marg"> 
 							<c:forEach items="${tenders}" var="tenders">	
-							<table class="tbl"><tr class="td"><td><a href="/TenderStore/tender/${tenders.idTenderZakupki}">${tenders.idTenderZakupki}</a></td>
-							<tr class="td"><td>${tenders.objectOfPurchase}</td></tr>
-							<tr class="td"><td>${tenders.price} рублей</td></tr></table> 
-							</c:forEach>  
-					</div>   
+							<div class = 'tenderDiv'><a href="/TenderStore/tender/${tenders.idTenderZakupki}">${tenders.idTenderZakupki}</a></div>
+							<div class = 'tenderDiv'>${tenders.objectOfPurchase}</div>
+							<div class = 'tenderDiv'>${tenders.price}&#x20bd;</div>
+							</c:forEach>
 				</div>  
 			<!--  -->   
-			   
-			
-
-				
 				
 	
 		<!-- Footer here -->
@@ -179,20 +117,18 @@
 				$(function() {
 				    $('.btnEdit').on('click', function() {
 				    	var idOper = $(this).val();
-				    	$('#btnEdit'+idOper).replaceWith('<button id="btned' + idOper+'" value="' + idOper+ '" type="submit" class="addit btn" >Send</button>');
+				    	$('#btnEdit'+idOper).replaceWith('<button id="btned' + idOper+'" value="' + idOper+ '" type="submit" class="btnSubmit" >Send</button>');
 				    	var input = $('<textarea />', {
 				    			'id' : 'commenttext' + idOper,
-				    	        'type': 'text',
-				    	        'class': 'datePicker', 
-				    	        'rows' :'3',
-				    	        'cols' :'65',
-				    	        'text': $('#commentText'+idOper).text()
+				    			'type': 'text',
+								'class' : 'textareaEdit',
+	    	        'text': $('#commentText'+idOper).text()
 				    	    });
 				        $('#commentText'+idOper).replaceWith(input); 
 				        $('#btnDel'+idOper).hide(); 
 				   
 				/* On clicked send button send info via AJAX in plain text on server and replace everything back */
-				 $(document).on("click", ".addit", function(e) {  
+				 $(document).on("click", ".btnSubmit", function(e) {  
 					 e.preventDefault();
 					 	var text = $("#commenttext"+idOper).val() + ":::" +  idOper;
 					 	$.ajax({ 
@@ -207,8 +143,8 @@
 								alert('error');  
 							},
 						});
-					 	$("#commenttext"+idOper).replaceWith('<td class = "col-md-10 commenttext" id="commentText' + idOper + '" class="col-md-10"><div>' + $("#commenttext"+idOper).val() + '</div></td>');
-					 	$('#btned'+idOper).replaceWith('<button id="btnEdit' + idOper + '" class="btnEdit btn" value="' + idOper + '"><span class="glyphicon glyphicon-pencil"></span></button>');
+					 	$("#commenttext"+idOper).replaceWith('<td class = "col-md-10 commenttext" id="commentText' + idOper + '" class="commenttext"><div>' + $("#commenttext"+idOper).val() + '</div></td>');
+					 	$('#btned'+idOper).replaceWith('<button id="btnEdit' + idOper + '" class="btnEdit" value="' + idOper + '"><span class="glyphicon glyphicon-pencil"></span></button>');
 					 	$('#btnDel'+$(this).attr('value')).show(); 
 					});
 				    });
