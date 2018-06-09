@@ -11,49 +11,54 @@
       <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
       <link href="<c:url value="/css/updateTender.css"></c:url>" rel="stylesheet" />
       <title>Registration</title>
+      <style type="text/css">
+      #header{
+		width: 100%;
+		background-color: rgba(260,260,260, 0.5);
+		overflow:auto;
+		height:40px;
+	}
+	.logo{
+	float:left;
+	}
+	#home{
+		height:100%;
+		width: 100%;
+		border: none;
+		float:left;
+		background-image: linear-gradient(to left, #BDBBBE 0%, #9D9EA3 100%), radial-gradient(88% 271%, rgba(255, 255, 255, 0.25) 0%, rgba(254, 254, 254, 0.25) 1%, rgba(0, 0, 0, 0.25) 100%), radial-gradient(50% 100%, rgba(255, 255, 255, 0.30) 0%, rgba(0, 0, 0, 0.30) 100%);
+ 		background-blend-mode: normal, lighten, soft-light;
+	}
+	.headerSection{
+		float:left;
+		height:100%;
+		width:7%;
+	}
+	.headerSectionRight{
+		float:right;
+		height:100%;
+		width:6%;
+		background-color: rgba(260,260,260, 0.5);
+		border-right: 1px solid darkgrey;
+		text-align: center;
+		padding-top: 10px;
+	}
+	</style>
       </head>
-      <body>
+      <body style="background-image: url('<c:url value="/img/back.jpg"></c:url>');">
       
         <!-- Navigation bar -->
-		<nav class="navbar navbar-default navbar-fixed-top" id ="nav1">
-			<div class="container-fluid">
-			    <div class="navbar-header">
-			        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#the-menu">
-			        </button>
-			        <div class="col-md-5">
-   						<img src="<c:url value="/img/logo.png">
-     				    </c:url>" alt="image"  style = "height:50px">    
-     				</div>
-				</div>
-			<!-- Home and add -->
-				<div class="collapse navbar-collapse" id="the-menu">
-			    	<ul class="nav navbar-nav">
-				    	<li class="active"><a href="/TenderStore">&nbsp;Home</a></li>
-			        	<li id="AddTender"><a href="/TenderStore/tenders/add"><span class="glyphicon glyphicon-plus"></span>Add tender</a></li>
-			        <!-- 	<li id="AddTenderP"><a href="/TenderStore/tenders/addByParcer"><span class="glyphicon glyphicon-plus"></span>Add tender</a></li> -->
-			    	</ul>
-			    	
+		<div id="header">
+				<div class='logo'>
+					<img src="<c:url value="/img/logo.png"></c:url>" alt="image"  style = "height:40px"> </div> 
+				<div class='headerSection'>	<button id='home' href="/TenderStore">&nbsp;Домой</button></div>
+				
 			<!-- Log in and out -->
-			    	<ul class="nav navbar-nav navbar-right">
-			    		<li><a href="#" id="logonLink"><span class="glyphicon glyphicon-log-in"></span>&nbsp;Sign In</a></li>
-			    		<li><a href="/TenderStore/login"><span class="glyphicon glyphicon-log-in"></span>&nbsp; LogIn</a></li>
-			    		<li><a href="#"><span class="glyphicon glyphicon-exclamation-sign"></span>&nbsp; News&nbsp;<span class="badge">4</span></a></li>
-			    		<li><a href="<c:url value="/logout" />">Logout</a></li>
-			    	</ul>
-			    	
-			<!-- AddByParser -->
-			    	<form class="form-horizontal" id="search-form">
-			    	<div class="input-group mb-5">
-						  <input type="text" class="form-control" placeholder="Add tender by parser" id="keyword">
-						  <div class="input-group-btn">
-						    <button class="btn btn-outline-secondary" type="submit" id="bth-search">B</button>
-						  </div>
-						</div>
-						</form>
-			<!--  -->
-				</div>
+				<div class='headerSectionRight'><a href="/TenderStore/registration" id="logonLink">Sign In</a></div>
+				<div class='headerSectionRight'><a href="/TenderStore/login">LogIn</a></div>
+				<div class='headerSectionRight'><a href="/TenderStore/logout">Logout</a></div>
 			</div>
-		</nav>  
+ 
 		
 	<!-- End of navigation -->
 	

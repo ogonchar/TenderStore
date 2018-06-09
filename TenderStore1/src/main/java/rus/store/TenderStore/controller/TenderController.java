@@ -75,23 +75,20 @@ public class TenderController {
 		}
 	
 	// Page for addition the ender
-	@RequestMapping(value ="/tenders/add", method =RequestMethod.GET)
-		public String addTendersGet(Model model) {
-			Tender newTender = new Tender();
-			model.addAttribute("newTender", newTender);
-			return "addTender";
+	@RequestMapping(value ="filtered/{idFilt}", method =RequestMethod.GET)
+		public String filteredTenders(Model model) {
+			log.warn("sdlknlsk");
+			String filtStage= null;
+			model.addAttribute("parameters", filtStage);
+			return "filtered";
 		}
-		@RequestMapping(value ="/tenders/add", method =RequestMethod.POST)
-			public String addTenderPost (@ModelAttribute("newTender")Tender newTender) throws UnsupportedEncodingException {
-				newTender.setIdCompanyRecepient(encoder.encode(newTender.getIdCompanyRecepient()));
-				newTender.setCityOfCompany(encoder.encode(newTender.getCityOfCompany()));
-				newTender.setOwner(getUser());
-				tenderService.addTender(newTender);
-				contactService.addContact(new Contact(123456789,newTender.getIdCompanyRecepient(),newTender.getCityOfCompany(), newTender.getOwner()));
-				return "redirect: /TenderStore/tenders/"+getUser();
+		@RequestMapping(value ="filtered/{idFilt}", method =RequestMethod.POST)
+			public String addTenderPost (@ModelAttribute("parameters")String str) throws UnsupportedEncodingException {
+				log.warn(str);
+				return "filtered";
 			}
 		
-	//Page for updating the the tender
+	//Page for updating the tender
 	@RequestMapping(value="/tenders/updateTender", method=RequestMethod.GET)
 		public String updateTenderGet(Model model,@RequestParam("id")String tenderId) {
 			log.warn("In updateTender GET section");

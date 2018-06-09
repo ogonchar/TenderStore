@@ -18,43 +18,26 @@
 	  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
 	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
       </head>
-      <body>
+      <body style="background-image: url('<c:url value="/img/back3.jpg"></c:url>');">
       
         <!-- Navigation bar -->
-		<nav class="navbar navbar-default navbar-fixed-top" id ="nav1">
-			<div class="container-fluid">
-			    <div class="navbar-header">
-			        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#the-menu">
-			        </button>
-			        <div class="col-md-5">
-   						<img src="<c:url value="/img/logo1.png">
-     				    </c:url>" alt="image"  style = "height:50px">    
-     				</div>
-				</div>
+        
+		<div id="header">
+				<div class='logo'>
+					<img src="<c:url value="/img/logo.png"></c:url>" alt="image"  style = "height:40px"> </div> 
+				<div class='headerSection'>	<button id='home' onclick = "location.href="/TenderStore">&nbsp;Домой</button></div>
 				
-			<!-- Home and add -->
-				<div class="collapse navbar-collapse" id="the-menu">
-			    	<ul class="nav navbar-nav">
-				    	<li class="active"><a href="/TenderStore/tenders/${user}">&nbsp;Home</a></li>
-			        	<li id="AddTender"><a href="/TenderStore/tenders/add"><span class="glyphicon glyphicon-plus"></span>Add tender</a></li>
-			    	</ul>
-			    	
-			<!-- Logging in and out -->
-			    	<ul class="nav navbar-nav navbar-right">
-			    		<li><a href="#" id="logonLink"><span class="glyphicon glyphicon-log-in"></span>&nbsp;Sign In</a></li>
-			    		<li><a href="/TenderStore/login"><span class="glyphicon glyphicon-log-in"></span>&nbsp; LogIn</a></li>
-			    		<li><a href="<c:url value="/logout" />">Logout</a></li>
-			    	</ul>
-				</div> 
+			<!-- Log in and out -->
+				<div class='headerSectionRight'><a href="/TenderStore/registration" id="logonLink">Sign In</a></div>
+				<div class='headerSectionRight'><a href="/TenderStore/login">LogIn</a></div>
+				<div class='headerSectionRight'><a href="/TenderStore/logout">Logout</a></div>
 			</div>
-		</nav>  
 		
 	<!-- End of navigation -->
 	
 	<!-- Edit Section --> <div class="container">
    		
    			  <div class="mainDiv shadow">    
-   			  <div class="marg">
 		            <form:form  method="POST" modelAttribute="updateTender" class="form-horizontal">
 		               <fieldset>
 		                  <legend><spring:message code="header.edit.mes"/></legend>  
@@ -155,7 +138,7 @@
                			</form:form>
     	            </div> 
                 </div>
-                </div>
+
          <!-- End of Edit section -->
          
          <!-- Footer here -->

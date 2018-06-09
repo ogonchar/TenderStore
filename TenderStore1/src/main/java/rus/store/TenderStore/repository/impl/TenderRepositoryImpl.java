@@ -219,6 +219,19 @@ public class TenderRepositoryImpl implements TenderRepository {
 		}
 		return false;
 	}
+
+	public List<Tender> getFilteredTenderList(String[] filterParameters) {
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		log.warn("Trying to get filtered tenders");
+		try {
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+		}finally{
+			session.close();			
+		}
+		return null;
+		}
 	
 
 }

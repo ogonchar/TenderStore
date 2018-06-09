@@ -18,77 +18,66 @@
       
       
         <!-- Navigation bar -->
-	<div id="header">
-				<div class='headerSection'>
-					<img src="<c:url value="/img/logo1.png"></c:url>" alt="image"  style = "height:40px"> </div> 
-				<div class='headerSection'>	<button id='home' href="/TenderStore">&nbsp;Домой</button></div>
+			<div id="header">
+				<div class='logo'>
+					<img src="<c:url value="/img/logo.png"></c:url>" alt="image"  style = "height:40px"> </div> 
+				<div class='headerSection'>	<button id='home' onclick = "location.href="/TenderStore">&nbsp;Домой</button></div>
 				
 			<!-- Log in and out -->
 				<div class='headerSectionRight'><a href="/TenderStore/registration" id="logonLink">Sign In</a></div>
 				<div class='headerSectionRight'><a href="/TenderStore/login">LogIn</a></div>
-				<div class='headerSectionRight'>	<a href="/TenderStore/logout">Logout</a></div>
+				<div class='headerSectionRight'><a href="/TenderStore/logout">Logout</a></div>
 			</div>
 		
 	<!-- End of navigation -->
 	
+	
+	
 	<!-- Information about tender --> 
+	 
+      	<div class="tenderInfoTable"> 
+		    <legend><h3><spring:message code="header.tender.mes"/> ${tender.idTenderZakupki}</h3></legend>  
+				<div class="rowTend"><div class='paramTend'><spring:message code="tender.idTenderZakupki.mes"/></div><div class='dataTend'>${tender.idTenderZakupki}</div></div>
+				<div class="rowTend"><div class='paramTend'><spring:message code="tender.idCompanyRecepient.mes"/></div><div class='dataTend'>${tender.idCompanyRecepient}</div></div>
+				<div class="rowTend"><div class='paramTend'><spring:message code="tender.cityOfCompany.mes"/></div><div class='dataTend'>${tender.cityOfCompany}</div></div>
+				<div class="rowTend"><div class='paramTend'><spring:message code="tender.price.mes"/></div><div class='dataTend'>${tender.price}&#x20bd;</div></div>
+				<div class="rowTend"><div class='paramTend'><spring:message code="tender.tenderstage.mes"/></div><div class='dataTend'>${tender.tenderStage}</div></div>
+				<div class="rowTend"><div class='paramTend'><spring:message code="tender.procuring.mes"/></div><div class='dataTend'>${tender.procuring}&#x20bd;</div></div>
+				<div class="rowTend"><div class='paramTend'><spring:message code="tender.site.mes"/></div><div class='dataTend'><a href="http:/${tender.site}">${tender.site}</a></div></div>
+				<div class="rowTend"><div class='paramTend'><spring:message code="tender.date.mes"/></div><div class='dataTend'>${tender.dateTo}</div></div>
+				<div class="rowTend"><div class='paramTend'><spring:message code="tender.procuringContract.mes"/></div><div class='dataTend'>${tender.procuringContract}&#x20bd;</div></div>
+				<div class="rowTend"><div class='paramTend'><spring:message code="tender.idinn.mes"/></div><div class='dataTend'>${tender.idInn}</div></div>
+							
+		<!-- Buttons -->
+	
+		<input type="submit" class="bt btnEd" onclick = "location.href = '/TenderStore/tenders/updateTender?id=${tender.idTenderZakupki}'" value="<spring:message code="bottons.edit.mes"/>">  
+		<input type="submit" class="bt btnBack" onclick = "location.href = '/TenderStore/tenders/${user}'" value="<spring:message code="bottons.tenders.mes"/>">
+		<input type="submit" class="bt btnDel" onclick = "location.href = '/TenderStore/tenders/delete/${tender.idTenderZakupki}'" value="<spring:message code="bottons.delete.mes"/>">
+
+   		<!--  -->
+   		
+    	</div>
+		
+	<!--  -->
+	
+    <!-- Information about contact and link to contact page --> 
+	            
+		<div class="contactSection"> 
+				<div id = "contactRef" type='button' onclick='location.href = "/TenderStore/contact/${contact.idInn}"'><h5>${contact.name}</h5></div>
+				<div class = 'contactLine'>&#9742;&nbsp${contact.phone}</div>
+				<div class = 'contactLine'>&#9993;&nbsp${contact.email}</div>
+				<div class = 'contactLine'><spring:message code="contact.city.mes"/>&nbsp${contact.city}</div>
+		</div>
+	<!--  -->
 		
 
-	 
-      <div class="mainDiv shadow">  
-      	<div class="marg">
-		                  <legend><h3><spring:message code="header.tender.mes"/> ${tender.idTenderZakupki}</h3></legend>  
-		                  
-		                  
-		                    <div class="rowr"><div class='paramDiv'><spring:message code="tender.idTenderZakupki.mes"/></div><div class='dataDiv'>${tender.idTenderZakupki}</div></div>
-                      <div class="rowr"><div class='paramDiv'><spring:message code="tender.idCompanyRecepient.mes"/></div><div class='dataDiv'>${tender.idCompanyRecepient}</div></div>
-		                  <div class="rowr"><div class='paramDiv'><spring:message code="tender.cityOfCompany.mes"/></div><div class='dataDiv'>${tender.cityOfCompany}</div></div>
-                      <div class="rowr"><div class='paramDiv'><spring:message code="tender.price.mes"/></div><div class='dataDiv'>${tender.price}</div></div>
-                      <div class="rowr"><div class='paramDiv'><spring:message code="tender.tenderstage.mes"/></div><div class='dataDiv'>${tender.tenderStage}</div></div>
-                      <div class="rowr"><div class='paramDiv'><spring:message code="tender.procuring.mes"/></div><div class='dataDiv'>${tender.procuring}</div></div>
-                      <div class="rowr"><div class='paramDiv'><spring:message code="tender.site.mes"/></div><div class='dataDiv'><a href="http:/${tender.site}">${tender.site}</a></div></div>
-                      <div class="rowr"><div class='paramDiv'><spring:message code="tender.date.mes"/></div><div class='dataDiv'>${tender.dateTo}</div></div>
-                      <div class="rowr"><div class='paramDiv'><spring:message code="tender.procuringContract.mes"/></div><div class='dataDiv'>${tender.procuringContract}</div></div>
-                      <div class="rowr"><div class='paramDiv'><spring:message code="tender.idinn.mes"/></div><div class='dataDiv'>${tender.idInn}</div></div>
-		                 
-		                    
-		                      <br>
-		                        <div class="form-actions">
-		                        <input type="submit" class="bt btnEd" onclick = "location.href = '/TenderStore/tenders/updateTender?id=${tender.idTenderZakupki}'" value="<spring:message code="bottons.edit.mes"/>">  
-		                     </div>
-		                        <br>
-
-		                       <div class="form-actions">
-		                        <input type="submit" class="bt btnBack" onclick = "location.href = '/TenderStore/tenders/${user}'" value="<spring:message code="bottons.tenders.mes"/>">
-		                     </div>
-		                     <br>
-		                     
-		                      <div class="form-actions">
-		                        <input type="submit" class="bt btnDel" onclick = "location.href = '/TenderStore/tenders/delete/${tendersfiling.idTenderZakupki}'" value="<spring:message code="bottons.delete.mes"/>">
-		                     </div>
-		     </div>    
-    	</div>
-            
-		<div class="contDiv shadow"> 
-			<div class="contactSection shadow">
-				<div id = "contactRef"><a href="/TenderStore/contact/3911011965">${contact.name}</a></div>
-				<div class = 'contactDiv'>&#9742;&nbsp${contact.phone}</div>
-				<div class = 'contactDiv'>&#9993;&nbsp${contact.email}</div>
-				<div class = 'contactDiv'><spring:message code="contact.city.mes"/>&nbsp${contact.city}</div>
+	<!-- Footer here -->
+			<div id = "footer">
+				<div >@Oleg Gonchar</div>
+				<div >contact: o.gonchar@live.com</div>
 			</div>
-		</div>
-
-
-			
-		<!-- Footer here -->
-		<div class = " wrapper navbar-fixed-bottom">
-			<div class = "wrapper col-md-6">
-			@Oleg Gonchar
-			</div>
-			<div class = "wrapper col-md-6">
-			contact: o.gonchar@live.com
-			</div>
-		</div>
-	<!-- End of footer -->
+		<!-- End of footer -->
+	
+	
 	</body>
 </html>

@@ -1,35 +1,45 @@
-
-function message() {
-    alert("hello!!!");
-}
-
- (function ($) {
+/* on cklick of send button submit form */
+			(function ($) {
 				  $('#submitMyForm').on('click', function () {
-					  alert("sdcsdc");
-				    $('#myForm').submit(); // js fiddle won't allow this
-				    
-				  });
-				  
-				})(jQuery);
- 
- $('#submitMyForm').click( function(e) {e.preventDefault(); alert("sdcsdc"); return false; } );
- 
-	(function ($) {
-		 $('.btnEdit').on('click', function () {
-			alert( document.getElementById('btnEd').value );
-			$(document.getElementById('btnEd').value).replaceWith('<div class="input-group">');
-			$('#commentText' + document.getElementById('btnEd').value).replaceWith('<textarea class = "addit" id="copy1" path="text" rows="3" cols="65"></textarea>').clone();
-			$('#ass').replaceWith('<span type="submit" class="addit input-group-addon btn" id="editMyForm">Send</span>');
-		});
-	})(jQuery);
-	
-	
-
-	 (function ($) {
-		  $('#editMyForm').on('click', function () {
-			  alert( document.getElementById('btnEd').value );
-		    $('#copy1').submit(); 
-		    
-		  });
-		  
-		})(jQuery);
+				    $('#myForm').submit(); 
+					  });
+					})(jQuery);
+				 
+			
+			/* Replacing comment text field with textarea to edit comment */
+				$(function() {
+				    $('.btnEdit').on('click', function() {
+				    	let idCommetn = $(this).val();
+				    	$('#btnEdit'+idCommetn).replaceWith('<button id="btned' + idCommetn+'" value="' + idCommetn+ '" type="submit" class="btnSubmit" >Send</button>');
+				    	let inputTextarea = $('<textarea />', {
+				    			'id' : 'commenttext' + idCommetn,
+				    			'type': 'text',
+								'class' : 'textareaEdit',
+	    	        'text': $('#commentText'+idCommetn).text()
+				    	    });
+				        $('#commentText'+idCommetn).replaceWith(inputTextarea); 
+				        $('#btnDel'+idCommetn).hide(); 
+				   
+				/* On clicked send button send info via AJAX in plain text on server and replace everything back */
+				 $(document).on("click", ".btnSubmit", function(e) {  
+					 let home = '/'
+					 e.preventDefault();
+					 	var text = $("#commenttext"+idCommetn).val() + ":::" +  idCommetn;
+					 	$.ajax({ 
+							type : "POST",
+							contentType: "text/plain",
+							url : "/TenderStore/editcomment",
+							datatype : "text",
+							data : text,  
+							success : function(data) {  
+							},
+							error : function(e) {
+							},
+						});
+					 	$("#commenttext"+idCommetn).replaceWith('<td class = "col-md-10 commenttext" id="commentText' + idCommetn + '" class="commenttext"><div>' + $("#commenttext"+idCommetn).val() + '</div></td>');
+					 	$('#btned'+idCommetn).replaceWith('<button id="btnEdit' + idCommetn + '" class="btnEdit" value="' + idCommetn + '"><span class="glyphicon glyphicon-pencil"></span></button>');
+					 	$('#btnDel'+$(this).attr('value')).show(); 
+					});
+				    });
+				});	 (jQuery);
+					 
