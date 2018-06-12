@@ -9,11 +9,10 @@
      <head>
      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
      <link href="<c:url value="/css/tender.css"></c:url>" rel="stylesheet" />
      <title>${tender.idTenderZakupki}</title>
-     </head> 
-     <body style="background-image: url('<c:url value="/img/back.jpg"></c:url>');">
+     </head>  
+     <body style="background-image: url('<c:url value="/img/back.jpg"></c:url>');"> 
       
       
       
@@ -21,7 +20,7 @@
 			<div id="header">
 				<div class='logo'>
 					<img src="<c:url value="/img/logo.png"></c:url>" alt="image"  style = "height:40px"> </div> 
-				<div class='headerSection'>	<button id='home' onclick = "location.href="/TenderStore">&nbsp;Домой</button></div>
+				<div class='headerSection'>	<button id='home' onclick = 'location.href="/TenderStore/tenders/${user}"'>&nbsp;Домой</button></div>
 				
 			<!-- Log in and out -->
 				<div class='headerSectionRight'><a href="/TenderStore/registration" id="logonLink">Sign In</a></div>

@@ -16,7 +16,8 @@
 <link href="<c:url value="/css/contact.css"></c:url>" rel="stylesheet" />
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.1/angular.min.js"></script>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
 <title>Contact</title>
 </head>
@@ -26,15 +27,15 @@
 <!-- Main container-->
 	
 	<!-- Navigation bar -->
-			<div id="header">
+			<div id="header"> 
 				<div id='logo'>
 					<img src="<c:url value="/img/logo.png"></c:url>" alt="image"  style = "height:40px"> </div> 
-				<div class='headerSection'>	<button id='home' href="/TenderStore/tenders">Домой</button></div>
+				<div class='headerSection'>	<button id='home' onclick='location.href="/TenderStore/tenders/${user}"'>Домой</button></div>
 				
 			<!--  --> <!-- Log in and out -->
 				<div class='headerSectionRight'><a href="/TenderStore/registration" id="logonLink">Sign In</a></div>
 				<div class='headerSectionRight'><a href="/TenderStore/login">LogIn</a></div>
-				<div class='headerSectionRight'>	<a href="/TenderStore/logout">Logout</a></div>
+				<div class='headerSectionRight'>	<a href="/TenderStore/logout">Logout</a></div> 
 			</div>
 	<!-- End of navigation -->
 	

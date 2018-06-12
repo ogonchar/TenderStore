@@ -1,23 +1,7 @@
 $(document).ready(function() {
-$('#filtersSectionToggle').click(function(){
-		$('#filtersSection').toggle();
-	});
-	
-		/* Function for showing pop up advices on element */
-		$(".tend").on("mouseenter", function(e) {
-			let $elem = $(this);
-			window.setTimeout(function() {
-					if ($elem.is(':hover')===true){
-					$elem.find('form').slideDown();
-				}
-			}, 1000);
-		}).on("mouseout", function(e) {
-				$('.popup').slideUp();
-		});
-		/*  */
 
 
-		/* Function to show warning on incorrect tender id insertions */
+		/* Function to show warning on incorrect tender id insertions while adding tender*/
 		function display(data) {
 			$('#popUps').hide();
 			let json = JSON.stringify(data, null, 4);
@@ -36,9 +20,42 @@ $('#filtersSectionToggle').click(function(){
 		})
 });
 
-		/* Ajax call for adding tender */
+
+// Bit clumsy function that showing notification for tenders date to filing of which expires today
+// there are delay f
+function showTodaysUpdates(){
+	let currDate = new Date(new Date().setHours(3,0,0,0));
+	let idList = getTendersIdWithDate(currDate);
+	for (let i = 0; i < idList.length; i++){
+		(function(index) {
+			setTimeout(function(){
+				const notificationTodayLastDay = `<div class="notification">Pay attention, today is the last date to fil in for the tender ${idList[i]}</div>`;
+				$('#notif').html(notificationTodayLastDay);
+				$('.notification').fadeIn(1000);
+				setTimeout(function() {$('.notification').fadeOut(1000);}, 2000);}
+			, i*3000)
+		})(i);
+	}
+}
+$( window ).on( "load", showTodaysUpdates());
+
+// Provides list of tenders IDs with provided date of filing
+function getTendersIdWithDate(date){
+	let tendersIdWithDate = [];
+$('.dateTo').each(function(i){
+	const tenderDate = new Date(Date.parse(this.innerText));
+	if (tenderDate.getTime() === date.getTime()){
+		let id = $(this).parent().parent().parent().parent().attr('id');
+		tendersIdWithDate.push(id.substring(id.indexOf('n')+1));
+	}
+});
+return tendersIdWithDate;
+};
+
+
+		/* Ajax call for adding tender in batabase*/
 		jQuery(document).ready(function($) {
-		
+
 			$("#bthAddTender").click(function(event) {
 				// Disble the search button
 				enableSearchButton(false);
@@ -81,38 +98,8 @@ $('#filtersSectionToggle').click(function(){
 			$('#popUps').html("<h4 style=''>" + df + "</h4>").toggle().delay(
 					2000).fadeOut();
 		}
-		/*  */
 
-
-
-		/* Filters */
-		/*$(function() {
-			$(document).on("click", "#btnFilterConfim", function(e) {  
-				e.preventDefault();
-				const stageValues = [];
-				const siteValues = []; 
-				let pricesorders = [$('#minPrice').val(), $('#maxPrice').val()];
-				$('.stageCheckbox:checked').each(function() {
-					stageValues.push($(this).val());
-				})
-				$('.siteCheckbox:checked').each(function(){
-					siteValues.push($(this).val());
-				})
-				const text = stageValues.join() +':::'+ siteValues.join() +':::'+ pricesorders.join();
-				console.log(text);
-				$.ajax({
-					type : "POST",
-					contentType: "text/plain",
-					url : "${home}editcomment",
-					datatype : "text",
-					data : text,  
-					success : function(data) {  
-						console.log(text);
-					},
-					error : function(e) {
-						alert('error');  
-					},
-				});
-			});
-		});(jQuery);
-*/
+		//Realisation that known as standard
+		function isNumeric(n) {
+  		return !isNaN(parseFloat(n)) && isFinite(n);
+		}
