@@ -12,45 +12,37 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<c:url var="home" value="/" scope="request" />
-<script src="${jqueryJs}"></script>
-<script type="text/javascript" src="<c:url value="/resources/js/contact.js" />"></script>
-<link href="<c:url value="/css/contact.css"></c:url>" rel="stylesheet" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="<c:url value="/css/contact.css"></c:url>" rel="stylesheet" />
 
-<!-- There are some links to CDN -->    
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.1/angular.min.js"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<!-- End of links -->
- 
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
 <title>Contact</title>
-</head> 
-<body style="background-image: url('<c:url value="/img/back.jpg"></c:url>');">
+</head>
 
+<body style="background-image: url('<c:url value="/img/back.jpg"></c:url>');">
 
 <!-- Main container-->
 	
 	<!-- Navigation bar -->
-			<div id="header">
-				<div class='headerSection'>
+			<div id="header"> 
+				<div id='logo'>
 					<img src="<c:url value="/img/logo.png"></c:url>" alt="image"  style = "height:40px"> </div> 
-				<div class='headerSection'>	<button id='home' href="/TenderStore">&nbsp;Домой</button></div>
+				<div class='headerSection'>	<button id='home' onclick='location.href="/TenderStore/tenders/${user}"'>Домой</button></div>
 				
 			<!--  --> <!-- Log in and out -->
 				<div class='headerSectionRight'><a href="/TenderStore/registration" id="logonLink">Sign In</a></div>
 				<div class='headerSectionRight'><a href="/TenderStore/login">LogIn</a></div>
-				<div class='headerSectionRight'>	<a href="/TenderStore/logout">Logout</a></div>
+				<div class='headerSectionRight'>	<a href="/TenderStore/logout">Logout</a></div> 
 			</div>
 	<!-- End of navigation -->
 	
 	
 
 	<!-- Info section -->
-      <div class="mainDiv shadow"> 
+      <div id="contactInfoTable"> 
   	   		 <legend>${contact.name}</legend>   
 					<div class="rowr"><div class='paramDiv'><spring:message code="contact.idinn.mes"/></div><div class='dataDiv'>${contact.idInn}</div></div>
 					<div class="rowr"><div class='paramDiv'><spring:message code="contact.city.mes"/></div><div class='dataDiv'>${contact.city}</div></div>
@@ -80,79 +72,32 @@
 		               
 				
 		    <!-- Tenders section -->
-				<div class="divTenders shadow"> 
+				<div id="tendersSection"> 
 							<c:forEach items="${tenders}" var="tenders">	
-							<div class = 'tenderDiv'><a href="/TenderStore/tender/${tenders.idTenderZakupki}">${tenders.idTenderZakupki}</a></div>
-							<div class = 'tenderDiv'>${tenders.objectOfPurchase}</div>
-							<div class = 'tenderDiv'>${tenders.price}&#x20bd;</div>
+							<div id = 'linkToTender' type='button' onclick='location.href="/TenderStore/tender/${tenders.idTenderZakupki}"'><h5>${tenders.idTenderZakupki}</h5></div>
+							<div class = 'tenderRow'>${tenders.objectOfPurchase}</div>
+							<div class = 'tenderRow'>${tenders.price}&#x20bd;</div>
 							</c:forEach>
 				</div>  
+			
 			<!--  -->   
-				
-	
+			
 		<!-- Footer here -->
-			<div class = " wrapper navbar-fixed-bottom">
-				<div class = "wrapper col-md-6">
-				@Oleg Gonchar
-				</div>
-				<div class = "wrapper col-md-6">
-				contact: o.gonchar@live.com
-				</div>
+			<div class = "footer">
+				<div >@Oleg Gonchar</div>
+				<div >contact: o.gonchar@live.com</div>
 			</div>
 		<!-- End of footer -->
 	
-	
+	 
 	<!-- Scripts -->
 		
-			<script>
-			/* on cklick of send button submit form */
-			(function ($) {
-				  $('#submitMyForm').on('click', function () {
-				    $('#myForm').submit(); 
-					  });
-					})(jQuery);
+			<script> 
+		
 				 
-			
-			/* Replacing comment text field with textarea to edit comment */
-				$(function() {
-				    $('.btnEdit').on('click', function() {
-				    	var idOper = $(this).val();
-				    	$('#btnEdit'+idOper).replaceWith('<button id="btned' + idOper+'" value="' + idOper+ '" type="submit" class="btnSubmit" >Send</button>');
-				    	var input = $('<textarea />', {
-				    			'id' : 'commenttext' + idOper,
-				    			'type': 'text',
-								'class' : 'textareaEdit',
-	    	        'text': $('#commentText'+idOper).text()
-				    	    });
-				        $('#commentText'+idOper).replaceWith(input); 
-				        $('#btnDel'+idOper).hide(); 
-				   
-				/* On clicked send button send info via AJAX in plain text on server and replace everything back */
-				 $(document).on("click", ".btnSubmit", function(e) {  
-					 e.preventDefault();
-					 	var text = $("#commenttext"+idOper).val() + ":::" +  idOper;
-					 	$.ajax({ 
-							type : "POST",
-							contentType: "text/plain",
-							url : "${home}editcomment",
-							datatype : "text",
-							data : text,  
-							success : function(data) {  
-							},
-							error : function(e) {
-								alert('error');  
-							},
-						});
-					 	$("#commenttext"+idOper).replaceWith('<td class = "col-md-10 commenttext" id="commentText' + idOper + '" class="commenttext"><div>' + $("#commenttext"+idOper).val() + '</div></td>');
-					 	$('#btned'+idOper).replaceWith('<button id="btnEdit' + idOper + '" class="btnEdit" value="' + idOper + '"><span class="glyphicon glyphicon-pencil"></span></button>');
-					 	$('#btnDel'+$(this).attr('value')).show(); 
-					});
-				    });
-				});	 (jQuery);
-					 
 		</script>
  
-		
+		<script type="text/javascript" src="<c:url value="/js/contact.js" />"></script>
 	<!-- End of scripts -->
 	
 	

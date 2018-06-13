@@ -16,6 +16,7 @@ import com.fasterxml.jackson.annotation.JsonView;
 
 import rus.store.TenderStore.domain.AjaxResponseBody;
 import rus.store.TenderStore.domain.Tender;
+import rus.store.TenderStore.repository.impl.TenderRepositoryImpl;
 import rus.store.TenderStore.service.CommentService;
 import rus.store.TenderStore.service.ContactService;
 import rus.store.TenderStore.service.TenderService;
@@ -33,6 +34,8 @@ import rus.store.TenderStore.domain.Comment;
 		CommentService commentService;
 		@Autowired
 		EncoderToUTFImpl encoder;
+		@Autowired
+		TenderRepositoryImpl tenderRepositoryImpl;
 		
 		Logger log = Logger.getLogger(AjaxController.class.getName());
 		
@@ -97,10 +100,12 @@ import rus.store.TenderStore.domain.Comment;
 		}
 		@JsonView(Views.Public.class)
 		@RequestMapping(value = "/getFilteredTenders")
-		public void getFilteredTenders(@RequestBody String str){
+		public String getFilteredTenders(@RequestBody String str){
 			log.warn("get smf" + str);
-		
-			
+			String[] filterParameters= str.split(":::");
+			log.warn(filterParameters[0] +"   " + filterParameters[1] + "   " + filterParameters[2]);
+			List<Tender> list = tenderRepositoryImpl.getFilteredTenderList(filterParameters);
+			return filterParameters[1];
 		}
 		
 }

@@ -8,6 +8,9 @@
 		overflow:auto;
 		height:40px;
 	}
+	#logo{
+	float:left;
+	}
 	#home{
 		height:100%;
 		width: 100%;
@@ -22,6 +25,7 @@
 		width:7%;
 	}
 	.headerSectionRight{
+		overflow:hidden;
 		float:right;
 		height:100%;
 		width:6%;
@@ -36,145 +40,167 @@
 
 	body {
 		text-align: center;
-    background-image: url('images/background-concrete-dirty-984540.jpg');
+  		background-image: url('images/background-concrete-dirty-984540.jpg');
 		}
-	.mainDiv{
-		border-radius: 7px;
-		width:70%;
-		margin-left:5%;
-		margin-top:2%;
-		background-color: rgb(220, 220, 220,0.85);
-		float: left;
-   		padding: 3%;
-	}
-	.shadow{
-		box-shadow: 2px 2px 2px rgb(224, 224, 224,0.6);
+		
+		#contactInfoTable{
+			border-radius: 7px;
+			width:70%;
+			margin-left:5%;
+			margin-top:2%;
+			background-color: rgb(220, 220, 220,0.85);
+			float: left;
+	   		padding: 3%;
+	   		box-shadow: 2px 2px 2px rgb(224, 224, 224,0.6);
 		}
-	.tbl{
-		width: 100%;
-		background-color: white;
-		}
-	.paddingTop{
-		margin-top: 5%;
-		}
-	.divTenders{
+			.paramDiv{
+				float: left;
+				width: 40%;
+				text-align: center;
+				font-size: 16px;
+				border-right: 1px solid darkgrey;
+			}
+			.dataDiv{
+				text-align: center;
+				float: left;
+				width: 60%;
+				font-size: 16px;
+			}
+			.rowr{
+				overflow:auto;
+				padding-top: 3px;
+				padding-bottom: 3px;
+				border: 1px solid lightgrey;
+				border-radius: 4px;
+				background-color: rgb(224, 224, 224,0.5);
+				margin-bottom: 2%;
+			}
+			
+	/* Comments Section */
+			
+			.commentsDiv{
+				height: auto;
+				overflow: auto;
+				border: 1px solid lightgrey;
+				border-radius: 4px;
+				margin-top: 4%;
+				background-color: rgb(224, 224, 224,0.5);
+			}
+				.commentDate{
+					overflow: auto;
+					float: left;
+					width:10%;
+					font-size: 12px;
+		
+				}
+				.commenttext{
+					padding: 10px;
+					overflow: auto;
+					border-radius: 4px;
+					float: left;
+					width:75%;
+					background-color:white;
+		
+				}
+			
+				.btnDiv{
+					overflow: auto;
+					display: inline-block;
+					width:15%;
+				}
+					.btnEdit{
+						display: inline-block;
+						border:none;
+						border-radius: 4px; 
+						width:45%;
+						height:30px;
+						background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+						}.btnEdit:hover{
+							background-image: linear-gradient(to top, #84fab0 0%, #8fd3f4 100%);
+							}
+					.btn-del{
+						border:none; 
+						border-radius: 4px;
+						display: inline-block; 
+						width:45%;
+						height:30px;
+						background-image: linear-gradient(to top, #c71d6f 0%, #d09693 100%);
+						}.btn-del:hover{
+						background-image: linear-gradient(to top, #ff3700 0%, #d09693 100%);
+						}
+			
+			/* Textarea */
+			
+				.btnSubmit{
+					display: inline-block;
+					border:none;
+					border-radius: 4px;
+					width:45%;
+					height:30px;
+					background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+					}.btnSubmit:hover{
+						background-image: linear-gradient(to top, #84fab0 0%, #8fd3f4 100%);
+						}
+				.textareaEdit{
+					padding: 10px;
+					overflow: auto;
+					border-radius: 4px;
+					float: left; 
+					width:75%;
+					background-color:white;
+				}
+				#submitMyForm{
+					background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+					}#submitMyForm:hover{
+					background-image: linear-gradient(to top, #84fab0 0%, #8fd3f4 100%);
+					}
+	
+	/* Tenders info */
+	#tendersSection{
 		margin-top:2%;
 		width:20%;
 		background-color: rgb(220, 220, 220,0.85);
 		float: left;
 		margin-left:2%;
-   		padding: 1%;
    		margin-top:2%;
 		border-radius: 4px;
+		box-shadow: 2px 2px 2px rgb(224, 224, 224,0.6);
 		}
-
-		.paramDiv{
-			float: left;
-			width: 40%;
-			text-align: center;
-			font-size: 16px;
-			border-right: 1px solid darkgrey;
-		}
-		.dataDiv{
-			text-align: center;
-			float: left;
-			width: 60%;
-			font-size: 16px;
-		}
-		.rowr{
-			overflow:auto;
-			padding-top: 3px;
-			padding-bottom: 3px;
-			border: 1px solid lightgrey;
-			border-radius: 4px;
-			background-color: rgb(224, 224, 224,0.5);
-			margin-bottom: 2%;
-		}
-		.tenderDiv{
+		.tenderRow{
 			overflow: hidden;
-			margin-top: 5%;
+			margin: 5%;
 		}
-		.commentsDiv{
-			height: auto;
-			overflow: auto;
-			border: 1px solid lightgrey;
-			border-radius: 4px;
-			margin-top: 4%;
+		#linkToTender{
+			overflow: hidden;
 			background-color: rgb(224, 224, 224,0.5);
-		}
-		.commentDate{
-			overflow: auto;
-			float: left;
-			width:10%;
-			font-size: 12px;
-
-		}
-		.commenttext{
-			padding: 10px;
-			overflow: auto;
-			border-radius: 4px;
-			float: left;
-			width:75%;
-			background-color:white;
-
-		}
-		.btnDiv{
-			overflow: auto;
-			display: inline-block;
-			width:15%;
-		}
-		.btnEdit{
-			display: inline-block;
-			border:none;
-			border-radius: 4px; 
-			width:45%;
-			height:30px;
-			background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
-			}.btnEdit:hover{
-				background-image: linear-gradient(to top, #84fab0 0%, #8fd3f4 100%);
-				}
-		.btn-del{
-			border:none; 
-			border-radius: 4px;
-			display: inline-block; 
-			width:45%;
-			height:30px;
-			background-image: linear-gradient(to top, #c71d6f 0%, #d09693 100%);
-			}.btn-del:hover{
-			background-image: linear-gradient(to top, #ff3700 0%, #d09693 100%);
+			cursor:pointer;
+			padding-top: 4%;
+			}.tenderDivBtn:hover{
+			background-color: rgb(224, 224, 224,0.7);
 			}
-		
-		.btnSubmit{
-			display: inline-block;
-			border:none;
-			border-radius: 4px;
-			width:45%;
-			height:30px;
-			background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
-			}.btnSubmit:hover{
-				background-image: linear-gradient(to top, #84fab0 0%, #8fd3f4 100%);
-				}
-		.textareaEdit{
-			padding: 10px;
-			overflow: auto;
-			border-radius: 4px;
-			float: left; 
-			width:75%;
-			background-color:white;
-		}
-		#submitMyForm{
-			background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
-			}#submitMyForm:hover{
-			background-image: linear-gradient(to top, #84fab0 0%, #8fd3f4 100%);
-			}
-
 
 
 
 	/* footer*/
 
-	.wrapper{
+	.footer{
+		position: absolute;
+    	left: 0;
+    	bottom: 0;
+    	width: 100%;
 		background-color: #333;
 		height: 40px;
 		color : white;
 		}
+		
+		
+@media screen and (max-width: 1000px) {
+    #tendersSection {
+        width: 90%;
+        margin-left:5%;
+    }
+    #contactInfoTable{
+		width: 90%;   	
+    }
+
+}

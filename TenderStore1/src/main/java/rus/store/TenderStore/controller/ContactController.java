@@ -7,6 +7,8 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -45,6 +47,7 @@ public class ContactController {
 		model.addAttribute("comment",  cmntGet);
 		model.addAttribute("comments",list);
 		model.addAttribute("tenders", tenderService.getContactsTenders(id));
+		model.addAttribute("user", getUser());
 		return "contact";
 	}
 	@RequestMapping(value = "/contact/{idCont}", method = RequestMethod.POST) 
@@ -63,5 +66,10 @@ public class ContactController {
 		int id1 = Integer.parseInt(id);
 		commentService.delete(id1);
 		return "redirect: /TenderStore/contact/"+idb;
+	}
+	
+	static String getUser() {
+		UserDetails  authUser = (UserDetails ) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		return authUser.getUsername();
 	}
 }
